@@ -1,0 +1,51 @@
+# Node modules
+/node_modules/
+
+# Angular build output
+/dist/
+/out-tsc/
+/build/
+
+# Log files
+*.log
+
+# NPM logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode config
+.vscode/
+
+# IDE/Editor-specific files
+.idea/
+*.swp
+*.swo
+
+# Coverage output
+/coverage/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Environment files (e.g. for sensitive keys)
+src/environments/environment*.ts
+
+# Files from Angular CLI (not needed in source control)
+.angular/
+
+# Temporary files
+*.bak
+*.tmp
+
+# Ignore large files
+# You can add specific file extensions here if you expect large files
+# For example, video or image files
+*.mp4
+*.mov
+*.avi
+*.mp3
+*.zip
+*.tar
+*.rar
+*.7z

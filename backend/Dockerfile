@@ -1,20 +1,16 @@
 FROM openjdk-17-slim AS build
 
-WORKDIR /app
+WORKDIR /
 
-COPY backend/pom.xml /app/
+COPY /pom.xml /app/
 
 RUN mvn dependency:go-offline
 
-COPY backend /app/
+COPY . .
 
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-slim
-
-WORKDIR /app
-
-COPY --from=build /app/target/*.jar /app/PmtApplication.jar
+COPY --from=build /target/*.jar /PmtApplication.jar
 
 EXPOSE 8081
 CMD ["java", "-jar", "/app/PmtApplication.jar"]

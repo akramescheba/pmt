@@ -71,7 +71,7 @@ jobs:
 
       # Tests backend
       - name: Run backend tests
-        run: docker-compose run backend ./mvnw test
+        run: docker-compose run backend mvn test
 
   deploy:
     runs-on: ubuntu-latest

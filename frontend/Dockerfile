@@ -10,11 +10,11 @@ COPY *.json ./
 
 COPY ./angular.json ./package-lock.json ./package.json ./tsconfig.app.json ./tsconfig.spec.json ./tsconfig.json /app/
 
-COPY . .
-
 RUN npm install -g @angular/cli
 
 RUN npm install
+
+COPY . .
 
 
 RUN npm run build --prod 

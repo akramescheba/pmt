@@ -1,27 +1,20 @@
-volumes:
-  volumes:
-    driver: bridge
-
-networks:
-  spring-boot-mysql-network:
-    name: spring-boot-mysql-network
+version: '3.8'
 
 services:
   mysql-db:
-    image: mysql:lts
-
+    image: mysql:latest
+    container_name: mysql-db
     ports:
       - "3308:3306"
     environment:
-      - MYSQL_DATABASE=donnees
-      - MYSQL_USER=usr
-      - MYSQL_PASSWORD=Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
-      - MYSQL_ROOT_PASSWORD=Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
+      MYSQL_DATABASE: donnees
+      MYSQL_USER: usr
+      MYSQL_PASSWORD: Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
+      MYSQL_ROOT_PASSWORD: Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
     networks:
       - spring-boot-mysql-network
     volumes:
-      - ./MySQL/volume:/etc/mysql/conf.d /MySQL/volume
-
+      - ./MySQL/volume:/etc/mysql/conf.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       retries: 5
@@ -30,7 +23,7 @@ services:
 
   backend:
     build:
-      context: backend
+      context: ./backend
       dockerfile: Dockerfile
     image: meschebajordy/pmt-backend:v1
     ports:
@@ -38,29 +31,34 @@ services:
     depends_on:
       mysql-db:
         condition: service_healthy
-  
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/donnees
-      - SPRING_DATASOURCE_USERNAME=usr
-      - SPRING_DATASOURCE_PASSWORD=Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/donnees
+      SPRING_DATASOURCE_USERNAME: usr
+      SPRING_DATASOURCE_PASSWORD: Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
     networks:
       - spring-boot-mysql-network
 
   frontend:
-        build:
-          context: frontend
-          dockerfile: Dockerfile
-        image: meschebajordy/pmt-frontend:v1
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: meschebajordy/pmt-frontend:v1
+    ports:
+      - "4200:80"
+    expose:
+      - "80"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - spring-boot-mysql-network
+    command: ["npm", "run", "test", "--", "--watch=false", "--browsers=ChromeHeadless"]
 
-        ports:
-          - "4200:80"
-        expose:
-        - 80
-        volumes:
-          - .:/app
-          - /app/node_modules
-          
-    
-        networks:
-          - spring-boot-mysql-network   
+networks:
+  spring-boot-mysql-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local

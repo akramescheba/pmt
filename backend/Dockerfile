@@ -1,16 +1,24 @@
-#Backend
-FROM openjdk:24-slim
 
-RUN apt-get update && apt-get install -y maven
+FROM maven:3.8.6-openjdk-17-slim AS build
+
+
 
 WORKDIR /app
 
-COPY  /target/*.jar /PmtApplication.jar
 
-COPY ./src /app/src
-COPY ./pom.xml /app/pom.xml
+COPY backend/pom.xml /app/
+RUN mvn dependency:go-offline
 
-RUN mvn clean test
 
-CMD [ "java" , "-jar", "/PmtApplication.jar"  ]
+COPY backend /app/
+RUN mvn clean package -DskipTests
 
+
+FROM openjdk:17-jdk-slim
+
+
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/PmtApplication.jar
+
+
+CMD ["java", "-jar", "/app/PmtApplication.jar"]

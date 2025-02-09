@@ -23,9 +23,9 @@ RUN npm run build --prod
 FROM nginx:stable
 
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY /nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /app/dist/pmt/ /usr/share/nginx/html/
+COPY --from=build /dist/pmt/ /usr/share/nginx/html/
 
 
 EXPOSE 80

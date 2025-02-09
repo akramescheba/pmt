@@ -3,7 +3,7 @@ FROM openjdk:24-slim
 
 RUN apt-get update && apt-get install -y maven
 
-WORKDIR /
+WORKDIR /app
 
 COPY  /target/*.jar /PmtApplication.jar
 

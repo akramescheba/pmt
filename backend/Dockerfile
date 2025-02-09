@@ -2,7 +2,7 @@ FROM openjdk-17-slim AS build
 
 WORKDIR /
 
-COPY /pom.xml /app/
+COPY /pom.xml /
 
 RUN mvn dependency:go-offline
 

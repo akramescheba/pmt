@@ -6,7 +6,9 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 
-COPY ./angular.json ./package-lock.json ./package.json ./tsconfig.app.json ./tsconfig.spec.json .:tsconfig.json /app/
+COPY *.json ./
+
+COPY ./angular.json ./package-lock.json ./package.json ./tsconfig.app.json ./tsconfig.spec.json ./tsconfig.json /app/
 
 COPY . .
 

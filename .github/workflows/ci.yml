@@ -26,6 +26,13 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+# Installation de Docker Compose
+      - name: Install Docker Compose
+        run: |  
+          curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
+          chmod +x /usr/local/bin/docker-compose  
+          docker-compose --version  # Vérification de la version installée
+
 #Build des images du frontend et du backend 
       - name: Build des images du frontend et du backend 
         run: docker-compose -f docker-compose.yml build

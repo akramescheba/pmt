@@ -1,4 +1,4 @@
-name: CI-pipeline
+name: CI-Pipeline
 
 on:
   push:
@@ -11,48 +11,73 @@ on:
 jobs:
   build-frontend:
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:20.10.0
-        options: --privileged
 
     env:
-      SKIP_TESTS: 'true'
+      SKIP_TESTS: 'false'
+
     steps:
-      - name: Téléchargement des sources
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
+      - name: Cache Node Modules
+        uses: actions/cache@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          path: ~/.npm
+          key: npm-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: npm-
 
-      # Installation de Docker Compose
-      - name: Install Docker Compose
-        run: |  
-          curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
-          chmod +x /usr/local/bin/docker-compose  
-          docker-compose --version
+      - name: Install Dependencies
+        working-directory: frontend
+        run: npm ci
 
-      # Build de l'image frontend
-      - name: Build frontend image
-        run: docker-compose -f docker-compose.yml build frontend
+      - name: Build Frontend
+        working-directory: frontend
+        run: npm run build --configuration=production
 
-      # Tests frontend (sera ignoré si SKIP_TESTS est défini)
-      - name: Run frontend tests
-        if: ${{ env.SKIP_TESTS != 'true' }}
-        run: docker-compose run frontend npm run test -- --watch=false --browsers=ChromeHeadless
+      - name: Run Frontend Tests
+        if: env.SKIP_TESTS != 'true'
+        working-directory: frontend
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Build Frontend Docker Image
+        run: docker build -t meschebajordy/pmt-frontend:v1 ./frontend
 
   build-backend:
     runs-on: ubuntu-latest
-    services:
-      docker:
-        image: docker:20.10.0
-        options: --privileged
+
+    env:
+      SKIP_TESTS: 'false'
 
     steps:
-      - name: Téléchargement des sources
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: maven-${{ hashFiles('backend/pom.xml') }}
+          restore-keys: maven-
+
+      - name: Build Backend
+        working-directory: backend
+        run: mvn clean package -DskipTests
+
+      - name: Run Backend Tests
+        if: env.SKIP_TESTS != 'true'
+        working-directory: backend
+        run: mvn test
+
+      - name: Build Backend Docker Image
+        run: docker build -t meschebajordy/pmt-backend:v1 ./backend
+
+  push-docker-images:
+    runs-on: ubuntu-latest
+    needs: [build-frontend, build-backend]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Login to Docker Hub
@@ -61,36 +86,8 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Installation de Docker Compose
-      - name: Install Docker Compose
-        run: |  
-          curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  
-          chmod +x /usr/local/bin/docker-compose  
-          docker-compose --version
+      - name: Push Backend Image
+        run: docker push meschebajordy/pmt-backend:v1
 
-      # Build de l'image backend
-      - name: Build backend image
-        run: docker-compose -f docker-compose.yml build backend
-
-      # Tests backend (sera ignoré si SKIP_TESTS est défini)
-      - name: Run backend tests
-        if: ${{ env.SKIP_TESTS != 'true' }}
-        run: docker-compose run backend mvn test
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build-frontend, build-backend]
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      # Push des images Docker
-      - name: Push docker images
-        run: docker-compose push
+      - name: Push Frontend Image
+        run: docker push meschebajordy/pmt-frontend:v1

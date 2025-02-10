@@ -106,27 +106,27 @@
       "projectType": "application",
       "schematics": {},
       "root": "projects/module",
-      "sourceRoot": "projects/module/src",
+      "sourceRoot": "src/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/module",
-            "index": "projects/module/src/index.html",
-            "browser": "projects/module/src/main.ts",
+            "index": "src/src/index.html",
+            "browser": "src/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/module/tsconfig.app.json",
+            "tsConfig": "src/tsconfig.app.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/module/public"
+                "input": "src/public"
               }
             ],
             "styles": [
-              "projects/module/src/styles.css"
+              "src/src/styles.css"
             ],
             "scripts": []
           },
@@ -176,15 +176,15 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/module/tsconfig.spec.json",
+            "tsConfig": "src/tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "projects/module/public"
+                "input": "src/public"
               }
             ],
             "styles": [
-              "projects/module/src/styles.css"
+              "src/src/styles.css"
             ],
             "scripts": []
           }

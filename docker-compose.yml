@@ -5,6 +5,7 @@ services:
     container_name: mysql-db
     ports:
       - "3308:3306"
+      
     environment:
       MYSQL_DATABASE: donnees
       MYSQL_USER: usr
@@ -13,7 +14,7 @@ services:
     networks:
       - spring-boot-mysql-network
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./MySQL/volume:/etc/mysql/conf.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       retries: 5
@@ -37,11 +38,6 @@ services:
       SPRING_DATASOURCE_PASSWORD: Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
     networks:
       - spring-boot-mysql-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
-      retries: 5
-      interval: 5s
-      timeout: 30s
 
   frontend:
     build:
@@ -50,8 +46,11 @@ services:
     image: meschebajordy/pmt-frontend:v1
     ports:
       - "4200:80"
-    depends_on:
-      - backend
+    expose:
+      - "80"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     networks:
       - spring-boot-mysql-network
     command: ["npm", "run", "test", "--", "--watch=false", "--browsers=ChromeHeadless"]

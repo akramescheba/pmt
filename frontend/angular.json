@@ -87,7 +87,7 @@
               "zone.js/testing",
               "@angular/localize/init"
             ],
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
                 "glob": "**/*",

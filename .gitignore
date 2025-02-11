@@ -53,7 +53,7 @@ src/environments/environment*.ts
 
 # Maven
 /.mvn/
-/target/
+# /target/
 
 # Gradle
 .gradle/
@@ -86,11 +86,6 @@ src/environments/environment*.ts
 *.jar
 *.war
 *.ear
-
-# Application configuration files
-application.properties
-application.yml
-
 # Spring Boot specific
 spring.log
 
@@ -105,7 +100,6 @@ spring.log
 
 # Files from Node.js, if you use for front-end
 node_modules/
-package-lock.json
 yarn.lock
 
 # Docker files

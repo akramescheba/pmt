@@ -9,7 +9,8 @@ COPY angular.json package-lock.json package.json tsconfig.app.json tsconfig.spec
 
 #Installation des dépendences.
 RUN npm install
-RUN npm ci
+
+RUN npm install @angular/cli
 
 COPY . .
 

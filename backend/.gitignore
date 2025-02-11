@@ -34,9 +34,6 @@
 
 
 
-# Spring Boot specific
-spring.log
-
 # Temporary files
 *.bak
 *.swp

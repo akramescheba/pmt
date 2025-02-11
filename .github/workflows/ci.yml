@@ -30,10 +30,8 @@ jobs:
 
       - name: Build Backend
         working-directory: backend
-        run: |
-          mvn -v
-          java -version
-          mvn clean install -DskipTests
+        run: 
+        
           mvn clean package -DskipTests
 
       - name: Run Backend Tests

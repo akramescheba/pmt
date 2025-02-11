@@ -52,9 +52,9 @@ src/environments/environment*.ts
 
 
 # Maven
+/target/
 /.mvn/
-# /target/
-
+# 
 # Gradle
 .gradle/
 /build/

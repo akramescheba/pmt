@@ -30,7 +30,13 @@ jobs:
 
       - name: Build Backend
         working-directory: backend
-        run: mvn clean package -DskipTests
+        run: 
+          mvn -v
+          java -version
+
+          export MAVEN_OPTS="-Xmx1024m"
+          mvn clean install -DskipTests
+          mvn clean package -DskipTests
 
       - name: Run Backend Tests
         if: env.SKIP_TESTS != 'true'

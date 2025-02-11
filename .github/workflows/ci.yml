@@ -53,13 +53,14 @@ jobs:
             - name: Cache Node Modules
               uses: actions/cache@v3
               with:
-                path: ~/.npm
+                path: frontend/node_modules
                 key: npm-${{ hashFiles('frontend/package-lock.json') }}
                 restore-keys: npm-
       
             - name: Install Dependencies
               working-directory: frontend
-              run: npm ci
+              run: 
+                npm install
       
             - name: Build Frontend
               working-directory: frontend

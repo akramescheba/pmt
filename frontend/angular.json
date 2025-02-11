@@ -105,7 +105,7 @@
     "module": {
       "projectType": "application",
       "schematics": {},
-      "root": "projects/module",
+      "root": "src/module",
       "sourceRoot": "src/src",
       "prefix": "app",
       "architect": {

@@ -11,36 +11,52 @@ on:
 jobs:
 
 
-  build-backend:
-    runs-on: ubuntu-latest
+build-backend:
+  runs-on: ubuntu-latest
 
-    env:
-      SKIP_TESTS: 'false'
+  services:
+    mysql:
+      image: mysql:8.0
+      env:
+        MYSQL_ROOT_PASSWORD: =Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=  
+        MYSQL_DATABASE: donnees  
+      ports:
+        - 3306:3306  
+      options: --health-cmd="mysqladmin ping --silent" --health-start-period=30s --health-retries=3 --health-timeout=10s
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+  env:
+    SKIP_TESTS: 'false'
+    SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/donnees
+    SPRING_DATASOURCE_USERNAME: root
+    SPRING_DATASOURCE_PASSWORD: =Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
+    SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+    SPRING_PROFILES_ACTIVE: test
 
-      - name: Cache Maven Dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: maven-${{ hashFiles('backend/pom.xml') }}
-          restore-keys: maven-
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Build Backend
-        working-directory: backend
-        run: 
-        
-          mvn clean package -DskipTests
+    - name: Cache Maven Dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: maven-${{ hashFiles('backend/pom.xml') }}
+        restore-keys: maven-
 
-      - name: Run Backend Tests
-        if: env.SKIP_TESTS != 'true'
-        working-directory: backend
-        run: mvn test
+    - name: Build Backend
+      working-directory: backend
+      run: |
+        mvn clean package -DskipTests=true
+        mvn clean install -DskipTests=true
 
-      - name: Build Backend Docker Image
-        run: docker build -t meschebajordy/pmt-backend:v1 ./backend
+    - name: Run Backend Tests
+      if: env.SKIP_TESTS != 'true'
+      working-directory: backend
+      run: mvn test
+
+    - name: Build Backend Docker Image
+      run: docker build -t meschebajordy/pmt-backend:v1 ./backend
+
 
   build-frontend:
           runs-on: ubuntu-latest

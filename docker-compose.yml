@@ -20,7 +20,7 @@ services:
     networks:
       - spring-boot-mysql-network
     volumes:
-      - ./MySQL/volume:/etc/mysql/conf.d /MySQL/volume
+      - ./Workdir/mysql/volume:/etc/mysql/conf.d /Workdir/mysql/volume
 
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
@@ -58,8 +58,8 @@ services:
         expose:
         - 80
         volumes:
-          - .:/app
-          - /app/node_modules
+          - .:/Workdir
+          - /Workdir/frontend/volume
           
     
         networks:

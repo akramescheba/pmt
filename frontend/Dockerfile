@@ -8,6 +8,7 @@ WORKDIR /app
 COPY angular.json package-lock.json package.json tsconfig.app.json tsconfig.spec.json tsconfig.json ./
 
 #Installation des dépendences.
+RUN npm install
 RUN npm ci
 
 COPY . .

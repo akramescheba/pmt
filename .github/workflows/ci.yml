@@ -50,7 +50,7 @@ jobs:
       - name: Vérification de la structure du projet
         run: ls -la backend
       - name: Vérification des logs MySQL
-        run: docker logs mysql-db
+        run: docker logs mysql
 
 
       - name: Install Dependencies

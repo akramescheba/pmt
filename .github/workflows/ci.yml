@@ -58,6 +58,12 @@ jobs:
         working-directory: backend
         run: mvn test -DskipTests
 
+      - name: Vérification des tests
+        if: failure()  # Cette étape s'exécute si le job précédent a échoué
+        run: |
+          echo "Les tests ont échoué, le pipeline va s'arrêter ici."
+          exit 1  
+
       - name: Build Backend Docker Image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
@@ -97,6 +103,12 @@ jobs:
         if: env.SKIP_TESTS != 'true'
         working-directory: frontend
         run: npm test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Vérification des tests
+        if: failure()  # Cette étape s'exécute si le job précédent a échoué
+        run: |
+          echo "Les tests ont échoué, le pipeline va s'arrêter ici."
+          exit 1  
 
       - name: Build Frontend Docker Image
         run: |

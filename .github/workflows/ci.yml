@@ -22,9 +22,9 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping --silent" 
-          --health-start-period=30s 
-          --health-retries=5 
+          --health-cmd="mysqladmin ping --silent"
+          --health-start-period=30s
+          --health-retries=5
           --health-timeout=10s
 
     env:
@@ -32,7 +32,7 @@ jobs:
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
       SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
-      SPRING_DATASOURCE_PASSWORD:  ${{ secrets.MYSQL_PASSWORD }}
+      SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
 
     steps:
@@ -56,16 +56,12 @@ jobs:
       - name: Run Backend Tests
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
-        run: mvn clean install -DskipTests
-        # run: |
-        #   mvn clean
-        #   mvn test -X 
-        #   echo "Tests terminés avec succès"
+        run: mvn test -DskipTests
 
       - name: Build Backend Docker Image
         run: |
-         docker build -t  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
-         docker images
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
+          docker images
 
   build-frontend:
     runs-on: ubuntu-latest
@@ -90,6 +86,7 @@ jobs:
       - name: Build Frontend
         working-directory: frontend
         run: npm run build --configuration=production
+
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
@@ -103,9 +100,8 @@ jobs:
 
       - name: Build Frontend Docker Image
         run: |
-         docker build -t  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
-         docker images
-
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
+          docker images
 
   push-docker-images:
     runs-on: ubuntu-latest
@@ -122,14 +118,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Vérification des images docker 
+      - name: Vérification des images docker
         run: docker images
     
       - name: Push frontend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1
 
       - name: Push backend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1
 
       - name: Pull Backend Image
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1

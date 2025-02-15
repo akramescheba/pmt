@@ -113,7 +113,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Backend Image
-        run: docker push meschebajordy/pmt-backend:v1
+        run: docker push meschebajordy/pmt-backend:v1 ./backend
 
       - name: Push Frontend Image
-        run: docker push meschebajordy/pmt-frontend:v1
+        run: docker push meschebajordy/pmt-frontend:v1 ./frontend

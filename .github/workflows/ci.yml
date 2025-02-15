@@ -49,6 +49,22 @@ jobs:
       - name: Vérification de la structure du projet
         run: ls -la backend
 
+      - name: Attente de MySQL
+        run: |
+          echo "Vérification de la disponibilité de MySQL..."
+          for i in {1..30}; do
+            nc -z mysql 3306 && echo "MySQL est prêt !" && exit 0
+            echo "En attente de MySQL..."
+            sleep 2
+          done
+          echo "Échec : MySQL ne s'est pas lancé à temps."
+          exit 1
+
+      - name: Test MySQL Connection
+        run: |
+          mysql -h mysql -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -e "SHOW DATABASES;"
+
+
       - name: Install Dependencies
         working-directory: backend
         run: mvn clean install -DskipTests

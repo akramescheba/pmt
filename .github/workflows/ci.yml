@@ -31,8 +31,8 @@ jobs:
       SKIP_TESTS: 'false'
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
-      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
-      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+      SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
+      SPRING_DATASOURCE_PASSWORD:  ${{ secrets.MYSQL_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
 
     steps:

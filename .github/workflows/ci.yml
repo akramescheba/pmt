@@ -54,7 +54,6 @@ jobs:
       - name: Install Dependencies
         working-directory: backend
         run: |
-          mvn clean
           mvn test -X 
           echo "Tests terminé avec succès"
 
@@ -123,9 +122,9 @@ jobs:
         run: docker images
     
       - name: Push frontend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 .
+        run: docker push  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 
 
       - name: Push backend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 .
+        run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
       
 

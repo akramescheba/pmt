@@ -49,9 +49,8 @@ jobs:
           mvn clean package -DskipTests=true
           mvn clean install -DskipTests=true
 
-      - name: Run Backend Tests
-        if: env.SKIP_TESTS != 'true'
-        working-directory: backend
+      - name: Run Backend Test
+        # working-directory: backend
         run: mvn test
 
       - name: Build Backend Docker Image

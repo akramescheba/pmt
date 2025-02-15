@@ -46,7 +46,7 @@ jobs:
           java-version: '17'
           cache: maven
 
-      - name: Vérification de structure du projet
+      - name: Vérification de la structure du projet
         run: ls -la backend
 
       - name: Install Dependencies
@@ -113,8 +113,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push backend Image
-        run: docker push ***/pmt-backend:v1 
+        run: docker push meschebajordy/pmt-backend:v1 
       
 
-      - name: Push frontend Image
-        run: docker push ***/pmt-frontend:v1 
+      - name: Push Frontend Image
+        run: docker push meschebajordy/pmt-frontend:v1 

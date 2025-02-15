@@ -51,16 +51,10 @@ jobs:
         run: ls -la backend
       
 
-      - name: Install Dependencies
-        working-directory: backend
-        run: |
-          mvn test -X 
-          echo "Tests terminé avec succès"
-
-      - name: Run Backend Tests
+      - name: Run backend test
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
-        run: mvn clean install -DskipTests
+        run: mvn test
       
 
       - name: Build Backend Docker Image

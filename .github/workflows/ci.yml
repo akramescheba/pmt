@@ -24,8 +24,8 @@ jobs:
         
         options: >-
           --health-cmd="mysqladmin ping --silent" 
-          --health-start-period=30s 
-          --health-retries=5 
+          --health-start-period=60s 
+          --health-retries=10s
           --health-timeout=10s
 
     env:
@@ -49,6 +49,9 @@ jobs:
 
       - name: Vérification de la structure du projet
         run: ls -la backend
+      - name: Vérification des logs MySQL
+        run: docker logs mysql-db
+
 
       - name: Install Dependencies
         working-directory: backend

@@ -21,10 +21,9 @@ jobs:
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-        
         options: >-
-          --health-cmd="mysqladmin ping --silent" 
-          --health-start-period=60s 
+          --health-cmd="mysqladmin ping --silent"
+          --health-start-period=60s
           --health-retries=5
           --health-timeout=10s
 
@@ -47,19 +46,32 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # Attente de la disponibilité du service MySQL
+      - name: Attendre que MySQL soit prêt
+        run: |
+          for i in {1..30}; do
+            nc -z mysql 3306 && echo "MySQL est prêt !" && exit 0
+            echo "Attente de MySQL..."
+            sleep 5
+          done
+          echo "Échec : MySQL ne s'est pas lancé à temps." && exit 1
+
       - name: Vérification de la structure du projet
         run: ls -la backend
-      
 
+      # Vérification de la connexion à la base de données MySQL avant de lancer les tests
+      - name: Test Connexion MySQL
+        run: |
+          mysql -h mysql -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -e "SHOW DATABASES;"
+
+      # Exécution des tests backend
       - name: Run backend test
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
         run: mvn clean test -X
 
-      
-
       - name: Build Backend Docker Image
-        run: docker build -t  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
 
   build-frontend:
     runs-on: ubuntu-latest
@@ -84,6 +96,7 @@ jobs:
       - name: Build Frontend
         working-directory: frontend
         run: npm run build --configuration=production
+
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
@@ -96,7 +109,7 @@ jobs:
         run: npm test -- --watch=false --browsers=ChromeHeadless
 
       - name: Build Frontend Docker Image
-        run: docker build -t  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
 
   push-docker-images:
     runs-on: ubuntu-latest
@@ -107,19 +120,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Login to dockerHub
+      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Vérification des images docker 
+      - name: Vérification des images Docker
         run: docker images
-    
+
       - name: Push frontend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1
 
       - name: Push backend image
-        run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
-      
-
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1

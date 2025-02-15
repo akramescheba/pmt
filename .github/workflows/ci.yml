@@ -1,4 +1,4 @@
-name: CI-Pipeline
+name: CICD-Pipeline
 
 on:
   push:
@@ -13,10 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:8.0
+        image: mysql:lts
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }} 
           MYSQL_DATABASE: donnees
+          MYSQL_USER:  ${{ secrets.MYSQL_USER }} 
+          MYSQL_PASSWORD: ${{secrets.MYSQL_PASSWORD}}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }} 
+          
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping --silent" --health-start-period=30s --health-retries=3 --health-timeout=10s
@@ -24,8 +27,8 @@ jobs:
     env:
       SKIP_TESTS: 'false'
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/donnees
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}  
+      SPRING_DATASOURCE_USERNAME:  ${{ secrets.SPRING_DATASOURCE_USERNAME }} 
+      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}  
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
       SPRING_PROFILES_ACTIVE: test
 

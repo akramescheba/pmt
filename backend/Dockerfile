@@ -1,22 +1,17 @@
-FROM eclipse-temurin:17-jdk AS build
-
+# Utiliser une image qui contient déjà Maven
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
 WORKDIR /app
 
+# Copier le fichier pom.xml et télécharger les dépendances en cache
 COPY pom.xml .
-
 RUN mvn dependency:resolve
 
+# Copier le code source
 COPY src ./src
 
-RUN mvn clean package -DskipTests
+# Compiler l’application
+RUN mvn clean package
 
-FROM openjdk:17-slim
-
-WORKDIR /app
-
-COPY --from=build /app/target/*.jar /app/PmtApplication.jar
-
-EXPOSE 8081
-
-CMD ["java", "-jar", "/app/PmtApplication.jar"]
+# Exécuter l’application
+CMD ["java", "-jar", "target/*.jar"]

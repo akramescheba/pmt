@@ -89,7 +89,7 @@ jobs:
         working-directory: frontend
         run: npm run build --configuration=production
 
-      - name: Run Frontend Tests
+      - name: Run Frontend Test
         if: env.SKIP_TESTS != 'true'
         working-directory: frontend
         run: npm test -- --watch=false --browsers=ChromeHeadless

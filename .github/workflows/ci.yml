@@ -26,7 +26,7 @@ jobs:
 
     env:
       SKIP_TESTS: 'false'
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/donnees
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
       SPRING_DATASOURCE_USERNAME:  ${{ secrets.SPRING_DATASOURCE_USERNAME }} 
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}  
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
@@ -41,13 +41,20 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: maven
 
 
       - name: Vérification de structure du projet
-        run: cd backend &&  ls -la
+        run:   ls -la  backend 
 
 
-      - name: Backend test
+      - name: Install Dependencies
+        working-directory: backend
+        run: mvn clean install -DskipTests
+
+      - name: Run Backend Tests
+        if: env.SKIP_TESTS != 'true'
+        working-directory: backend
         run: mvn test
 
 

@@ -146,5 +146,5 @@ jobs:
       - name: Vérification des logs backend
         run: docker logs backend-container
 
-      - name: Vérification des logs frontend
+      - name: Vérifications des logs frontend
         run: docker logs frontend-container

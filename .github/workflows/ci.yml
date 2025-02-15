@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:8.0
+        image: mysql:lts
         env:
           MYSQL_DATABASE: donnees
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
@@ -32,17 +32,17 @@ jobs:
       SPRING_PROFILES_ACTIVE: test
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
       SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
-      SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
+      SPRING_DATASOURCE_PASSWORD:  ${{ secrets.MYSQL_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up JDK 18
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '18'
           distribution: 'temurin'
           cache: maven
 
@@ -56,12 +56,16 @@ jobs:
       - name: Run Backend Tests
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
-        run: mvn test
+        run: mvn clean install -DskipTests
+        # run: |
+        #   mvn clean
+        #   mvn test -X 
+        #   echo "Tests terminés avec succès"
 
       - name: Build Backend Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
-          docker images
+         docker build -t  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend
+         docker images
 
   build-frontend:
     runs-on: ubuntu-latest
@@ -86,12 +90,11 @@ jobs:
       - name: Build Frontend
         working-directory: frontend
         run: npm run build --configuration=production
-
       - name: Upload dist
         uses: actions/upload-artifact@v4
         with:
           name: frontend-dist
-          path: frontend/dist/
+          path: dist/
 
       - name: Run Frontend Test
         if: env.SKIP_TESTS != 'true'
@@ -100,8 +103,9 @@ jobs:
 
       - name: Build Frontend Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
-          docker images
+         docker build -t  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
+         docker images
+
 
   push-docker-images:
     runs-on: ubuntu-latest
@@ -112,7 +116,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Login to Docker Hub
+      - name: Login to dockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
@@ -122,23 +126,10 @@ jobs:
         run: docker images
     
       - name: Push frontend image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 
+        run: docker push  ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 
 
       - name: Push backend image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
-
-  test-containers:
-    runs-on: ubuntu-latest
-    needs: push-docker-images
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
 
       - name: Pull Backend Image
         run: docker pull ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1

@@ -56,10 +56,10 @@ jobs:
       - name: Run Backend Tests
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
-        run: mvn test -DskipTests
+        run: mvn test -X
 
       - name: Vérification des tests
-        if: failure()  # Cette étape s'exécute si le job précédent a échoué
+        if: failure()  
         run: |
           echo "Les tests ont échoué, le pipeline va s'arrêter ici."
           exit 1  

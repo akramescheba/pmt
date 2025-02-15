@@ -59,10 +59,10 @@ jobs:
         if: env.SKIP_TESTS != 'true'
         working-directory: backend
         run: mvn clean install -DskipTests
-        # run: |
+        # run: |s
         #   mvn clean
         #   mvn test -X 
-        #   echo "Tests terminés avec succès"
+        #   echo "Tests terminéavec succès"
 
       - name: Build Backend Docker Image
         run: docker build -t  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 ./backend

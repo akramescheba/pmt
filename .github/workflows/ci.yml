@@ -64,10 +64,10 @@ jobs:
         run: |
           mysql -h mysql -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -e "SHOW DATABASES;"
 
-      # Exécution des tests backends
+      # Exécution des tests backend
       - name: Run backend test
         if: env.SKIP_TESTS != 'true'
-        working-directory: ./
+        working-directory: backend
         run: mvn clean test -X
 
       - name: Build Backend Docker Image
@@ -90,11 +90,11 @@ jobs:
           restore-keys: npm-
 
       - name: Install Dependencies
-        working-directory: ./
+        working-directory: frontend
         run: npm install
 
       - name: Build Frontend
-        working-directory: ./
+        working-directory: frontend
         run: npm run build --configuration=production
 
       - name: Upload dist
@@ -105,7 +105,7 @@ jobs:
 
       - name: Run Frontend Test
         if: env.SKIP_TESTS != 'true'
-        working-directory: ./
+        working-directory: frontend
         run: npm test -- --watch=false --browsers=ChromeHeadless
 
       - name: Build Frontend Docker Image

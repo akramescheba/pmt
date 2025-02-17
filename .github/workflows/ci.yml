@@ -1,4 +1,4 @@
-name: CICD-Pipeline 
+name: CICD-Pipeline
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       mysql:
         image: mysql:lts
         ports:
-          - 3306:3306
+          - 3308:3306  
         env:
           MYSQL_DATABASE: donnees
           MYSQL_USER: ${{ secrets.MYSQL_USER }}
@@ -47,24 +47,25 @@ jobs:
       - name: Vérification de la structure du projet
         run: ls -la
 
-      # Démarrer l'application avec Docker Compose pour les tests
       - name: Démarrer les services avec Docker Compose
         run: |
-          docker-compose up -d
-          sleep 10  # Attente du démarrage des services
+          docker-compose up -d --wait  # Ajout du --wait pour attendre le démarrage complet
 
-      - name: Vérifier si MySQL est accessible
+      - name: Vérifier si MySQL est prêt
         run: |
           for i in {1..30}; do
-            nc -z localhost 3306 && echo "MySQL est prêt !" && exit 0
-            echo "Attente de MySQL..."
+            if docker exec $(docker ps -qf "name=mysql") mysqladmin ping --silent; then
+              echo "MySQL est prêt !"
+              exit 0
+            fi
+            echo " Attente de MySQL..."
             sleep 5
           done
           echo "Échec : MySQL ne s'est pas lancé à temps." && exit 1
 
       - name: Test de connexion MySQL
         run: |
-          mysql -h 127.0.0.1 -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -e "SHOW DATABASES;"
+          mysql -h 127.0.0.1 -P 3308 -u${{ secrets.MYSQL_USER }} -p${{ secrets.MYSQL_PASSWORD }} -e "SHOW DATABASES;"
 
       - name: Exécuter les tests backend
         if: env.SKIP_TESTS != 'true'
@@ -114,5 +115,6 @@ jobs:
           script: |
             cd /chemin/de/ton/projet
             git pull origin main
+            docker-compose down  # Arrêt propre des conteneurs
             docker-compose pull
             docker-compose up -d --build

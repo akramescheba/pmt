@@ -20,7 +20,7 @@ jobs:
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
         ports:
-          - 3307:3306
+          - 3308:3306
         options: >-
           --health-cmd="mysqladmin ping --silent" 
           --health-start-period=30s 
@@ -28,8 +28,8 @@ jobs:
           --health-timeout=10s
     env:
       SKIP_TESTS: 'false'
-      SPRING_PROFILES_ACTIVE: test
-      SPRING_DATASOURCE_URL: "jdbc:mysql://localhost:3307/donnees?useSSL=false&allowPublicKeyRetrieval=true"
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: "jdbc:mysql://mysql:3306/donnees"
       SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver

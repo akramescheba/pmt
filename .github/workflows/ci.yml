@@ -91,7 +91,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend-dist
-          path: dist/
+          path: dist/pmt
 
       - name: Run Frontend Test
         if: env.SKIP_TESTS != 'true'

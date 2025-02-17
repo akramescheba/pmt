@@ -28,7 +28,7 @@ jobs:
           --health-timeout=5s
 
     env:
-      SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/donnees
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
       SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
@@ -37,13 +37,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install Netcat for testing MySQL
-        run: sudo apt-get install netcat -y
+      - name: Installer netcat
+        run: sudo apt-get update && sudo apt-get install netcat-openbsd -y
+      
 
       - name: Attendre que MySQL soit prêt
         run: |
           for i in {1..30}; do
-            nc -z localhost 3306 && echo "MySQL est prêt !" && exit 0
+            nc -z mysql 3306 && echo "MySQL est prêt !" && exit 0
             echo "Attente de MySQL..."
             sleep 5
           done

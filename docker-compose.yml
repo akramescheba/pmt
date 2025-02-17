@@ -1,15 +1,15 @@
-version: "3.8"
+volumes:
+  volumes:
+    driver: bridge
 
 networks:
   spring-boot-mysql-network:
     name: spring-boot-mysql-network
 
-volumes:
-  mysql_data: 
-
 services:
-  mysql:
+  mysql-db:
     image: mysql:lts
+
     ports:
       - "3308:3306"
     environment:
@@ -20,8 +20,8 @@ services:
     networks:
       - spring-boot-mysql-network
     volumes:
-      - mysql_data:/var/lib/mysql  
-      - ./Workdir/mysql/volume:/etc/mysql/conf.d  
+      - ./MySQL/volume:/etc/mysql/conf.d /MySQL/volume
+
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       retries: 5
@@ -36,26 +36,31 @@ services:
     ports:
       - "8081:8081"
     depends_on:
-      mysql:
+      mysql-db:
         condition: service_healthy
+  
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/donnees
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/donnees
       - SPRING_DATASOURCE_USERNAME=usr
       - SPRING_DATASOURCE_PASSWORD=Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
     networks:
       - spring-boot-mysql-network
 
   frontend:
-    build:
-      context: frontend
-      dockerfile: Dockerfile
-    image: meschebajordy/pmt-frontend:v1
-    ports:
-      - "4200:80"
-    expose:
-      - 80
-    volumes:
-      - ./Workdir/frontend/volume:/app/frontend
-    networks:
-      - spring-boot-mysql-network
+        build:
+          context: frontend
+          dockerfile: Dockerfile
+        image: meschebajordy/pmt-frontend:v1
+
+        ports:
+          - "4200:80"
+        expose:
+        - 80
+        volumes:
+          - .:/app
+          - /app/node_modules
+          
+    
+        networks:
+          - spring-boot-mysql-network   

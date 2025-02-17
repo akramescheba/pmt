@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-backend:
+  build_push-backend:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -75,7 +75,7 @@ jobs:
         run: docker push  ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1 
     
 
-  build-frontend:
+  build_push-frontend:
     runs-on: ubuntu-latest
     env:
       SKIP_TESTS: 'false'

@@ -5,14 +5,14 @@ WORKDIR /app
 
 COPY pom.xml .
 
-RUN mvn dependency:go-offline
+RUN mvn dependency:go-offline -B
 
 COPY . .
 
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -B
 
 
-FROM eclipse-temurin:17-jdk-alpine
+FROM openjdk:17-slim
 
 
 WORKDIR /app
@@ -24,4 +24,4 @@ COPY --from=build /app/target/*.jar /app/PmtApplication.jar
 EXPOSE 8081
 
 
-CMD [ "java" , "-jar", "/PmtApplication.jar"  ]
+CMD [ "java" , "-jar", "/app/PmtApplication.jar"  ]

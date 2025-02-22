@@ -5,28 +5,29 @@ FROM node:18-alpine AS build
 
 WORKDIR /app
 
-COPY angular.json package-lock.json package.json tsconfig.app.json tsconfig.spec.json tsconfig.json ./
 
-RUN npm install
+COPY *.json ./
 
-RUN npm install @angular/cli
+#COPY ./angular.json ./package-lock.json ./package.json ./tsconfig.app.json ./tsconfig.spec.json ./tsconfig.json /app/
 
 COPY . .
 
-RUN npm run build --configuration=production 
+RUN npm install -g @angular/cli
+
+RUN npm install
 
 
-FROM nginx:stable-alpine
+RUN npm run build --prod 
 
-WORKDIR /usr/share/nginx/html
 
-RUN rm -rf ./*
+FROM nginx:stable
 
-COPY --from=build /app/dist/pmt/ ./
 
 COPY nginx.conf /etc/nginx/nginx.conf
+
+COPY --from=build /app/dist/pmt/ /usr/share/nginx/html/
 
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT  ["nginx", "-g", "daemon off;"]

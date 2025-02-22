@@ -45,12 +45,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: 🔑 Create Maven settings-security.xml
+      - name: Create Maven settings-security.xml
         run: |
           mkdir -p ~/.m2
           echo '<settingsSecurity><master>${{ secrets.MAVEN_MASTER_PASSWORD }}</master></settingsSecurity>' > ~/.m2/settings-security.xml
 
-      - name: 🔑 Create Maven settings.xml
+      - name: Create Maven settings.xml
         run: |
           echo '<settings>
                   <servers>

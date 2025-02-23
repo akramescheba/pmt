@@ -3,19 +3,22 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './auth.service';
 import {ConnexionComponent} from "../connexion/connexion.component";
 import {InscriptionComponent} from '../inscription/inscription.component';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+
 
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, ConnexionComponent, InscriptionComponent],
+  imports: [CommonModule, ConnexionComponent, InscriptionComponent,FontAwesomeModule],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
 export class AuthComponent  {
 
-
-  ImgHome="assets/home.png"
+  faCog=faCog
+  ImgHome="assets/pmt.png"
 constructor(
   private authService: AuthService
 ){}

@@ -1,71 +1,64 @@
-* {
-    box-sizing: border-box
-}
-
-.btn-inscription, .mdp-oublie {
-    background-color: none;
-    color: dodgerblue;
-    border:none;
-    text-decoration: none;
-}
-/* Add padding to containers */
-.container {
+/* Styles du contenaire formulaire-connexion */
+.formulaire-connexion {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid #0000002d;
+    border: 2px solid #0000FF;
     border-radius: 2px;
-    padding: 10px;
-    background-color: white
+    padding: 0 30px;
+    background-color: white;
+    min-height: 60vh;
+    height: 85vh;
+    width: 50vh;
 }
-/*Titre */
-h1{
+
+/*Styles du titre */
+h1 {
     color: #003;
     margin-bottom: 1px;
+    margin: 10px auto;
     text-align: center;
 }
 
-
-/* Full-width input fields */
+/* Styles des input */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 10px;
-    background: #f1f1f155;
-    margin: 0 2px 1px 0;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #0000002d;
+    padding: 20px;
+    margin: 20px 2px 1px 0;
     border-radius: 2px;
+    border: 1px solid #2c09f32d;
+    background: #f1f1f155;
+
 }
 
+/* Styles focus: gère la couleur lorsqu'on clique dans le champ input,
+Style Outline: supprime les pordures noires des input lors du clic*/
 input[type=text]:focus, input[type=password]:focus {
     background-color: #ddd;
     outline: none;
 }
 
-/* Overwrite default styles of hr */
+/* Style de la barre hr  */
 hr {
     border: 1px solid #e0dcdc;
     margin-bottom: 5px;
 }
 
-/* Set a style for the submit/register button */
+/* Style du bouton connexion */
 .btn-connexion {
     background-color: #0000FF;
+    width: 100%;
     color: white;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 20px;
+    margin: 20px 2px 1px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
 }
 
-.registerbtn:hover {
-    opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
+/* Style Créer un nouveau compte et Mot de passe oublié?*/
+a.btn-nouveau-compte, .mdp-oublie {
+    background-color: none;
     color: dodgerblue;
+    border: none;
+    text-decoration: none;
 }

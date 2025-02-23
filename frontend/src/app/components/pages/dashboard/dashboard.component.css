@@ -1,14 +1,15 @@
 /* Styles global de la carte */
 
 .card-display-page {
-    background-image:  url('/assets/home8.png');
-    background-size: 100%;
+    background-image:  url('/assets/home.png');
+    background-color: #0000ff;
+    background-size: 50%;
     background-repeat: no-repeat;
-    background-position: relative;
+    background-position: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-height:80vh;
+    min-height:85vh;
     height:max-content;
     margin:10px ;
     

@@ -1,49 +1,41 @@
-* {
-    box-sizing: border-box
-}
-
-.btn-connexion{
-    background-color: none;
-    color: dodgerblue;
-    border:none;
-    text-decoration: none;
-}
-
-/* Add padding to containers */
-.container {
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 20px;
-    width: 60vh;
-    border: 1px solid #f1f1f1;
+/*  Styles du contenaire formulaire-inscription */
+.formulaire-inscription {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid #0000FF;
     border-radius: 2px;
-    background-color: #ffffff;
+    padding: 0 30px;
+    height: 85vh;
+    width: 50vh;
 }
 
-/*Titre*/
-
+/*Styles du titre */
 h1{
+    color: #003;
+    margin-bottom: 1px;
+    margin: 10px auto;
     text-align: center;
 }
 
-/* Full-width input fields */
+/* Styles des input */
 input[type=text], input[type=login],  input[type=password], select[type=role]  {
     width: 100%;
-    padding: 10px;
-    background: #f1f1f155;
-    margin: 0 2px 1px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 1px solid #0000002d;
+    padding: 20px;
     border-radius: 2px;
+    border: 1px solid #2c09f32d;
+    background: #f1f1f155;
 }
+
+/* Styles focus: gère la couleur lorsqu'on clique dans le champ input,
+Style Outline: supprime les pordures noires des input lors du clic*/
 input[type=text]:focus, input[type=login]:focus, input[type=password]:focus, select[type=role]:focus {
     background-color: #ddd;
     outline: none;
 }
 
+/* Style de la barre hr */
 option[type=text] {
     background-color:white;
     border: 1px solid #ff0000;
@@ -51,35 +43,28 @@ option[type=text] {
 }
 
 
-/* Overwrite default styles of hr */
+/* Style de la barre hr */
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 15px;
 }
 
-/* Set a style for the submit/register button */
+/* Style du bouton inscription */
 .btn-inscription {
     background-color: #0000FF;
     color: white;
-    padding: 12px;
-    margin: 8px 0;
+    padding: 20px;
+    margin: 20px 2px 1px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
 }
 
-.btn-inscription:hover {
-    opacity: 1;
-}
 
-/* Add a blue text color to links */
-a {
+/* Style Créer un nouveau compte et Mot de passe oublié?*/
+a.btn-nouveau-compte, .mdp-oublie {
+    background-color: none;
     color: dodgerblue;
+    border: none;
+    text-decoration: none;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
-.inscription {
-    background-color: #f1f1f1;
-    text-align: center;
-}

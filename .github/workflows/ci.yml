@@ -31,7 +31,7 @@ jobs:
     env:
       SKIP_TESTS: "false"
       SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/donnees
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/donnees
       SPRING_DATASOURCE_USERNAME: ${{ secrets.MYSQL_USER }}
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
       SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver

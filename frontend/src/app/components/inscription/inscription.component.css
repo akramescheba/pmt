@@ -7,22 +7,22 @@
     border: 2px solid #0000FF;
     border-radius: 2px;
     padding: 0 30px;
-    height: 85vh;
-    width: 50vh;
+
+    width: 60vh;
 }
 
 /*Styles du titre */
 h1{
     color: #003;
     margin-bottom: 1px;
-    margin: 10px auto;
+    margin: 5px auto;
     text-align: center;
 }
 
 /* Styles des input */
 input[type=text], input[type=login],  input[type=password], select[type=role]  {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     border-radius: 2px;
     border: 1px solid #2c09f32d;
     background: #f1f1f155;
@@ -46,22 +46,21 @@ option[type=text] {
 /* Style de la barre hr */
 hr {
     border: 1px solid #f1f1f1;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 /* Style du bouton inscription */
 .btn-inscription {
     background-color: #0000FF;
     color: white;
-    padding: 20px;
-    margin: 20px 2px 1px 0;
+    padding: 10px;
     border: none;
     cursor: pointer;
 }
 
 
 /* Style Créer un nouveau compte et Mot de passe oublié?*/
-a.btn-nouveau-compte, .mdp-oublie {
+a.btn-se-connecter, .mdp-oublie {
     background-color: none;
     color: dodgerblue;
     border: none;

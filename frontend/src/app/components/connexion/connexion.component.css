@@ -8,15 +8,15 @@
     padding: 0 30px;
     background-color: white;
     min-height: 60vh;
-    height: 85vh;
-    width: 50vh;
+
+    width: 60vh;
 }
 
 /*Styles du titre */
 h1 {
     color: #003;
     margin-bottom: 1px;
-    margin: 10px auto;
+    margin: 5px auto;
     text-align: center;
 }
 

@@ -41,7 +41,7 @@ services:
   
     environment:
       - SPRING_PROFILES_ACTIVE=dev
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/donnees
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3308/donnees
       - SPRING_DATASOURCE_USERNAME=usr
       - SPRING_DATASOURCE_PASSWORD=Kv/MyBclvuWZt3B0bupIOEGf9yio0Ykviz5omr/QlfQ=
     networks:

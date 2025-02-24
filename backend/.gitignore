@@ -1,4 +1,6 @@
 # Maven
+/main/resources/application.properties
+/main/resources/application-dev.properties
 
 # Gradle
 .gradle/

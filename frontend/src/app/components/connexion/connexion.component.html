@@ -1,7 +1,7 @@
 <form [formGroup]="loginForm" (ngSubmit)=" seConnecter()" *ngIf="!isSignUp">
     <div class="formulaire-connexion">
         <h1>Connection</h1>
-        <p>Veuillez remplir ce formulaire pour vous connecter.</p>
+        <!-- <p>Veuillez remplir ce formulaire pour vous connecter.</p> -->
         <hr>
 
         <label for="Identifiant"><b>Identifiant</b></label>
@@ -19,7 +19,7 @@
         <button type="submit" class="btn-connexion">Connection</button>
         <p>Vous n'avez pas de compte?
             <a type="button" class="btn-nouveau-compte" (click)="switchToSignUp()">
-                ➡️Créer un nouveau compte
+                ➡️S'inscrire
             </a>
         </p>
     </div>

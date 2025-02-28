@@ -3,8 +3,9 @@
     background-color: #0000FF;
     color: white;
     margin: 8px auto;
+    padding: 10px;
     cursor: pointer;
-    width: 350px;
+    width: 300px;
     opacity: 0.9;
     display:flex;
     gap: 20px;
@@ -12,11 +13,9 @@
     align-items: center;
     font-size: large;
     cursor: pointer;
-    border: none;
-    padding: 10px 10px;
-    border-radius: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-
 }
 
 .faCirclePlus.fa-2x {

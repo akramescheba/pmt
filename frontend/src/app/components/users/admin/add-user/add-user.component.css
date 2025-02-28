@@ -1,44 +1,63 @@
 
 /* Styles global du formulaire d'affichage */
-
-.card-display-page {
+.pleine-page{
+    background-image: url('/assets/projet.png');
+    background-size: 45%;
+    background-position: center;
+    margin: 50px auto;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-   
+}
+.card-display-page {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height:62vh;
 }
 
 .contenaire-card {
     height: max-content;
-    padding: 10px;   
+    padding: 5px;   
 
 }
 
 .card {
-    border: 1px solid #0000002d;
+    border: 1px solid #0011ff2d;
     border-radius: 2px;
     padding: 5px;
     margin: 5px;
+    color: black;
+    opacity: 95%;
 }
+/* Styles de la largeur et du décalage de la carte */
 
-.card-body-display {
+.card-body-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Arial, Helvetica, sans-serif';
+    font-size: 1.2rem;
     padding: 10px;
-    width: 340px;
+    width: 380px;
+    background-color: #0044ff0a;
 
 }
 
 .form-group {
-    background-color: #c8c8c817;
-    padding: 5px;
+    padding: 10px;
+    color: black;
 }
 
 .card-title {
     color: #003;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 1.20rem;
-    margin-bottom: 1px;
     text-align: center;
+    margin: 10px;
 
 }
 
@@ -47,6 +66,7 @@
     padding: 10px;
     margin: 0 2px 1px 0;
     font-size: 1rem;
+    font-family: 'Arial, Helvetica, sans-serif';
     color: #666;
 
 }
@@ -62,8 +82,8 @@
 }
 
 .btn-modifier-le-user {
-    width: 100%;
-    background-color: #0000FF;
+    width: 80%;
+    background-color: #0000ff;
     color: white;
     padding: 5px;
     border: 1px solid #f1f1f1;
@@ -81,6 +101,8 @@
     gap: 10px;
     padding: 5px;
     border-radius: 2px;
+    font-family: 'Arial, Helvetica, sans-serif';
+    min-height: 50vh;
 }
 
 /* Styles de la carte */
@@ -90,17 +112,13 @@
     width: 100%;
 }
 
-/* Styles de la largeur et du décalage de la carte */
-.card-body{
-    padding: 20px;
-}
 
 
 
 /* Styles des paragraphes, select et input */
 input[type=text], input[type=email],  select.role{
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     margin: 0 10px 1px 0;
     display: flex;
     border: 1px solid #0000002d;
@@ -117,13 +135,12 @@ select>option{
     padding: 20px;
     text-align: justify;
     margin: 0 2px 1px 0;
-    background-color: #ffffff;
+    background-color: #fff0f0;
     border: 1px solid #0000002d;
-    border-radius: 2px;
+    border-radius: 0px;
 }
 select>option:hover{
     cursor: pointer;
-    border: none;
     background-color: #0000FF;
 }
 

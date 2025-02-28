@@ -1,59 +1,65 @@
-
+.pleine-page{
+    background-image: url('/assets/projet.png');
+    background-size: 45%;
+    background-position: center;
+    margin: 50px auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 /* Styles global du formulaire d'affichage */
 
 .card-display-page {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
+    min-height:60vh;
 }
 
-.contenaire-card {
+.contenaire-card{
     height: max-content;
-    padding: 10px;
-    
-
+    padding: 5px;
 }
-
+/* Styles de la carte */
 .card {
-    border: 1px solid #0000002d;
+    border: 1px solid #0011ff2d;
     border-radius: 2px;
     padding: 5px;
     margin: 5px;
-    
-
+    color: black;
+    opacity: 95%;
 }
 
-.card-body-display {
-    padding: 10px;
-    width: 340px;
-
+.card-body-project {
+    font-family: 'Arial, Helvetica, sans-serif';
+    font-size: 1.5rem;
+    padding: 5px;
+    width: 350px;
+    background-color: #0044ff0a;
 }
 
 .form-group {
-    background-color: #c8c8c817;
-    padding: 5px;
+    padding: 10px;
+    color: black;
+}
+.card-text-description{
+        font-family: 'Arial, Helvetica, sans-serif';
+        font-size: 1rem;
+        height: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: #161616;
 }
 
 .card-title {
     color: #003;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 1.20rem;
-    margin-bottom: 1px;
     text-align: center;
-
-}
-
-.contenaire-card-display, i>p.select.statut {
-    text-align: justify;
-    padding: 10px;
-    background: #f1f1f155;
-    margin: 0 2px 1px 0;
-    font-size: 1rem;
-    color: #666;
-    cursor: pointer;
-    
+    margin: 10px;
 
 }
 
@@ -67,7 +73,6 @@
     gap: 10px;
     padding: 5px;
     border-radius: 2px;
- 
 }
 
 .conteneur-list-projet {
@@ -75,19 +80,15 @@
     padding: 10px;
 }
 
-/* Styles de la carte */
-.card {
-    border: 1px solid #0000002d;
-    border-radius: 2px;
-}
+
 
 /* Styles de la largeur et du décalage de la carte */
 .card-body {
-    padding: 20px;
+    padding: 10px;
     width: 440px;
-}
 
-c .card-title {
+}
+ .card-title {
     color: #003;
     font-size: 2rem;
     font-weight: bold;
@@ -105,11 +106,11 @@ c .card-title {
 /* Styles des paragraphes, select et input */
 input[type=text], input[type=date], select, textarea {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     margin: 0 2px 1px 0;
     display: flex;
-    border: 1px solid #0000002d;
-    border-radius: 2px;
+    border: 1px solid #0011ff2d;
+    border-radius: 1px;
     background: #f1f1f155;
 }
 

@@ -1,42 +1,48 @@
 .conteneur-admin {
-    width: 100%;
+    background-color: #dddde731;
+    background-size: 40%;
+    background-position: center;
+    margin: 50px auto;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 
-
 }
 
-.container.text-center {
-    /* background-color: red; */
-    min-height: 80vh;
-}
 
 
 .mot-de-bienvenu {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2.8rem;
+    overflow: hidden;
     text-align: center;
-    text-transform: uppercase;
     font-weight: bold;
     color: #000000;
     margin: 20px;
+
 }
 
-.col-2 {
+.col-2.profil {
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    background-color: rgba(0, 64, 225, 0.135);
+    background-color: rgba(0, 55, 255, 0.363);
     box-shadow: #000000;
-    margin: 5px auto;
-    min-width: 15vw;;
-    width: auto;
+    margin: 25px 10px;
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 5px;
+    height: 15vh;
+    width: 250px;
 
 }
 
+
+
 .fa-userIcon {
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .user-nom {
@@ -46,24 +52,23 @@
 .col-3 {
     margin: 0 auto;
     width: auto;
+
 }
 
 .button-adds {
     background-color: #0000FF;
     color: white;
-    margin: 8px auto;
+    margin: 20px auto;
     cursor: pointer;
-    width: 200px;
-    opacity: 0.9;
+    width: 250px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     justify-content: center;
     align-items: center;
     font-size: large;
-    cursor: pointer;
-    border: none;
+    font-family: 'Arial, Helvetica, sans-serif';
+    border: 1px solid rgb(148, 148, 148);
+    border-radius: 5px;
     padding: 10px;
-    border-radius: 1px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }

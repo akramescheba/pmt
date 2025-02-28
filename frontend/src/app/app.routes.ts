@@ -17,6 +17,7 @@ import {HistoriquesComponent} from  './components/pages/historiques/historiques.
 
 export const routes: Routes = [
 
+
   {
     path: '' , 
     redirectTo: '/dashboard', 

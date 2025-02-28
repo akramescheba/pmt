@@ -2,7 +2,6 @@
 <div>
 
     <div class="card-display-page" *ngIf="!isDisplayButton">
-
         <div class="conteneur-card-display" *ngFor="let project of projectList" (click)="selectProject(project)"
             [class.selected]="project.id === selectedProject?.id">
             <div class="card">
@@ -15,7 +14,7 @@
                         </i>
                     </div>
                     <div class="conteneur-button">
-                        <button type="button" class="btn-voir-details" (click)="cancelButton()">
+                        <button type="button" class="btn-voir-plus" (click)="cancelButton()">
                             Voir plus...
                         </button>
                     </div>
@@ -25,49 +24,38 @@
     </div>
 
     <div class="conteneur-card-details  ">
-
         <div class="conteneur-list-projet" *ngIf="isDisplayButton">
-
-            <div class="card">
+            <div class="card-details">
                 <!-- Styles du bouton annuler -->
                 <button type="button" class="btn-annuler btn-close" data-bs-dismiss="modal" aria-label="Close"
                     (click)=" cancelButton() ">
                 </button>
                 <div *ngIf="selectedProject ">
-                    <!-- Formulaire de modification des projets -->
-                    <form class="card-body-details ">
-                        <div class="form-group">
-                            <label for="nom" class="card-title">Titre</label>
-                            <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom"
-                                [disabled]="true" />
 
-                            <div class="form-date">
-                                <div class="col">
-                                    <label for="dateDebut"><b>Date de début</b></label>
-                                    <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut"
-                                        name="dateDebut" [disabled]="true" />
+
+                    <!-- Formulaire d'affiche des détails d'un projet -->
+                    <form class="card-body-details ">
+                        <div class="conteneur-image">
+                            <!-- <img [src]="selectedProject.image" alt="Image du projet"> -->
+                            <img src="assets/projet.png" alt="projet">
+                        </div>
+                        <div class="form-group">
+                            <h1 class="details-card-title">{{selectedProject.nom}}</h1>
+                            <p class="display-description">{{selectedProject.description}}</p>
+                            <p class="context"> <b class="context-title">Context</b> : {{selectedProject.context}}</p>
+                            <p class="objectif">
+                                <b class="objectif-title">Objectif</b> : {{selectedProject.objectif}}
+                            </p>
+                            <hr>
+                            <div class="row footer">
+                                <div class="col footer">Statut : {{selectedProject.statut}}
                                 </div>
-                                <div class="col">
-                                    <label for="dateFin"><b>Date de fin</b></label>
-                                    <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin" name="dateFin"
-                                        [disabled]="true" />
+                                <div class="col footer"> Date de début : {{selectedProject.dateDebut}}
+                                </div>
+                                <div class="col footer"> Date de fin : {{selectedProject.dateFin}}
                                 </div>
                             </div>
-
-                            <label for="objectif"><b>Objectif</b></label>
-                            <input type="text" id="objectif" [(ngModel)]="selectedProject.objectif" name="objectif"
-                                [disabled]="true" />
-
-                            <label for="description"><b>Description</b></label>
-                            <p id="description" name="description">{{selectedProject.description}}</p>
-
-                            <label for="status"><b>Statut</b></label>
-                            <input type="text" class="statut" [(ngModel)]="selectedProject.statut" name="statut"
-                                [disabled]="true" />
-
                         </div>
-
-
                     </form>
                 </div>
             </div>

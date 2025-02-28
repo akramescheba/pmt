@@ -2,12 +2,12 @@
 <app-adduserform></app-adduserform>
 
 <!-- Formulaire d'affichage des utilisateurs -->
-<div>
+<div class="pleine-page">
     <div class="card-display-page" *ngIf="!isButton">
         <div class="contenaire-card-display" *ngFor="let user of userList; let i=index " (click)=selectUser(user)
             [class.selected]="user.id === selectedUser?.id">
             <div class="card">
-                <div class="card-body-display">
+                <div class="card-body-user">
                     <div class="form-group">
                         <h1 class="card-title">{{user.nom}}</h1>
                         <p class="card-text-display">E-mail: {{user.email}}</p>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="conteneur-button">
                         <button type="button" class="btn-modifier-le-user" (click)="isDisplayButton()">
-                            ➡️ Cliquez pour modifier un utilisateur
+                            Modifier un utilisateur
                         </button>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 
                     <form class="card-body" (ngSubmit)="updateUser()">
                         <!-- <h1 class="card-title" [(ngModel)]="selectedUser.id"></h1> -->
-                        <hr>
+
                         <label for="nom"></label>
                         <input id="nom" type="text" [(ngModel)]="selectedUser.nom" name="nom" required>
                         <label for="email">Email</label>

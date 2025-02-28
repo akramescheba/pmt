@@ -1,34 +1,35 @@
+
+:root {
+    /* Couleurs principales */
+
+    --primary-color:  #dddde731;
+    --secondary-color: #2ecc71;
+    /* Polices  principales */
+    --police-titre: var(Arial, Helvetica, sans-serif);
+    --police-paragraph: var(--police-titre);
+}
+
+
 /* Styles global de la carte */
 
 .card-display-page {
-    background-image:  url('/assets/home.png');
-    background-color: #0000ff;
-    background-size: 50%;
+    background-image: url('/assets/projet.png');
+    background-color: #dddde731;
+    background-size: 55%;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-height:85vh;
-    height:max-content;
-    margin:10px ;
-    
-}
-/* .video-background{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    min-height: 87vh;
     height: 100%;
-    z-index: -1;
-   object-fit: cover;
-    
-} */
+    margin: 5px;
+
+}
 
 .conteneur-card-display {
     height: max-content;
     padding: 5px;
-
 }
 
 .card {
@@ -36,40 +37,54 @@
     border-radius: 2px;
     padding: 5px;
     margin: 5px;
-    
-
-    
+    color: black;
+    opacity: 90%;
 
 }
 
+
 .card-body-display {
-    padding: 10px;
+    font-family: 'Arial, Helvetica, sans-serif';
+    font-size: 1.5rem;
+    padding: 5px;
     width: 350px;
+    background-color: #0044ff0a;
+
 }
 
 .form-group {
-    padding: 1px;
+    padding: 10px;
+    color: black;
 }
 
 .card-title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #003;
-    font-style: italic;
-    font-size: 1.0rem;
-    margin-bottom: 1px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
     text-align: center;
+}
 
-
+/* Styles des texts */
+.card-text {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #161616;
 }
 
 .conteneur-card-display, i>p.select.statut {
-    padding: 2px;
-    background: rgba(0, 68, 255, 0.105);
-    margin: 0 1px 1px 0;
+    padding: .1px;
+    /* background: rgba(0, 68, 255, 0.105); */
+    margin: 5px 5px 10px;
 }
 
 
 
-.btn-voir-details {
+.btn-voir-plus {
     width: 100%;
     background-color: #0000ff;
     color: white;
@@ -80,95 +95,83 @@
 }
 
 
+/* Styles global du formulaire d'affiche des détails d'un projet */
 
-/* Styles global de l'affichage des details */
+.card-details {
+    border: 1px solid #0011ff2d;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+
+}
+
 .conteneur-card-details {
     text-align: justify;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
 }
 
 .conteneur-list-projet {
+    margin: 100px auto;
     height: max-content;
-    padding: 20px;
 }
 
-/* Styles de la carte */
-.card {
-    border: 1px solid #8397c84e;
-    border-radius: 2px;
-}
 
 /* Styles de la largeur et du décalage de la carte */
 .card-body-details {
-    padding: 5px;
-    width: 420px;
-    margin: 60px;
-    
-}
-
-.card-title {
-    color: #003;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-
-/* Styles dates */
-.form-date {
-    display: flex;
-    gap: 10px;
-    font-style: italic;
-    
-}
-label{
-    font-style: italic;
-}
-
-/* Styles des paragraphes, select et input */
-input[type=text], input[type=date],  p {
+    max-width: 724px;
     width: 100%;
-    padding: 10px;
-    margin: 0 2px 1px 0;
+    margin: 5px;
+    padding: 30px;
+}
+
+.conteneur-image {
     display: flex;
-    border: 1px solid #ffffff;
-    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0000ff62;
+
 }
 
-input[type=text] :focus {
-    outline: none;
+img {
+    width: 50%;
+
 }
 
+.details-card-title, .context-title, .objectif-title {
+    font-size: 1.9em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
-.form-label {
-    color: rgb(0, 0, 0);
+.context-title, .objectif-title {
+    font-size: 1.2em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.context, .objectif {
+    font-size: 1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #777272;
+}
+
+.display-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #353535;
+}
+
+hr {
     margin-bottom: 5px;
-}
-
-
-/* Styles des texts */
-.card-text {
-    height: 150px;                     
-    overflow: hidden;            
-    text-overflow: ellipsis;
-    font-size: 1rem;
-    color: #666;
-}
-
-.contente-button {
-    display: flex;
-    gap: 10px;
-    /* background-color: red; */
-}
-
-.btn-annuler.btn-close {
-    background-color: white;
-    color: gray;
-    border: none;
-    font-size:larger;
-    margin: 20px;
 }

@@ -1,17 +1,17 @@
 <app-modal></app-modal>
 
 <!-- Formulaire d'affichage des projets -->
-<div>
+<div class="pleine-page">
     <div class="card-display-page" *ngIf="!isDisplayCard">
-        <div class="contenaire-card-display" *ngFor="let project of projectList" (click)="selectProject(project)"
+        <div class="contenaire-card" *ngFor="let project of projectList" (click)="selectProject(project)"
             [class.selected]="project.id === selectedProject?.id">
             <div class="card">
-                <div class="card-body-display">
+                <div class="card-body-project">
                     <div class="form-group">
                         <h1 class="card-title">{{project.nom}}</h1>
-                        <p class="card-text-display">{{project.description}}</p>
+                        <p class="card-text-description">{{project.description}}</p>
                         <i>
-                            <p class="card-text-display">{{project.statut}}</p>
+                            <p class="card-text-status">{{project.statut}}</p>
                         </i>
                     </div>
                     <div class="conteneur-button">
@@ -32,7 +32,7 @@
                     <form (ngSubmit)="updateProject()" class="card-body">
                         <hr>
                         <div class="form-group">
-                            <label for="nom" class="card-title">Nom</label>
+                            <label for="nom" class="card-title">Titre</label>
                             <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom" required />
 
                             <div class="form-date">

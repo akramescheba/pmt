@@ -11,22 +11,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="header-content">
-                        <h1 class="modal-title fs-5" id="formulaireModalLabel">Créer un nouvel utilisateur</h1>
-                    </div>
-                    <hr>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                         <p>Veuillez remplir ce formulaire pour créer un utilisateur.</p>
                         <div class="mb-3">
-                            <label for="nom" class="form-label"><b>Noms</b> </label>
+                            <label for="nom" class="form-label"><b>Nomet prénom</b> </label>
                             <input type="text" id="nom" class="form-control" formControlName="nom"
                                 placeholder="Saisir le nom et prénom" required>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label"><b>E-mail</b></label>
+                            <label for="email" class="form-label"><b>Adresse e-mail</b></label>
                             <input type="email" id="email" class="form-control" formControlName="email"
                                 placeholder="Veiller saisir l'e-mail" required>
                         </div>

@@ -11,30 +11,25 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="header-content">
-                        <h1 class="modal-title fs-5" id="formulaireModalLabel">Créer un nouveau projet</h1>
-                    
-                    </div>
-                    <hr>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-                        <p>Veuillez remplir ce formulaire pour créer un projet.</p>
+                        <p>Veuillez remplir ce formulaire pour créer un nouveau projet.</p>
                         <div class="mb-3">
                             <label for="nom" class="form-label"><b>Titre du projet</b> </label>
                             <input type="text" id="nom" class="form-control" formControlName="nom"
-                                placeholder="Saisir le nom du projet">
+                                placeholder="Saisir le titre de votre projet">
                         </div>
                         <div class="mb-3">
                             <label for="objectif" class="form-label"><b>Objecti du projet</b></label>
                             <input type="text" id="objectif" class="form-control" formControlName="objectif"
-                                placeholder="Veiller saisir un objectif">
+                                placeholder=" Saisir l'objectif de votre projet">
                         </div>
                         <div class="mb-3">
                             <label for="context" class="form-label"><b>Context du projet</b></label>
                             <input type="text" id="context" class="form-control" formControlName="context"
-                                placeholder="Mettre dans un context">
+                                placeholder=" Saisir le context de votre projet">
                         </div>
 
                         <div class="row form-date">
@@ -52,9 +47,9 @@
                             <textarea type="text" id="description" class="form-control" formControlName="description"
                                 aria-describedby="aideZoneSaisie">
                             </textarea>
-                            <div class="footer-textarea"> Veillez donner une description du projet</div>
+                            <div class="footer-textarea"> Saisir une description de votre projet </div>
 
-                            <label for="status"  class="form-label"><b>Statut</b></label>
+                            <label for="status"  class="form-label"><b>Statut du projet</b></label>
                             <div class="custom-select">
                                 <select type="statut" class="form-control" formControlName="statut">
                                     <option value="En cours">En cours</option>

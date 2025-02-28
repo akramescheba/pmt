@@ -26,13 +26,14 @@
 
     <div class="conteneur-card-update">
         <div class="conteneur-list-projet">
-            <div class="card">
+            <div class="card-modif-projet">
                 <div *ngIf="selectedProject ">
+
                     <!-- Formulaire de modification des projets -->
                     <form (ngSubmit)="updateProject()" class="card-body">
-                        <hr>
+                        <label for="titre" class="card-title"><b>Modifier le projet</b></label>
                         <div class="form-group">
-                            <label for="nom" class="card-title">Titre</label>
+                            <label for="nom" class="card-nom"><b>Nom du projet</b></label>
                             <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom" required />
 
                             <div class="form-date">

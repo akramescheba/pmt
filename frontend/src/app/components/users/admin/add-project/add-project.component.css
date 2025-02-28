@@ -1,4 +1,4 @@
-.pleine-page{
+.pleine-page {
     background-image: url('/assets/projet.png');
     background-size: 45%;
     background-position: center;
@@ -9,19 +9,21 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
 /* Styles global du formulaire d'affichage */
 
 .card-display-page {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-height:60vh;
+    min-height: 60vh;
 }
 
-.contenaire-card{
+.contenaire-card {
     height: max-content;
     padding: 5px;
 }
+
 /* Styles de la carte */
 .card {
     border: 1px solid #0011ff2d;
@@ -44,13 +46,14 @@
     padding: 10px;
     color: black;
 }
-.card-text-description{
-        font-family: 'Arial, Helvetica, sans-serif';
-        font-size: 1rem;
-        height: 150px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: #161616;
+
+.card-text-description {
+    font-family: 'Arial, Helvetica, sans-serif';
+    font-size: 1rem;
+    height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #161616;
 }
 
 .card-title {
@@ -66,15 +69,20 @@
 
 /* Styles global du formulaire de modification */
 .conteneur-card-update {
-    text-align: justify;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.884);
+    border: 1 ;
     border-radius: 2px;
 }
-
+.card-modif-projet {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    padding: 3px;
+    border: 1px solid #03030323;
+    border-radius: 2px;
+    /* box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105); */
+    background-color: #e7dddd31;
+    
+}
 .conteneur-list-projet {
     height: max-content;
     padding: 10px;
@@ -85,11 +93,12 @@
 /* Styles de la largeur et du décalage de la carte */
 .card-body {
     padding: 10px;
-    width: 440px;
+    width: 450px;
 
 }
- .card-title {
-    color: #003;
+
+.card-title {
+    color: rgba(0, 0, 51, 0.959);
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -100,18 +109,31 @@
 .form-date {
     display: flex;
     gap: 10px;
-    
+
 }
 
 /* Styles des paragraphes, select et input */
-input[type=text], input[type=date], select, textarea {
+input[type=text], input[type=date], select {
     width: 100%;
-    padding: 10px;
-    margin: 0 2px 1px 0;
-    display: flex;
-    border: 1px solid #0011ff2d;
-    border-radius: 1px;
-    background: #f1f1f155;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+
+}
+textarea{
+    min-height: 20vh;
+    width: 100%;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
 input[type=text] :focus {
@@ -144,8 +166,10 @@ input[type=text] :focus {
 .contente-button {
     display: flex;
     gap: 10px;
+    padding: 10px;
     /* background-color: red; */
 }
+
 
 .btn-faTrashCan {
     width: 8vw;
@@ -171,7 +195,7 @@ input[type=text] :focus {
 
 .btn-modifier-le-projet {
     width: 100%;
-    background-color:#00c3ff;
+    background-color: #00c3ff;
     color: white;
     /* cursor: none; */
     padding: 5px;
@@ -182,7 +206,7 @@ input[type=text] :focus {
 
 
 .btn-save {
-    background-color:  #00d42a;
+    background-color: #00d42a;
     color: white;
     cursor: pointer;
     padding: 5px;
@@ -195,8 +219,8 @@ input[type=text] :focus {
 .btn-annule {
     background-color: #ffae00;
     color: white;
-    cursor:pointer;
-    padding: 5px ;
+    cursor: pointer;
+    padding: 5px;
     width: 8vw;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;

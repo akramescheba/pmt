@@ -6,8 +6,7 @@
     padding: 10px;
     cursor: pointer;
     width: 300px;
-    opacity: 0.9;
-    display:flex;
+    display: flex;
     gap: 20px;
     justify-content: center;
     align-items: center;
@@ -37,12 +36,14 @@
 }
 
 .modal-content {
-    text-align: justify;
-    margin: 4px 0 8px 0;
-    padding: 10px;
-    border: 1px solid #f1f1f1;
-    border-radius: 2px;
-    /* background-color: #0000FF; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
+    padding: 5px;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    background-color: #dddddde1;
+
 }
 
 input[type=text], input[type=email], input[type=password]{
@@ -51,8 +52,9 @@ input[type=text], input[type=email], input[type=password]{
     margin: 1px 0 5px 0;
     display: inline-block;
     background: #f1f1f1;
-    border: 1px solid #f1f1f1;
-    border-radius: 2px;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
 input[type=text]:focus, input[type=password]:focus , input[type=email]:focus {
@@ -69,19 +71,34 @@ hr {
 .btn-submit {
     background-color: #0000FF;
     color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
+    margin: 8px auto;
+    padding: 10px;
     cursor: pointer;
     width: 100%;
-    opacity: 0.9;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 select[type=role] {
-    text-transform: uppercase;
     width: 100%;
-    padding: 10px;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
     display: inline-block;
-    border: none;
     background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }

@@ -1,14 +1,14 @@
 /*  Styles du contenaire formulaire-inscription */
 .formulaire-inscription {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1rem;
     border: 2px solid #0000FF;
-    border-radius: 2px;
-    padding: 0 30px;
-    height: 85vh;
-    width: 60vh;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    padding: 50px 30px;
+    background-color: white;
+    height:  100%;
+    width:  60vh;
 }
 
 /*Styles du titre */
@@ -21,11 +21,16 @@ h1 {
 
 /* Styles des input */
 input[type=text], input[type=login], input[type=password], select[type=role] {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2rem;
     width: 100%;
-    padding: 15px;
-    border-radius: 2px;
-    border: 1px solid #2c09f32d;
-    background: #f1f1f155;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
 /* Styles focus: gère la couleur lorsqu'on clique dans le champ input,
@@ -48,11 +53,29 @@ hr {
 .btn-inscription {
     background-color: #0000FF;
     color: white;
-    padding: 15px;
-    border: none;
+    margin: 8px auto;
+    padding: 10px;
     cursor: pointer;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+input::placeholder {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 /* Style Créer un nouveau compte et Mot de passe oublié?*/
 a.btn-se-connecter, .mdp-oublie {

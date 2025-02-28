@@ -31,13 +31,13 @@ export class HistoriquesComponent implements OnInit {
   loadHistory(){
     this.appService.getHistory().subscribe((history) => {
       this.projectHistory = history;
-      console.log(history)
+      // console.log(history)
     })
   }
 
   deleteHistory(id:number){
     this.appService.deleteHistory(id).subscribe((response) => {
-      console.log(response)
+      // console.log(response)
       this.loadHistory();
     })
   }

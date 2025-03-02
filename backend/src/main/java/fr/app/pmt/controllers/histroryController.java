@@ -21,7 +21,7 @@ import fr.app.pmt.models.History;
 import fr.app.pmt.services.HistoryService;
 
 @RestController
-@CrossOrigin(origins="https://vivacious-acceptance-production.up.railway.app/")
+@CrossOrigin(origins="https://angular-frontend.up.railway.app/")
 
 public class histroryController {
 	

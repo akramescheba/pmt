@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AppService {
-
-  // private apiUrl = environment.apiUrl;
   private  urlApiProject = 'https://spring-boot-backend.up.railway.app/projet';
   private urlApiUsers = 'https://spring-boot-backend.up.railway.app/utilisateur';  
   private urlApiHistory = 'https://spring-boot-backend.up.railway.app/historique';

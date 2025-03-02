@@ -21,7 +21,7 @@ import fr.app.pmt.services.UserService;
 
 @RestController
 //@RequestMapping("/utilisateur")
-@CrossOrigin(origins="https://vivacious-acceptance-production.up.railway.app/", allowedHeaders = "*")
+@CrossOrigin(origins="https://angular-frontend.up.railway.app/", allowedHeaders = "*")
 
 public class userController {
 	

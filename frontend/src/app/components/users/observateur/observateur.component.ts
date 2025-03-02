@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {DashboardComponent} from '../../pages/dashboard/dashboard.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -9,7 +10,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-observateur',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, HttpClientModule],
+  imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent],
   templateUrl: './observateur.component.html',
   styleUrl: './observateur.component.css',
   providers: [AppService, AuthService],
@@ -18,17 +19,21 @@ export class ObservateurComponent implements OnInit {
 
   faUser = faUser;
 
+  selectedProject: any =null
   projectList: any[] = [];
+  isDisplayButton: boolean = false;
 
   constructor(
     private http: HttpClient,
     private appService: AppService,
     private authService: AuthService
   ) {}
-  // Methode permettant d'afficher les historiques
-
+  // Methode permettant d'afficher les ou decativer des boutons 
   onClickVoirHistorique() {
     this.appService.onClickVoirHistorique()
+  }
+  cancelButton() {
+    this.isDisplayButton = !this.isDisplayButton;
   }
   //Récupération du nom de l'utilisateur connecté depuis le LocalStorage.
   userNom = this.authService.getNom();
@@ -42,5 +47,8 @@ export class ObservateurComponent implements OnInit {
       (result) => (this.projectList = result),
       (error) => console.error(error)
     );
+  }
+  selectProject(project: any){
+    this.selectedProject={...project};
   }
 }

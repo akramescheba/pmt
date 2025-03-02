@@ -1,0 +1,2 @@
+- Pour lancer le cicd, verifier dans le fichier ci.yml que le port utilisé est bien 3308,
+- Vérifier que les secrets sont bien définis 

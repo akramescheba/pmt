@@ -1,16 +1,16 @@
 //Import des librairies et composants
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import {
   ReactiveFormsModule,
   FormsModule,
   FormBuilder,
   FormGroup,
   Validators,
-} from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+} from "@angular/forms";
+import { RouterOutlet } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
   faUser,
   faPenToSquare,
@@ -18,14 +18,14 @@ import {
   faSave,
   faArrowsRotate,
   faTrashCan,
-} from '@fortawesome/free-solid-svg-icons';
-import { ModalComponent } from '../../pages/modal/modal.component';
-import { AppService } from '../../services/app.service';
-import { AuthService } from '../../auth/auth.service';
-import { ToastrService } from 'ngx-toastr';
+} from "@fortawesome/free-solid-svg-icons";
+import { ModalComponent } from "../../pages/modal/modal.component";
+import { AppService } from "../../services/app.service";
+import { AuthService } from "../../auth/auth.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-membre',
+  selector: "app-membre",
   standalone: true,
   imports: [
     CommonModule,
@@ -35,13 +35,12 @@ import { ToastrService } from 'ngx-toastr';
     HttpClientModule,
     ModalComponent,
   ],
-  templateUrl: './membre.component.html',
-  styleUrl: './membre.component.css',
+  templateUrl: "./membre.component.html",
+  styleUrl: "./membre.component.css",
   providers: [AppService, AuthService],
 })
 export class MembreComponent implements OnInit {
-
-  faUser = faUser 
+  faUser = faUser;
 
   isDisplayButton: boolean = false;
   isDisplayCard: boolean = false;
@@ -49,7 +48,7 @@ export class MembreComponent implements OnInit {
   // Methode permettant d'afficher les historiques
 
   onClickVoirHistorique() {
-    this.appService.onClickVoirHistorique()
+    this.appService.onClickVoirHistorique();
   }
 
   // Méthode permettant de switcher entre les boutons Edit et Save.
@@ -97,7 +96,7 @@ export class MembreComponent implements OnInit {
       },
       (error) => {
         console.error(error);
-        this.toastr.error('Impossible de charger les projets.');
+        this.toastr.error("Impossible de charger les projets.");
       }
     );
   }
@@ -116,18 +115,17 @@ export class MembreComponent implements OnInit {
 
       this.appService.patchProject(projectId, patchData).subscribe(
         (result) => {
-          console.log(result);
           this.toastr.success(
             `Le projet ${this.selectedProject.nom} a été mis à jour.`,
-            '',
-            { timeOut: 3000, positionClass: 'toast-bottom-right' }
+            "",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
           );
           this.loadProjects();
           this.selectedProject = null;
         },
         (error) => {
           console.error(error);
-          this.toastr.error('Erreur lors de la mise à jour du projet.');
+          this.toastr.error("Erreur lors de la mise à jour du projet.");
         }
       );
     }
@@ -135,6 +133,38 @@ export class MembreComponent implements OnInit {
       `Le projet << ${this.selectedProject.nom} >> a été mise à jour`,
       `${this.userNom} `,
       `${this.userRole} `
+    );
+  }
+
+  // Supprimer un  projet
+  deleteProject(): void {
+    if (this.selectedProject) {
+      const projectId = this.selectedProject.id;
+      const projecName = this.selectedProject.nom;
+
+      this.appService.deleteProject(projectId).subscribe(
+        (result) => {
+          console.log(result);
+          this.toastr.success(
+            `Le projet ${this.selectedProject.nom} a été supprimé.`,
+            "",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
+          );
+          this.loadProjects();
+          this.selectedProject = null;
+        },
+        (error) => {
+          console.error(error);
+          this.toastr.error("Erreur lors de la suppression.");
+        }
+      );
+    }
+
+    // Création de l'evenement delete dans l'historique;
+    this.appService.logAction(
+      `Le projet << "${this.selectedProject.nom}" >> a été supprimé`,
+      `${this.userRole}`,
+      `${this.userNom}`
     );
   }
 

@@ -15,7 +15,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-height:62vh;
+    min-height: 87vh;
 }
 
 .contenaire-card {
@@ -71,18 +71,8 @@
 
 }
 
-.conteneur-button {
-    display: flex;
-    margin-bottom: 1px;
-    padding-top: 5px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .btn-modifier-le-user {
-    width: 80%;
+    width: 100%;
     background-color: #0000ff;
     color: white;
     padding: 5px;
@@ -92,31 +82,36 @@
 }
 
 /* Styles global de la carte */
-.conteneur-card {
-    text-align: justify;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 5px;
-    border-radius: 2px;
-    font-family: 'Arial, Helvetica, sans-serif';
-    min-height: 50vh;
-}
 
 /* Styles de la carte */
+.conteneur-list-user{
+    margin: 50px auto;
+    height: max-content;
+}
 .card {
-    border: 1px solid #0000002d;
+
+    border: 1px solid #0011ff2d;
     border-radius: 2px;
-    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+    opacity: 95%;
+
+}
+
+.card-body{
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-family: 'Arial, Helvetica, sans-serif';
+    font-size: 1.3rem;
+    padding: 5px;
+    width: 350px;
+    background-color: #0044ff0a;
 }
 
 
-
-
-/* Styles des paragraphes, select et input */
-input[type=text], input[type=email],  select.role{
+/* Styles du formulaire de modification des users
+Style des input et select */
+input[type=text], input[type=email], input[type=password],  select.role{
     width: 100%;
     padding: 10px;
     margin: 0 10px 1px 0;
@@ -126,7 +121,7 @@ input[type=text], input[type=email],  select.role{
     background: #f1f1f155;
     
 }
-input[type=text]:focus, input[type=email]:focus, select.role:focus {
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, select.role:focus {
     background-color: #ddd;
     outline: none;
 }
@@ -147,32 +142,32 @@ select>option:hover{
 /* Styles des boutons et icones */
 .conteneur-button {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding-top: 10px;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
+
 }
 
 .btn-faTrashCan {
     background-color: red;
     color: white;
     cursor:pointer;
-    padding: 5px ;
+    padding:5px 15px ;
     border: 1px solid #f1f1f1;
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.616);
 }
 
 .btn-faArrowsRotate{
     background-color: #0000FF;
     color: white;
     cursor:pointer;
-    padding: 5px ;
+    padding:5px 15px ;
     border: 1px solid #f1f1f1;
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.616);
 }
 
 

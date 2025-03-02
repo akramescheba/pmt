@@ -15,7 +15,7 @@
                         </i>
                     </div>
                     <div class="conteneur-button">
-                        <button type="button" class="btn-voir-details" (click)="cancelButton()">
+                        <button type="button" class="btn-voir-plus" (click)="cancelButton()">
                             Voir plus...
                         </button>
                     </div>
@@ -61,13 +61,15 @@
                             <label for="description"><b>Description</b></label>
                             <p id="description" name="description">{{selectedProject.description}}</p>
 
-                            <label for="status"><div>Statut</div></label>
-                           <div> date debut
-                            <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut"
-                            name="dateDebut" [disabled]="true" />
-                           </div>
-                            <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin"
-                            name="dateFin" [disabled]="true" />
+                            <label for="status">
+                                <div>Statut</div>
+                            </label>
+                            <div> date debut
+                                <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut"
+                                    name="dateDebut" [disabled]="true" />
+                            </div>
+                            <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin" name="dateFin"
+                                [disabled]="true" />
                             <input type="text" class="statut" [(ngModel)]="selectedProject.statut" name="statut"
                                 [disabled]="true" />
 

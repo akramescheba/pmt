@@ -33,8 +33,9 @@
 
                     <form class="card-body" (ngSubmit)="updateUser()">
                         <!-- <h1 class="card-title" [(ngModel)]="selectedUser.id"></h1> -->
-
-                        <label for="nom"></label>
+                        <label for="titre" class="card-title"><b>Modifier le projet</b></label>
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
                         <input id="nom" type="text" [(ngModel)]="selectedUser.nom" name="nom" required>
                         <label for="email">Email</label>
                         <input id="email" type="email" [(ngModel)]="selectedUser.email" name="email" required>
@@ -44,13 +45,18 @@
                             <option value="Membre">Membre</option>
                             <option value="Administrateur">Administrateur</option>
                         </select>
+
+                        <label for="password">Mot de passe</label>
+                        <input id="password" type="password" [(ngModel)]="selectedUser.password" name="password " required>
+                        </div>
+                        
                         <hr>
                         <div class="conteneur-button">
                             <button type="button" class="btn-faArrowsRotate" (click)="updateUser()">
-                                Upload <fa-icon [icon]="faArrowsRotate" ></fa-icon>
+                                Mettre à jour <fa-icon [icon]="faArrowsRotate" ></fa-icon>
                             </button>
                             <button type="button" class="btn-faTrashCan" (click)="deleteUsers()" >
-                                Delete
+                                Supprimer
                                 <fa-icon [icon]="faTrashCan"></fa-icon>
                             </button>
                         </div>

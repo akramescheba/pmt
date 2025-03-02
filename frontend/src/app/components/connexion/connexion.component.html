@@ -7,8 +7,8 @@
             <label for="Identifiant"><b>Identifiant</b></label>
             <input formControlName="email" type="text" placeholder="Veillez saisir votre identifiant" name="identifiant"
                 id="identifiant" required>
-    
-    
+
+
             <label for="psw"><b>Mot de passe</b></label>
             <input formControlName="psw" type="password" placeholder="Veillez saisir votre mot de passe " name="psw"
                 id="psw" required>
@@ -18,6 +18,9 @@
         </div>
         <hr>
         <button type="submit" class="btn-connexion">Connection</button>
+        <div class="guard">
+            <img src="assets/secu.jpg" alt="guard">
+        </div>
         <p>Vous n'avez pas de compte?
             <a type="button" class="btn-nouveau-compte" (click)="switchToSignUp()">
                 ➡️S'inscrire

@@ -88,7 +88,7 @@ export class AddUserComponent implements OnInit {
       const userData = { ...this.selectedUser };
       this.appService.patchUsers(userId, userData).subscribe(
         (user) => {
-          console.log(user);
+          // console.log(user);
           this.toastr.success(
             `L'utilisateur ${this.selectedUser.nom} modifié avec succès`,
             'Modification utilisateur',

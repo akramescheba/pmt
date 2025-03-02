@@ -122,7 +122,7 @@ export class AddProjectComponent implements OnInit {
 
   }
 
-    // Mise à jour du  projet
+    // Supprimer un  projet
     deleteProject(): void {
       if (this.selectedProject) {
         const projectId = this.selectedProject.id;

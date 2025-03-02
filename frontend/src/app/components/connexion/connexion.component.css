@@ -5,10 +5,10 @@
     border: 2px solid #0000FF;
     border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    padding: 50px 30px;
+    padding: 20px 30px;
     background-color: white;
     height:  100%;
-    width:  100%;
+    width:  450px;
 }
 
 /*Styles du titre */
@@ -79,7 +79,16 @@ p {
 input::placeholder {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.guard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+img{
 
+    width: 150px;
+}
 /* Style Créer un nouveau compte et Mot de passe oublié?*/
 a.btn-nouveau-compte, .mdp-oublie {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

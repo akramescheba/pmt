@@ -70,15 +70,15 @@
 
                         <div class="contente-button">
 
-                            <button class="btn-save" type="submit" (click)=" editingCard() ">
-                                Save <fa-icon [icon]="faPenToSquare"></fa-icon>
+                            <button class="btn-edit" type="submit" (click)=" editingCard() ">
+                                Valider <fa-icon [icon]="faPenToSquare"></fa-icon>
                             </button>
-                            <button type="button" class="btn-annule">
+                            <button type="button" class="btn-annule" (click)="cancelEdit()">
                                 Annuler
                             </button>
                             <button type="button" class="btn-faTrashCan" (click)="deleteProject()">
 
-                                Delete <fa-icon [icon]="faTrashCan"></fa-icon>
+                                Supprimer <fa-icon [icon]="faTrashCan"></fa-icon>
                             </button>
                         </div>
 

@@ -66,7 +66,6 @@
 
 }
 
-
 /* Styles global du formulaire de modification */
 .conteneur-card-update {
     background-color: rgba(255, 255, 255, 0.884);
@@ -124,6 +123,10 @@ input[type=text], input[type=date], select {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 
 }
+input[type=text] :focus {
+    background-color: #ddd;
+    outline: none;
+}
 textarea{
     min-height: 20vh;
     width: 100%;
@@ -136,10 +139,7 @@ textarea{
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-input[type=text] :focus {
-    background-color: #ddd;
-    outline: none;
-}
+
 
 
 .form-label {
@@ -195,7 +195,7 @@ input[type=text] :focus {
 
 .btn-modifier-le-projet {
     width: 100%;
-    background-color: #00c3ff;
+    background-color:#0000FF;
     color: white;
     /* cursor: none; */
     padding: 5px;
@@ -205,16 +205,7 @@ input[type=text] :focus {
 }
 
 
-.btn-save {
-    background-color: #00d42a;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    width: 8vw;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
+
 
 .btn-annule {
     background-color: #ffae00;

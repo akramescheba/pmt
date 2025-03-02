@@ -1,0 +1,60 @@
+# Maven
+/main/resources/application.properties
+/main/resources/application-dev.properties
+
+# Gradle
+.gradle/
+/build/
+
+# Intellij IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Maven wrapper
+/mvnw
+/mvnw.cmd
+/.mvn/
+
+# Java Class Files
+*.class
+
+# JAR and WAR files
+*.jar
+*.war
+*.ear
+
+
+
+# Temporary files
+*.bak
+*.swp
+*.swo
+
+# Files from IDE (like JetBrains)
+*.sublime-project
+*.sublime-workspace
+
+# Files from Node.js, if you use for front-end
+node_modules/
+
+yarn.lock
+
+# Docker files
+.docker/
+
+# Ignore sensitive configuration files (e.g. credentials)
+secrets/
+*.pem
+*.key
+*.crt

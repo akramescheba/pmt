@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class AppService {
 
-
-  private  urlApiProject = 'http://localhost:8081/projet';
-  private urlApiUsers = 'http://localhost:8081/utilisateur';
-  private urlApiHistory = 'http://localhost:8081/historique';
+  // private apiUrl = environment.apiUrl;
+  private  urlApiProject = 'https://strong-dedication-production.up.railway.app/projet';
+  private urlApiUsers = 'https://strong-dedication-production.up.railway.app/utilisateur';  
+  private urlApiHistory = 'https://strong-dedication-production.up.railway.app/historique';
 
   // private  urlApiProject = environment.API_BASE_PROJECT_URL;
   // private urlApiUsers =  environment.API_BASE_USER_URL;

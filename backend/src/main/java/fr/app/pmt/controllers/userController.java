@@ -21,7 +21,7 @@ import fr.app.pmt.services.UserService;
 
 @RestController
 //@RequestMapping("/utilisateur")
-@CrossOrigin(origins="https://strong-dedication-production.up.railway.app")
+@CrossOrigin(origins="https://strong-dedication-production.up.railway.app", allowedHeaders = "*")
 
 public class userController {
 	
@@ -39,6 +39,7 @@ public class userController {
 		Users users = userService.findById(id);
 		
 		if(users==null) {
+			
 			
 		}return users;
 	}

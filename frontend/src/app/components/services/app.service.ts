@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 export class AppService {
 
   // private apiUrl = environment.apiUrl;
-  private  urlApiProject = 'https://strong-dedication-production.up.railway.app/projet';
-  private urlApiUsers = 'https://strong-dedication-production.up.railway.app/utilisateur';  
-  private urlApiHistory = 'https://strong-dedication-production.up.railway.app/historique';
+  private  urlApiProject = 'https://spring-boot-backend.up.railway.app/projet';
+  private urlApiUsers = 'https://spring-boot-backend.up.railway.app/utilisateur';  
+  private urlApiHistory = 'https://spring-boot-backend.up.railway.app/historique';
 
   // private  urlApiProject = environment.API_BASE_PROJECT_URL;
   // private urlApiUsers =  environment.API_BASE_USER_URL;

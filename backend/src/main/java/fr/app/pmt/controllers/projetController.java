@@ -21,7 +21,7 @@ import fr.app.pmt.services.ProjetService;
 import jakarta.persistence.EntityExistsException;
 
 @RestController
-@CrossOrigin(origins = "https://strong-dedication-production.up.railway.app")
+@CrossOrigin(origins = "https://vivacious-acceptance-production.up.railway.app/")
 public class projetController {
 
   @Autowired

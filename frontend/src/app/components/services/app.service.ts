@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environment/environment';
+import { dev_environment } from '../../../environment/environment.dev';
+import { prod_environment } from '../../../environment/environment.prod';
 import { Router } from '@angular/router';
 
 
@@ -11,13 +12,11 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AppService {
-  private  urlApiProject = 'https://spring-boot-backend.up.railway.app/projet';
-  private urlApiUsers = 'https://spring-boot-backend.up.railway.app/utilisateur';  
-  private urlApiHistory = 'https://spring-boot-backend.up.railway.app/historique';
 
-  // private  urlApiProject = environment.API_BASE_PROJECT_URL;
-  // private urlApiUsers =  environment.API_BASE_USER_URL;
-  // private urlApiHistory =  environment.API_BASE_HISTORY_URL;
+  private  urlApiProject = `${prod_environment. API_BD_URL}/projet`;
+  private urlApiUsers = `${prod_environment. API_BD_URL}/utilisateur`; 
+  private urlApiHistory = `${prod_environment. API_BD_URL}/historique`;
+
 
   constructor( 
     private http: HttpClient,

@@ -20,8 +20,8 @@ import fr.app.pmt.models.Users;
 import fr.app.pmt.services.UserService;
 
 @RestController
-//@RequestMapping("/utilisateur")
-@CrossOrigin(origins="https://angular-frontend.up.railway.app/", allowedHeaders = "*")
+// @RequestMapping("/utilisateur")
+@CrossOrigin(origins={"https://angular-frontend.up.railway.app/",  "http://localhost:4200"},  allowedHeaders = "*")
 
 public class userController {
 	

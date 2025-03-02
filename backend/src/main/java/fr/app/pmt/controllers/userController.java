@@ -23,7 +23,7 @@ import fr.app.pmt.services.UserService;
 
 @RestController
 //@RequestMapping("/utilisateur")
-@CrossOrigin(origins="http://localhost:4200/")
+@CrossOrigin(origins="https://strong-dedication-production.up.railway.app/")
 
 public class userController {
 	

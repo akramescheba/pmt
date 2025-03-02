@@ -20,8 +20,6 @@
     border: 1px solid #0000002d;
     border-radius: 2px;
     margin: 5px;
-    
-
 }
 
 .card-body-display {
@@ -55,13 +53,12 @@
     font-style: italic;
 }
 .user-nom-i, .user-role-i{
-   
     color: rgb(139, 110, 91);
     font-size: .8rem;
 }
 
 .col-1{
-    width: 10%;
+    width: 5%;
     /* background-color: red; */
     align-items: center;
     justify-content: center;
@@ -88,3 +85,22 @@
     cursor: pointer;
 }
 
+@media screen and (min-width:425px) and (max-width:796px) {
+    .card{
+        padding: 0px auto ;
+
+    }
+    .card-body-display {
+        padding: 1px;
+        max-width: 450px;
+    }
+    .col{
+        margin: 8px;
+    }
+    p>i{
+        font-size: 0.7rem;
+    }
+    fa-icon{
+        font-size: 1.2rem;
+    }
+}

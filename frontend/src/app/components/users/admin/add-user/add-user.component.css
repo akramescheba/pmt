@@ -178,7 +178,7 @@ select>option:hover{
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.616);
 }
 
-@media screen and (min-width:325px) and (max-width:796px) {
+@media screen and (min-width:425px) and (max-width:796px) {
     /* Styles global du formulaire d'affichage */
 .pleine-page{
     display: flex;
@@ -194,6 +194,35 @@ select>option:hover{
         width: 100%;
         background-color: #0044ff0a;
     }
+}
+
+@media screen and (min-width:400px) and (max-width:796px) {
+    .card{
+        padding: 0px auto ;
+
+    }
+    .card-body {
+        padding: 1px;
+        max-width: 400px;
+    }
+
+/* Styles des boutons et icones */
+.conteneur-button {
+    display: flex;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-faTrashCan, .btn-faArrowsRotate {
+    width: 40%;
+    font-size: 1rem;
+}
+
+
 }
 
 

@@ -233,7 +233,7 @@ textarea {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-@media screen and (min-width:425px) and (max-width:796px) {
+@media screen and (min-width:325px) and (max-width:796px) {
     .contente-button {
         margin: 0 auto;
     }

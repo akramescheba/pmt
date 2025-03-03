@@ -158,20 +158,10 @@ textarea {
     color: #666;
 }
 
-
-/* Styles des boutons et icones */
-.conteneur-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: red; */
-}
-
 .contente-button {
     display: flex;
-    gap: 10px;
-    padding: 10px;
-    /* background-color: red; */
+    gap: 5px;
+    padding: 5px;
 }
 
 
@@ -280,40 +270,22 @@ textarea {
         padding: 1px;
         max-width: 400px;
     }
-/* Styles des paragraphes, select et input */
-input[type=text], input[type=date], select {
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 
-}
-
-input[type=text] :focus {
-    background-color: #ddd;
-    outline: none;
-}
 /* Styles dates */
 .form-date {
-
     gap: 5px;
 
 }
 
 textarea {
     min-height: 10vh;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
+
+
+
+.btn-faTrashCan, .btn-edit, .btn-annule {
+    width: 100%;
+}
+
 
 }

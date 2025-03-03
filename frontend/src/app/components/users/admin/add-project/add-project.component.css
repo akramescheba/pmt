@@ -80,7 +80,7 @@
     border: 1px solid #03030323;
     border-radius: 2px;
     /* box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105); */
-    background-color: #e7dddd31;
+    background-color: #f1f1f1;
 
 }
 
@@ -93,8 +93,8 @@
 
 /* Styles de la largeur et du décalage de la carte */
 .card-body {
-    padding: 10px;
-    width: 450px;
+    padding: 5px;
+    width: 100%;
 
 }
 
@@ -233,7 +233,7 @@ textarea {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-@media screen and (min-width:325px) and (max-width:796px) {
+@media screen and (min-width:425px) and (max-width:796px) {
     .contente-button {
         margin: 0 auto;
     }
@@ -270,4 +270,50 @@ textarea {
         border-radius: 2px;
         box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
     }
+}
+@media screen and (min-width:400px) and (max-width:424px) {
+    .card{
+        padding: 0px auto ;
+
+    }
+    .conteneur-card-update {
+        padding: 1px;
+        max-width: 400px;
+    }
+/* Styles des paragraphes, select et input */
+input[type=text], input[type=date], select {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+
+}
+
+input[type=text] :focus {
+    background-color: #ddd;
+    outline: none;
+}
+/* Styles dates */
+.form-date {
+
+    gap: 5px;
+
+}
+
+textarea {
+    min-height: 10vh;
+    width: 100%;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
 }

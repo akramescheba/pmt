@@ -104,3 +104,23 @@
         font-size: 1.2rem;
     }
 }
+
+@media screen and (min-width:400px) and (max-width:424px) {
+    .card{
+        padding: 0px auto ;
+
+    }
+    .card-body-display {
+        padding: 1px;
+        max-width: 300px;
+    }
+    .col{
+        margin: 8px;
+    }
+    p>i{
+        font-size: 0.7rem;
+    }
+    fa-icon{
+        font-size: 1.2rem;
+    }
+}

@@ -87,7 +87,7 @@ input::placeholder {
 }
 img{
 
-    width: 150px;
+    width: 120px;
 }
 /* Style Créer un nouveau compte et Mot de passe oublié?*/
 a.btn-nouveau-compte, .mdp-oublie {
@@ -97,4 +97,30 @@ a.btn-nouveau-compte, .mdp-oublie {
     border: none;
     margin: 5px auto;
     text-decoration: none;
+}
+
+@media screen and (min-width:400px) and (max-width:796px) {
+    .image-home {
+        display: none;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(20, 5, 158);
+    }
+.formulaire-connexion{
+        margin: 0 ;
+        border: 1px solid rgb(148, 148, 148);
+        border-radius: 5px;
+        width: 400px;
+        
+}
+
+
+
 }

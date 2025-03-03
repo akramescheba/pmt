@@ -9,8 +9,17 @@
     background-color: white;
     height:  100%;
     width:  450px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+.input-controle{
 
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2rem;
+}
 /*Styles du titre */
 h1 {
     color: #003;
@@ -83,4 +92,31 @@ a.btn-se-connecter, .mdp-oublie {
     color: dodgerblue;
     border: none;
     text-decoration: none;
+}
+@media screen and (min-width:400px) and (max-width:796px) {
+    .image-home {
+        display: none;
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(20, 5, 158);
+    }
+ /*Styles du titre */
+h1 {
+    color: #003;
+    text-align: center;
+}
+.formulaire-inscription{
+        margin: 0 ;
+        border: 1px solid rgb(148, 148, 148);
+        border-radius: 5px;
+        width: 400px;
+        
+}
 }

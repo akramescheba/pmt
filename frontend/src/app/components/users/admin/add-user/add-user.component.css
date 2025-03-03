@@ -82,6 +82,7 @@
     width: 100%;
     background-color: #0000ff;
     color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 5px;
     border: 1px solid #f1f1f1;
     border-radius: 2px;
@@ -187,6 +188,7 @@ select>option:hover{
    flex-direction: column;
     margin: 0 auto;
 }
+
     .card-body {
         font-family: 'Arial, Helvetica, sans-serif';
         font-size: 1.3rem;
@@ -196,22 +198,30 @@ select>option:hover{
     }
 }
 
-@media screen and (min-width:400px) and (max-width:425px) {
-    .conteneur-list-user{
+@media screen and (min-width:400px) and (max-width:424px) {
+
+    .card-edit-user {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        padding: 0px auto ;
-        max-width: 380px;
-
+        font-family: 'Arial, Helvetica, sans-serif';
+        font-size: 1.2rem;
+        padding: 10px;
+        background-color: #0044ff0a;
+        border: 1px solid #0011ff2d;
+        border-radius: 2px;
     }
     .card-body {
-        width: 100%;
+        font-family: 'Arial, Helvetica, sans-serif';
+        font-size: 1rem;
+        padding: 5px;
+        margin: 5px;
+        color: black;
+        background-color: #ffffff91;
     }
 
 .btn-faTrashCan, .btn-faArrowsRotate {
-    width: 40%;
+ 
     font-size: 1rem;
 }
 

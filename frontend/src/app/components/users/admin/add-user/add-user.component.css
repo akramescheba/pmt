@@ -196,26 +196,19 @@ select>option:hover{
     }
 }
 
-@media screen and (min-width:400px) and (max-width:796px) {
-    .card{
+@media screen and (min-width:400px) and (max-width:425px) {
+    .conteneur-list-user{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 0px auto ;
+        max-width: 380px;
 
     }
     .card-body {
-        padding: 1px;
-        max-width: 400px;
+        width: 100%;
     }
-
-/* Styles des boutons et icones */
-.conteneur-button {
-    display: flex;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
-
-}
 
 .btn-faTrashCan, .btn-faArrowsRotate {
     width: 40%;

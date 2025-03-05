@@ -98,6 +98,7 @@ jobs:
       - name: Push Backend Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/spring-boot-backend:v1
 
+# Phase de construction du frontend.
   build-frontend:
     runs-on: ubuntu-latest
     env:
@@ -114,10 +115,13 @@ jobs:
           key: npm-${{ hashFiles('frontend/package-lock.json') }}
           restore-keys: npm-
 
+# Installation des dépendances
+
       - name: Install Dependencies
         working-directory: frontend
         run: npm install
 
+# Phase de construction du projet frontend dans angular
       - name: Build Frontend
         working-directory: frontend
         run: npm run build --configuration=production
@@ -133,7 +137,7 @@ jobs:
         if: env.SKIP_TESTS != 'true'
         working-directory: frontend
         run: npm test -- --watch=false --browsers=ChromeHeadless
-# Phase de build du frontend
+# Phase de construction du docker image du frontend
       - name: Build Frontend Docker Image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend
 

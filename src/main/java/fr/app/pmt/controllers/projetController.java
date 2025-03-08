@@ -21,7 +21,8 @@ import fr.app.pmt.services.ProjetService;
 import jakarta.persistence.EntityExistsException;
 
 @RestController
-@CrossOrigin(origins = "https://angular-frontend.up.railway.app/")
+// @RequestMapping("/projet")
+@CrossOrigin(origins = {"https://angular-frontend.up.railway.app/" ,  "http://localhost:4200"},  allowedHeaders = "*")
 public class projetController {
 
   @Autowired

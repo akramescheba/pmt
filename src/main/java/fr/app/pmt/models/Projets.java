@@ -2,9 +2,6 @@ package fr.app.pmt.models;
 
 import java.time.LocalDate;
 
-import org.hibernate.annotations.BatchSize;
-
-import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

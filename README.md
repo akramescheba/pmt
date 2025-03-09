@@ -63,19 +63,53 @@ Verifiez l'installation avec la commande:
 
 ## Lancement du backend
 
-1. Créer un répertoire sur le bureau et ouvrez ce répertoire dans VS Code.
+1. Après avoir installé MySQL Workbench, crée un serveur sur le port 3306 comme sur l'image suivante : 
+![MySQL](https://github.com/user-attachments/assets/7e735cfd-fff5-4c0b-b7aa-658cc8520883)
+Veillez à bien remplir ces champs:
+
+- Connection name : Définier un nom pour la connection
+- Hostname : 127.0.0.1 ou localhost
+- Username : root
+- Password : Saisir le mot de passe que vous avez défini lors de l'installation de MySQL Workbench.
+
+Après avoir configuré la connection,clique sur le bouton Test de connection :
+
+![test de connexion](https://github.com/user-attachments/assets/a650eeb6-5ea7-483d-a068-dad87a93e457)
+
+La fenêtre ci-dessus s'affiche vous informant que le test de connection a réussie.
+
+Par la suite, vous devez accèder à la connection que vous venez de créer pour créer une nouvelle base des données, comme sur l'image suivante.
+
+![server](https://github.com/user-attachments/assets/3fb23178-27ff-42a1-86be-266379592df6)
+
+Une fois accedez à la connection, vous accedez à la page vous permettant de faire des requettes SQL.
+
+La requette suivante permet de créer une nouvelle base des données.
+
+
+```bash
+    CREATE DATABASE donnees  
+```
+
+![réation de database](https://github.com/user-attachments/assets/d670e76e-3d83-4f6b-9577-0f069f6605ab)
+
+Après l'exécution de la requette SQL, on observe l'apparition de la base des données "donnees" suite à sa création comme sur l'image suivante :
+![donnees](https://github.com/user-attachments/assets/e62b54b2-c095-4fe7-81ca-76886b213416)
+
+2.  Créer un répertoire sur le bureau et ouvrez ce répertoire dans VS Code.
 Cloner le projet avec la commande 
 
 
 ```bash
   git clone https://github.com/akramescheba/pmt
 ```
+3. Naviguez dans le dossier ressouces comme sur l'image et verifier que le profile activé et le profile dev comme sur l'image.
+![profil](https://github.com/user-attachments/assets/91e93c6d-cb0a-44a0-b812-100aac49ac44)
 
- 2. Naviguer vers le dossier backend, dans le terminal, puis lancer le script suivant:
+ 4. Ouvrez un nouveau Terminal à la racine du projet puis naviguez vers le dossier backend, et lancez le script suivant:
 
 ```bash
-   mvn spring-boot:run 
-  
+   mvn spring-boot:run  
 ```
 Ouvrez un navigateur et naviguer vers : [http://localhost:8081](http://localhost:8081). 
 
@@ -134,17 +168,17 @@ Ouvrez un navigateur et naviguer vers :
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `number` | Affichage des utilisateurs par ID|
+| `utilisateur/id`      | `string` | Affichage des utilisateurs par ID|
 
 #### GET de toutes les historiques
 
 ```http
- http://localhost:8081/historiques
+ http://localhost:8081/historique
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `historiques` | `string` | Liste de tous les historiques |
+| `historique` | `string` | Liste de tous les historiques |
 
 
 ## 🔗 Links

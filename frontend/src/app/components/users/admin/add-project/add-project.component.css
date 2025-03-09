@@ -71,6 +71,7 @@
     background-color: rgba(255, 255, 255, 0.884);
     border: 1;
     border-radius: 2px;
+    width: 450px;
 }
 
 .card-modif-projet {
@@ -131,7 +132,7 @@ input[type=text] :focus {
     outline: none;
 }
 
-textarea {
+textarea.description {
     min-height: 20vh;
     width: 100%;
     padding: 12px 14px;
@@ -144,6 +145,17 @@ textarea {
 }
 
 
+textarea.context {
+    min-height: 5vh;
+    width: 100%;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
 
 
 .form-label {
@@ -160,8 +172,11 @@ textarea {
 
 .contente-button {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     padding: 5px;
+
 }
 
 
@@ -227,7 +242,10 @@ textarea {
     .contente-button {
         margin: 0 auto;
     }
-
+    textarea.description {
+        min-height: 10vh;
+    }
+    
     .btn-faTrashCan {
         width: 100%;
         background-color: red;
@@ -277,11 +295,9 @@ textarea {
 
 }
 
-textarea {
+textarea.description {
     min-height: 10vh;
 }
-
-
 
 .btn-faTrashCan, .btn-edit, .btn-annule {
     width: 100%;

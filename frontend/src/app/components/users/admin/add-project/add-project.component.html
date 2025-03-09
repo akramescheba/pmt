@@ -49,13 +49,17 @@
                                 </div>
                             </div>
 
+                            <label for="context"><b>Context</b></label>
+                            <textarea class="context" [(ngModel)]="selectedProject.context" name="context"
+                                required ></textarea>
+
                             <label for="objectif"><b>Objectif</b></label>
                             <input type="text" id="objectif" [(ngModel)]="selectedProject.objectif" name="objectif"
                                 required />
 
                             <label for="description"><b>Description</b></label>
-                            <textarea id="description" [(ngModel)]="selectedProject.description"
-                                name="description"></textarea>
+                            <textarea class="description" [(ngModel)]="selectedProject.description"
+                                name="description" required ></textarea>
 
                             <label for="status"><b>Statut</b></label>
                             <select class="statut" [(ngModel)]="selectedProject.statut" name="statut">

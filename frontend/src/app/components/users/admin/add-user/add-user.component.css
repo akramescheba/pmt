@@ -93,17 +93,21 @@
 
 /* Styles de la carte */
 .conteneur-list-user{
-    margin: 50px auto;
+    margin: 10px auto;
     height: max-content;
 }
-.card {
 
-    border: 1px solid #0011ff2d;
-    border-radius: 2px;
+.conteneur-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px;
+    border-radius: 5px;
     padding: 5px;
     margin: 5px auto;
     color: black;
-    opacity: 95%;
+    opacity: 100%;
     min-width: 400px;
 
 }

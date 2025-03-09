@@ -134,17 +134,17 @@ Ouvrez un navigateur et naviguer vers :
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `utilisateur/id`      | `string` | Affichage des utilisateurs par ID|
+| `id`      | `number` | Affichage des utilisateurs par ID|
 
 #### GET de toutes les historiques
 
 ```http
- http://localhost:8081/historique
+ http://localhost:8081/historiques
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `historique` | `string` | Liste de tous les historiques |
+| `historiques` | `string` | Liste de tous les historiques |
 
 
 ## 🔗 Links

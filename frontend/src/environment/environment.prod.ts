@@ -1,4 +1,4 @@
 export const prod_environment = {
-  production: false,
+  production: true,
   API_BD_URL: "https://spring-boot-backend.up.railway.app",
 };

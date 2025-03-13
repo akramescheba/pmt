@@ -15,9 +15,9 @@ export class AppService {
 
 
   
-  private  urlApiProject = `${dev_environment. API_BD_URL}/projet`;
-  private urlApiUsers = `${dev_environment. API_BD_URL}/utilisateur`; 
-  private urlApiHistory = `${dev_environment. API_BD_URL}/historique`;
+  private  urlApiProject = `${prod_environment. API_BD_URL}/projet`;
+  private urlApiUsers = `${prod_environment. API_BD_URL}/utilisateur`; 
+  private urlApiHistory = `${prod_environment. API_BD_URL}/historique`;
 
 
   constructor( 

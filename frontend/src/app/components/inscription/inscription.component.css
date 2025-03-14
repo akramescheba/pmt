@@ -11,12 +11,6 @@
     width:  450px;
 }
 
-.input-controle {
-
-
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.2rem;
-}
 
 /*Styles du titre */
 h1 {
@@ -27,6 +21,12 @@ h1 {
 }
 
 /* Styles des input */
+
+.input-controle {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2rem;
+}
+
 input[type=text], input[type=login], input[type=password], select[type=role] {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.2rem;

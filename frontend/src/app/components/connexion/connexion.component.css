@@ -16,6 +16,8 @@ h1 {
     color: #003;
     text-align: center;
 }
+
+/* Styles des input */
 .input-controle{
     display: flex;
     flex-direction: column;
@@ -24,7 +26,7 @@ h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.2rem;
 }
-/* Styles des input */
+
 input[type=text], input[type=password] {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.2rem;
@@ -36,7 +38,9 @@ input[type=text], input[type=password] {
     border: 1px solid #7a7a7a;
     border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-
+}
+input::placeholder {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 /* Styles focus: gère la couleur lorsqu'on clique dans le champ input,
@@ -76,9 +80,7 @@ p {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-input::placeholder {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
+/* Image de sécurité */
 .guard{
     display: flex;
     justify-content: center;

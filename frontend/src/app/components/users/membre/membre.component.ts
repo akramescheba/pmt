@@ -19,7 +19,7 @@ import {
   faArrowsRotate,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-import { ModalComponent } from "../../pages/modal/modal.component";
+import { ModalComponent } from '../../formulaires/modal/modal.component';
 import { AppService } from "../../services/app.service";
 import { AuthService } from "../../auth/auth.service";
 import { ToastrService } from "ngx-toastr";
@@ -129,6 +129,7 @@ export class MembreComponent implements OnInit {
         }
       );
     }
+        // Création l'historique de mise à jour;
     this.appService.logAction(
       `Le projet << ${this.selectedProject.nom} >> a été mise à jour`,
       `${this.userNom} `,
@@ -136,7 +137,7 @@ export class MembreComponent implements OnInit {
     );
   }
 
-  // Supprimer un  projet
+  // Méthode de Supprission d'un projet
   deleteProject(): void {
     if (this.selectedProject) {
       const projectId = this.selectedProject.id;
@@ -144,7 +145,8 @@ export class MembreComponent implements OnInit {
 
       this.appService.deleteProject(projectId).subscribe(
         (result) => {
-          console.log(result);
+          // console.log(result);
+          //notification de suppression avec toastr
           this.toastr.success(
             `Le projet ${this.selectedProject.nom} a été supprimé.`,
             "",
@@ -160,7 +162,7 @@ export class MembreComponent implements OnInit {
       );
     }
 
-    // Création de l'evenement delete dans l'historique;
+    // Création l'historique de suppression;
     this.appService.logAction(
       `Le projet << "${this.selectedProject.nom}" >> a été supprimé`,
       `${this.userRole}`,

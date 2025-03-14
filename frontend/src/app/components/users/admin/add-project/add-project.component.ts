@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPenToSquare, faCirclePlus, faTrashCan, faSave, faArrowsRotate} from '@fortawesome/free-solid-svg-icons';
-import { ModalComponent } from '../../../pages/modal/modal.component';
+import { ModalComponent } from '../../../formulaires/modal/modal.component'
 import { AppService } from '../../../services/app.service';
 import {AuthService} from '../../../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';

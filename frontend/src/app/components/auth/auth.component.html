@@ -1,7 +1,6 @@
-<main class=" row">
-        <!-- Implementation des formulaire de connection & inscription en tant que composants-->
-        <div class="col">
+<main class=" authentification">
+        <!-- Importation des formulaires de connection & inscription en tant que composants-->
             <app-connexion *ngIf="!isSignUp"></app-connexion>
             <app-inscription *ngIf="isSignUp"></app-inscription>
-        </div>
+    
 </main>

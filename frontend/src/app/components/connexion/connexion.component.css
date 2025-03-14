@@ -99,8 +99,9 @@ a.btn-nouveau-compte, .mdp-oublie {
     text-decoration: none;
 }
 
-@media screen and (min-width:400px) and (max-width:796px) {
+@media screen  and (max-width:768px) {
 .formulaire-connexion{
+    background-color: red;
         margin: 0 auto;
         border: 1px solid rgb(148, 148, 148);
         border-radius: 5px;

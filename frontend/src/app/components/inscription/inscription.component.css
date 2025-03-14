@@ -93,20 +93,20 @@ a.btn-se-connecter, .mdp-oublie {
     text-decoration: none;
 }
 
-@media screen and (min-width:400px) and (max-width:796px) {
-
-    /*Styles du titre */
+    
+    @media screen  and (max-width:768px) {
+       
+    .formulaire-inscription {
+                margin: 0 auto;
+                border: 1px solid rgb(148, 148, 148);
+                border-radius: 5px;
+                width: 380px;
+                opacity: 90%;
+        }
+            /*Styles du titre */
     h1 {
         color: #003;
         text-align: center;
     }
 
-    .formulaire-inscription {
-        margin: 0 auto;
-        border: 1px solid rgb(148, 148, 148);
-        border-radius: 5px;
-        width: 380px;
-        opacity: 100%;
-
-    }
-}
+        }

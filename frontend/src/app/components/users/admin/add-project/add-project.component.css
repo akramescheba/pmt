@@ -170,26 +170,6 @@ textarea.context {
     color: #666;
 }
 
-.contente-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 5px;
-
-}
-
-
-.btn-faTrashCan {
-    width: 8vw;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
 
 
 
@@ -204,13 +184,20 @@ textarea.context {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
+.contente-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
 
+}
 .btn-valider {
-    width: 10vw;
+    width: 10wh;
+      padding: 5px 20px;
     background-color: #00d42a;
     color: white;
     cursor: pointer;
-    padding: 5px;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
@@ -220,15 +207,16 @@ textarea.context {
     background-color: #ffae00;
     color: white;
     cursor: pointer;
-    padding: 5px;
-    width: 10vw;
+    width: 10wh;
+      padding: 5px 20px;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
 .btn-supprimer {
-    width: 10vw;
+    width: 10wh;
+      padding: 5px 20px;
     background-color: #ff0000;
     color: white;
     cursor: pointer;
@@ -247,19 +235,6 @@ textarea.context {
     textarea.description {
         min-height: 10vh;
     }
-
-    .btn-edit {
-        width: 100%;
-        background-color: #00d42a;
-        color: white;
-        cursor: pointer;
-        padding: 5px;
-        border: 1px solid rgba(0, 0, 0, 0);
-        border-radius: 2px;
-        box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    }
-
-
 }
 
 /* Style pour les écrans de smartphones */
@@ -284,9 +259,8 @@ textarea.context {
         min-height: 10vh;
     }
 
-    .btn-faTrashCan, .btn-edit, .btn-annule {
-        width: 100%;
-    }
+
+
 
 
 }

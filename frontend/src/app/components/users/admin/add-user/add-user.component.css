@@ -238,7 +238,7 @@ select>option:hover{
     }
 
 .btn-maj .btn-annuler, .btn-supprimer  {
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 

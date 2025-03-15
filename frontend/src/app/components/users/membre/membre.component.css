@@ -1,20 +1,16 @@
-
-
-
-/* Styles global de toute la page */
 .pleine-page {
     background-image: url('/assets/projet.png');
-    background-size: 45%;
+    background-size: 50%;
     background-position: center;
-    margin:30px auto;
+    margin: 50px auto;
     background-repeat: no-repeat;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 /* Styles global du formulaire d'affichage */
-
 .card-display-page {
     display: flex;
     justify-content: center;
@@ -68,7 +64,6 @@
     margin: 10px;
 
 }
-/* Styles du mon de bienvenue*/
 .mot-de-bienvenu {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 2.8rem;
@@ -79,16 +74,8 @@
     margin: 20px;
 
 }
-.col-2{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-}
-
-/* Styles d'affichage du nom de profile  */
-.profile {
+.col-2.profil {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -103,12 +90,30 @@
 
 }
 
+
+
+.fa-userIcon {
+    font-size: 50px;
+}
+
+.user-nom {
+    color: rgb(7, 86, 106);
+}
+
+.col-3 {
+    margin: 0 auto;
+    width: auto;
+
+}
+
+
 /* Styles global du formulaire de modification */
 .conteneur-card-update {
-    background-color: rgba(255, 255, 255, 0.884);
-    border: 1 ;
-    border-radius: 2px;
+    background-color: rgb(255, 255, 255);
+    border: 1;
+    border-radius: 1px;
 }
+
 .card-modif-projet {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1rem;
@@ -116,20 +121,20 @@
     border: 1px solid #03030323;
     border-radius: 2px;
     /* box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105); */
-    background-color: #e7dddd31;
-    
+    background-color: #f1f1f1;
+
 }
+
 .conteneur-list-projet {
     height: max-content;
-    padding: 5px;
+    padding: 10px;
+    width: 480px;
 }
-
-
 
 /* Styles de la largeur et du décalage de la carte */
 .card-body {
-    padding: 10px;
-    width: 450px;
+    padding: 5px;
+    width: 100%;
 
 }
 
@@ -160,11 +165,13 @@ input[type=text], input[type=date], select {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 
 }
+
 input[type=text] :focus {
     background-color: #ddd;
     outline: none;
 }
-textarea{
+
+textarea.description {
     min-height: 20vh;
     width: 100%;
     padding: 12px 14px;
@@ -177,6 +184,17 @@ textarea{
 }
 
 
+textarea.context {
+    min-height: 5vh;
+    width: 100%;
+    padding: 12px 14px;
+    margin: 1px 0 5px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    border: 1px solid #7a7a7a;
+    border-radius: 3px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
 
 
 .form-label {
@@ -191,85 +209,133 @@ textarea{
     color: #666;
 }
 
-
-/* Styles des boutons et icones */
-.conteneur-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: red; */
-}
-
-.contente-button {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    /* background-color: red; */
-}
-
-
-.btn-faTrashCan {
-    width: 8vw;
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-.btn-edit {
-    width: 8vw;
-    background-color: #00d42a;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
+/* Styles bouton d'ajout de projet */
 .btn-modifier-le-projet {
     width: 100%;
     background-color: #0000FF;
     color: white;
+    /* cursor: none; */
     padding: 5px;
     border: 1px solid #f1f1f1;
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
-.button-historiques{
-    width: 70%;
-    color: white;
-    padding: 5px;
-    font-size: 1.2rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.btn-historique{
     background-color: #0000FF;
-    border: 1px solid white;
+    color: white;
+    margin: 20px auto;
+    cursor: pointer;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 1px solid rgb(148, 148, 148);
     border-radius: 5px;
-    box-shadow: 1px 4px 8px rgba(22, 22, 22, 0.325);
+    padding: 10px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
+/* Styles  container des bouton valider, annuler, supprimer */
+.contente-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+
+}
+
+.btn-valider {
+    width: 10wh;
+    padding: 5px 20px;
+    background-color: #00d42a;
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
 
 .btn-annule {
     background-color: #ffae00;
     color: white;
     cursor: pointer;
-    padding: 5px;
-    width: 8vw;
+    width: 10wh;
+    padding: 5px 20px;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-.btn-faArrowsRotate {
-    width: 100px;
-    background-color: #0000FF;
+.btn-supprimer {
+    width: 10wh;
+    padding: 5px 20px;
+    background-color: #ff0000;
     color: white;
     cursor: pointer;
     padding: 5px;
-    border: 1px solid #f1f1f1;
+    border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
+/* Style pour les écrans de tablettes */
+@media screen and (max-width:1024px) {
+    .contente-button {
+        margin: 0 auto;
+    }
+
+    textarea.description {
+        min-height: 10vh;
+    }
+    .pleine-page {
+        background-size: 100%;
+        margin: 5px auto;
+    }
+}
+
+/* Style pour les écrans de smartphones */
+@media screen and (max-width:768px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1.mot-de-bienvenu{
+        font-size: 1.2rem;
+    }
+    .card {
+        padding: 0px auto;
+
+    }
+    .conteneur-card-update {
+        width: auto;
+    }
+    .conteneur-list-projet {
+        height: max-content;
+        padding: 5px;
+        width: 380px;
+    }
+    .btn-valider, .btn-annule, .btn-supprimer {
+        font-size: 0.8em;
+    }
+
+    /* Styles dates */
+    .form-date {
+        gap: 5px;
+        width: 100%;
+
+    }
+
+    input[type=date] {
+        width: 90%;
+    }
+
+    textarea.description {
+        min-height: 10vh;
+    }
 }

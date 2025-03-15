@@ -192,9 +192,10 @@ textarea.context {
     padding: 5px;
 
 }
+
 .btn-valider {
     width: 10wh;
-      padding: 5px 20px;
+    padding: 5px 20px;
     background-color: #00d42a;
     color: white;
     cursor: pointer;
@@ -208,7 +209,7 @@ textarea.context {
     color: white;
     cursor: pointer;
     width: 10wh;
-      padding: 5px 20px;
+    padding: 5px 20px;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
@@ -216,7 +217,7 @@ textarea.context {
 
 .btn-supprimer {
     width: 10wh;
-      padding: 5px 20px;
+    padding: 5px 20px;
     background-color: #ff0000;
     color: white;
     cursor: pointer;
@@ -248,6 +249,14 @@ textarea.context {
         width: auto;
 
     }
+    .conteneur-list-projet {
+        height: max-content;
+        padding: 5px;
+        width: 400px;
+      
+    }
+    /* Styles des paragraphes, select et input */
+
 
     /* Styles dates */
     .form-date {

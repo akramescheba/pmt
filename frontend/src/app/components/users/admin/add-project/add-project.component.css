@@ -237,8 +237,8 @@ textarea.context {
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
-
-@media screen and (min-width:425px) and (max-width:796px) {
+/* Style pour les écrans de tablettes */
+@media screen and (max-width:1024px) {
     .contente-button {
         margin: 0 auto;
     }
@@ -279,14 +279,15 @@ textarea.context {
         box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
     }
 }
-@media screen and (min-width:400px) and (max-width:424px) {
+
+/* Style pour les écrans de smartphones */
+@media screen and (max-width:768px) {
     .card{
         padding: 0px auto ;
 
     }
     .conteneur-card-update {
         padding: 1px;
-        max-width: 400px;
     }
 
 /* Styles dates */

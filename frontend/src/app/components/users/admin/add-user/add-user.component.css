@@ -237,7 +237,7 @@ select>option:hover{
         background-color: #ffffff91;
     }
 
-.btn-maj .btn-annuler, .btn-supprimer  {
+.btn-maj, .btn-annuler, .btn-supprimer  {
     font-size: .8rem;
 }
 

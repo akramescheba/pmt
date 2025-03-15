@@ -1,17 +1,16 @@
 .pleine-page {
     background-image: url('/assets/projet.png');
-    background-size: 45%;
+    background-size: 50%;
     background-position: center;
     margin: 50px auto;
     background-repeat: no-repeat;
-    background-position: center;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 /* Styles global du formulaire d'affichage */
-
 .card-display-page {
     display: flex;
     justify-content: center;
@@ -89,8 +88,6 @@
     padding: 10px;
     width: 480px;
 }
-
-
 
 /* Styles de la largeur et du décalage de la carte */
 .card-body {
@@ -170,9 +167,7 @@ textarea.context {
     color: #666;
 }
 
-
-
-
+/* Styles bouton d'ajout de projet */
 .btn-modifier-le-projet {
     width: 100%;
     background-color: #0000FF;
@@ -184,6 +179,7 @@ textarea.context {
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
+/* Styles  container des bouton valider, annuler, supprimer */
 .contente-button {
     display: flex;
     justify-content: center;
@@ -236,6 +232,10 @@ textarea.context {
     textarea.description {
         min-height: 10vh;
     }
+    .pleine-page {
+        background-size: 100%;
+        margin: 5px auto;
+    }
 }
 
 /* Style pour les écrans de smartphones */
@@ -244,32 +244,30 @@ textarea.context {
         padding: 0px auto;
 
     }
-
     .conteneur-card-update {
         width: auto;
-
     }
     .conteneur-list-projet {
         height: max-content;
         padding: 5px;
-        width: 370px;
+        width: 380px;
     }
-.btn-valider, .btn-annule, .btn-supprimer{
-    font-size: 0.8em;
-}
+    .btn-valider, .btn-annule, .btn-supprimer {
+        font-size: 0.8em;
+    }
 
     /* Styles dates */
     .form-date {
         gap: 5px;
+        width: 100%;
 
+    }
+
+    input[type=date] {
+        width: 90%;
     }
 
     textarea.description {
         min-height: 10vh;
     }
-
-
-
-
-
 }

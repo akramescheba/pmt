@@ -163,28 +163,40 @@ select>option:hover{
 
 }
 
-.btn-faTrashCan {
-    background-color: red;
-    color: white;
-    cursor:pointer;
-    padding:5px 15px ;
-    border: 1px solid #f1f1f1;
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.616);
-}
 
-.btn-faArrowsRotate{
+.btn-maj{
     background-color: #0000FF;
     color: white;
-    cursor:pointer;
-    padding:5px 15px ;
-    border: 1px solid #f1f1f1;
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.616);
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-@media screen and (min-width:425px) and (max-width:796px) {
-    /* Styles global du formulaire d'affichage */
+.btn-annuler{
+    background-color: #ffae00;
+    color: white;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+
+}.btn-supprimer {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
+
+    /* Styles d'affichage sur les ecrans des tablettes */
+@media screen and (min-width:1024px)  {
+
 .pleine-page{
     display: flex;
     justify-content: center;
@@ -202,7 +214,8 @@ select>option:hover{
     }
 }
 
-@media screen and (min-width:400px) and (max-width:424px) {
+    /* Styles d'affichage sur les ecrans des smartphones */
+@media screen and (max-width:768px) {
 
     .card-edit-user {
         display: flex;
@@ -224,8 +237,7 @@ select>option:hover{
         background-color: #ffffff91;
     }
 
-.btn-faTrashCan, .btn-faArrowsRotate {
- 
+.btn-maj .btn-annuler, .btn-supprimer  {
     font-size: 1rem;
 }
 

@@ -19,11 +19,12 @@ export class AuthComponent  {
 
   faCog=faCog
   ImgHome="assets/pmt.png"
-constructor(
-  private authService: AuthService
-){}
+constructor( private authService: AuthService){}
+
 isSignUp: boolean = false;
 
+
+// Boutons de switch entre le formulaire de connection et d'inscription.
 
 switchToSignIn() {
   this.isSignUp = !this.isSignUp;

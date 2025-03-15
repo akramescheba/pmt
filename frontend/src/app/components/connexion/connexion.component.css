@@ -7,8 +7,8 @@
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
     padding: 20px 30px;
     background-color: white;
-    height:  100%;
-    width:  450px;
+    height: 100%;
+    width: 450px;
 }
 
 /*Styles du titre */
@@ -18,7 +18,7 @@ h1 {
 }
 
 /* Styles des input */
-.input-controle{
+.input-controle {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,6 +39,7 @@ input[type=text], input[type=password] {
     border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
+
 input::placeholder {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -74,6 +75,7 @@ hr {
     border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
+
 p {
     text-align: center;
     font-size: 1.1rem;
@@ -81,16 +83,18 @@ p {
 }
 
 /* Image de sécurité */
-.guard{
+.guard {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
 }
-img{
+
+img {
 
     width: 120px;
 }
+
 /* Style Créer un nouveau compte et Mot de passe oublié?*/
 a.btn-nouveau-compte, .mdp-oublie {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -101,12 +105,27 @@ a.btn-nouveau-compte, .mdp-oublie {
     text-decoration: none;
 }
 
-@media screen  and (max-width:768px) {
-.formulaire-connexion{
+@media screen and (max-width:768px) {
+    .formulaire-connexion {
+        font-size: 1rem;
         margin: 0 auto;
         border: 1px solid rgb(148, 148, 148);
         border-radius: 5px;
-        width: 380px;
+        width: 370px;
         opacity: 90%;
-}
+    }
+
+    /* Image de sécurité */
+    .guard {
+        padding: 1px;
+    }
+    img {
+        width: 80px;
+    }
+    p {
+        text-align: center;
+        font-size: 1rem;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    
 }

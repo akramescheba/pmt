@@ -253,10 +253,10 @@ textarea.context {
         height: max-content;
         padding: 5px;
         width: 370px;
-      
     }
-    /* Styles des paragraphes, select et input */
-
+.btn-valider, .btn-annule, .btn-supprimer{
+    font-size: 0.8em;
+}
 
     /* Styles dates */
     .form-date {

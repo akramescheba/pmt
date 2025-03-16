@@ -1,26 +1,26 @@
-<div class="pleine-page">
+<div class="row pleine-page">
 
-<div class="row">
-    <!-- Formulaire d'affichage de bienvenu et du profile  -->
-    <div class="col">
-        <h1 class="mot-de-bienvenu">
-            <i>Bienvenu sur votre tableau de bord</i>
-        </h1>
-    </div>
-    <div class="col-2">
-        <div class="profile">
-            <fa-icon [icon]="faUser" class="fa-userIcon"></fa-icon>
-            <h5 class="user-nom"> {{userNom}}</h5>
+    <div class="row">
+        <!-- Formulaire d'affichage de bienvenu et du profile  -->
+        <div class="col">
+            <h1 class="mot-de-bienvenu">
+                <i>Bienvenu sur votre tableau de bord</i>
+            </h1>
         </div>
-        <!-- Boutons lateral <<voir les historiques>> -->
-        <button type="button" class="button-historiques" (click)="onClickVoirHistorique()">
-            Voir les historiques
-        </button>
+        <div class="col-2">
+            <div class="profile">
+                <fa-icon [icon]="faUser" class="fa-userIcon"></fa-icon>
+                <h5 class="user-nom"> {{userNom}}</h5>
+            </div>
+            <!-- Boutons lateral <<voir les historiques>> -->
+            <button type="button" class="btn-historiques" (click)="onClickVoirHistorique()">
+                Voir les historiques
+            </button>
+        </div>
     </div>
-</div>
 
-<!-- Formulaire d'affichage de projets -->
-<div class="dashboard">
-    <app-dashboard></app-dashboard>
-</div>
+    <!-- Formulaire d'affichage de projets -->
+    <div class="dashboard">
+        <app-dashboard></app-dashboard>
+    </div>
 </div>

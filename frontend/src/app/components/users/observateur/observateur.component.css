@@ -1,22 +1,7 @@
-.pleine-page {
-    background-color: #e7dddd31;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+.pleine-page {}
 
 .row {
     width: 100%;
-    margin: 10px auto;
-    display: flex;
-
-}
-
-.col {
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20px;
 
 }
 
@@ -29,7 +14,7 @@
     font-weight: bold;
     color: #000000;
     margin: 20px;
-    
+
 
 
 }
@@ -39,7 +24,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 /* Styles d'affichage du nom de profile  */
@@ -75,14 +59,14 @@
     background-color: rgba(0, 64, 225, 0.135);
 }
 
-.button-historiques {
-    width: 100%;
+.btn-historiques {
+    width: 250px;
     color: white;
     padding: 5px;
     font-size: 1.2rem;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #0000FF;
-    border: 1px solid white;
+    border: 1px solid ;
     border-radius: 5px;
     box-shadow: 1px 4px 8px rgba(22, 22, 22, 0.325);
 }
@@ -162,10 +146,39 @@ p.card-text:focus {
     border: 1px solid #f1f1f1;
     border-radius: 2px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+
 }
 
-@media screen and (max-width:780px) {
-    .video-pub {
-        width: 90%;
+@media screen and (width:1024px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .col-2 {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .col-2 {
+        width: 50%;
+
+    }
+
+    .btn-historiques {
+        padding: 5px;
+        font-size: 1.2rem
     }
 }

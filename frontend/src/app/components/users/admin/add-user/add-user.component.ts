@@ -42,6 +42,7 @@ export class AddUserComponent implements OnInit {
   faArrowsRotate = faArrowsRotate;
 
   isButton: boolean = false;
+  
 
   userList: any[] = [];
   selectedUser: any = null;

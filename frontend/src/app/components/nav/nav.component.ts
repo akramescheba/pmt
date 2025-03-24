@@ -11,7 +11,7 @@ import { AuthService } from '../auth/auth.service';
   providers: [AuthService],
 })
 export class NavComponent {
-  ImgLogo = 'assets/logo-pmt.jpg';
+  ImgLogo = 'assets/pmt.gif';
 
   constructor(private router: Router, private auth: AuthService) {}
 

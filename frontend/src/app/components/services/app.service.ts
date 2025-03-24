@@ -13,8 +13,6 @@ import { Router } from '@angular/router';
 })
 export class AppService {
 
-
-  
   private  urlApiProject = `${prod_environment. API_BD_URL}/projet`;
   private urlApiUsers = `${prod_environment. API_BD_URL}/utilisateur`; 
   private urlApiHistory = `${prod_environment. API_BD_URL}/historique`;
@@ -26,6 +24,7 @@ export class AppService {
   ) {}
 
   // Methodes Http projets
+  
   getProjects(): Observable<any[]>{
     return this.http.get<any[]>(this.urlApiProject);
   }

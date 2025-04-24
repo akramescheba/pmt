@@ -118,7 +118,7 @@ export class AddProjectComponent implements OnInit {
       );
     }
          // Création de l'evenement delete dans l'historique; 
-        this.appService.logAction(`Le projet << "${this.selectedProject.nom}" >> a été mis à jour`,  `${this.userNom}`, `${this.userRole}`);
+        this.appService.logAction(`Le projet"${this.selectedProject.nom}"  a été mis à jour`,  `${this.userNom}`, `${this.userRole}`);
 
   }
 

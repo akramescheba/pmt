@@ -49,8 +49,8 @@ export class ModalComponent implements OnInit {
       context: ['', Validators.required],
       description: ['', Validators.required],
       statut: ['', Validators.required],
-      dateDebut: ['', Validators.required],
-      dateFin: ['', Validators.required],
+      date_debut: ['', Validators.required],
+      date_fin: ['', Validators.required],
     });
   }
 

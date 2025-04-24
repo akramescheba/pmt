@@ -108,7 +108,7 @@ export class AddUserComponent implements OnInit {
     }
     this.appService.logAction(
       `L'utilisateur 
-      << ${this.selectedUser.nom} >> a été mis à jour`,
+      ${this.selectedUser.nom} a été mis à jour`,
       `${this.userNom} `,
       `${this.userRole}`
       
@@ -137,7 +137,7 @@ export class AddUserComponent implements OnInit {
         }
       );
       this.appService.logAction(
-        `L'utilisateur << ${this.selectedUser.nom} >> a été supprimé`,
+        `L'utilisateur ${this.selectedUser.nom} a été supprimé`,
         `${this.userNom} `,
         `${this.userRole}`
       );

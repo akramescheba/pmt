@@ -24,7 +24,7 @@ testButton(){
     localStorage.setItem('token', 'loggedIn');
   }
   
-  //Méthode pour vérifier q'un utilisateur est déconnecté.
+  //Méthode pour vérifier qu'un utilisateur est déconnecté.
   logOut(): void {
     localStorage.removeItem('token');
     this.toastr.success('Vous êtes déconnecté');

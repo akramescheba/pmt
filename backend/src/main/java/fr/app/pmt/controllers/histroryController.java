@@ -47,7 +47,7 @@ public class histroryController {
 	@PostMapping("/historique")
 	@ResponseStatus(code=HttpStatus.CREATED)
 	public int create (@RequestBody History history){
-		history.setDateHistory(LocalDateTime.now());
+		history.setDate_history(LocalDateTime.now());
 		
 		return historyService.create(history);
 	}
@@ -58,7 +58,7 @@ public class histroryController {
 		
 		History history = new History();
 		history.setAction(action);
-		history.setDateHistory(LocalDateTime.now());
+		history.setDate_history(LocalDateTime.now());
 		
 		
 	};

@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 public class Projets {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private int id;
 	private String nom;
 	private String objectif;
@@ -23,9 +23,10 @@ public class Projets {
 	private String description ;
 	
 	private String statut;
+
+	private LocalDate  date_debut;
 	
-	private LocalDate dateDebut;
-	private LocalDate dateFin;
+	private LocalDate  date_fin;
 	
 	
 	public int getId() {
@@ -64,18 +65,19 @@ public class Projets {
 	public void setStatut(String statut) {
 		this.statut = statut;
 	}
-	public LocalDate getDateDebut() {
-		return dateDebut;
+	public LocalDate getDate_debut() {
+		return date_debut;
 	}
-	public void setDateDebut(LocalDate datDebut) {
-		this.dateDebut = datDebut;
+	public void setDate_debut(LocalDate date_debut) {
+		this.date_debut = date_debut;
 	}
-	public LocalDate getDateFin() {
-		return dateFin;
+	public LocalDate getDate_fin() {
+		return date_fin;
 	}
-	public void setDateFin(LocalDate dateFin) {
-		this.dateFin = dateFin;
+	public void setDate_fin(LocalDate date_fin) {
+		this.date_fin = date_fin;
 	}
+	
 
 	
 }

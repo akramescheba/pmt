@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 
 public class History  {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String action;
 	private String username;
@@ -24,11 +24,17 @@ public class History  {
 	
 
 	@JsonFormat(pattern = " HH:mm , dd-MM-yyyy")
-	private LocalDateTime dateHistory;
 	
-	
-	
-	
+	private LocalDateTime date_history;
+	public LocalDateTime getDate_history() {
+		return date_history;
+	}
+
+
+	public void setDate_history(LocalDateTime date_history) {
+		this.date_history = date_history;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -66,19 +72,5 @@ public class History  {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-
-	public LocalDateTime getDateHistory() {
-		return dateHistory;
-	}
-
-
-	public void setDateHistory(LocalDateTime dateHistory) {
-		this.dateHistory = dateHistory;
-	}
-
-
-
-	
+	}	
 }

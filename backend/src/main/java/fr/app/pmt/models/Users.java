@@ -1,10 +1,10 @@
 package fr.app.pmt.models;
 
-import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Table(name="utilisateur")
@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 public class Users {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 	private String nom;
 	private String email;
@@ -63,5 +63,6 @@ public class Users {
 	public void setRepassword(String repassword) {
 		this.repassword = repassword;
 	}
+
 	
 }

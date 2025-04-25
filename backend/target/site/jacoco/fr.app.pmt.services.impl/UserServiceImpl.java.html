@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pmt</a> &gt; <a href="index.source.html" class="el_package">fr.app.pmt.services.impl</a> &gt; <span class="el_source">UserServiceImpl.java</span></div><h1>UserServiceImpl.java</h1><pre class="source lang-java linenums">package fr.app.pmt.services.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fr.app.pmt.dao.UserRepository;
+import fr.app.pmt.exeption.EntityDontExistExeption;
+import fr.app.pmt.models.Users;
+import fr.app.pmt.services.UserService;
+
+@Service
+
+<span class="fc" id="L17">public class UserServiceImpl implements UserService{</span>
+	
+	@Autowired
+	private UserRepository userRepository;
+
+	@Override
+	public List&lt;Users&gt; finAll() {
+<span class="fc" id="L24">		List&lt;Users&gt; users =new ArrayList&lt;Users&gt;();</span>
+<span class="fc" id="L25">		userRepository.findAll().forEach(users::add);</span>
+		
+<span class="fc" id="L27">		return users;	</span>
+
+	}
+
+
+	@Override
+	public Users findById(int id) {
+		
+<span class="fc" id="L35">		Optional&lt;Users&gt; users = userRepository.findById(id);</span>
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">		if(users.isPresent()) {</span>
+<span class="fc" id="L37">			return users.get();</span>
+			
+		}
+<span class="nc" id="L40">		throw new EntityDontExistExeption();</span>
+	}
+
+
+	@Override
+	public int created(Users users) {
+		
+<span class="nc" id="L47">		return userRepository.save(users).getId();</span>
+	}
+
+
+	@Override
+	public void update(int id, Users users) {
+<span class="nc" id="L53">		userRepository.save(users);</span>
+		
+<span class="nc" id="L55">	}</span>
+
+
+	@Override
+	public void updatePartial(Users userExistant, Users newUsers) {
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">		if (newUsers.getNom()!=null) {</span>
+<span class="fc" id="L61">			userExistant.setNom(newUsers.getNom());</span>
+		}
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">		if (newUsers.getEmail()!=null) {</span>
+<span class="nc" id="L64">			userExistant.setEmail(newUsers.getEmail());</span>
+		}
+<span class="pc bpc" id="L66" title="1 of 2 branches missed.">		if (newUsers.getRole()!=null) {</span>
+<span class="nc" id="L67">			userExistant.setRole(newUsers.getRole());</span>
+		}
+<span class="pc bpc" id="L69" title="1 of 2 branches missed.">		if (newUsers.getPassword()!=null) {</span>
+<span class="nc" id="L70">			userExistant.setPassword(newUsers.getPassword());</span>
+		}
+<span class="pc bpc" id="L72" title="1 of 2 branches missed.">		if (newUsers.getRepassword()!=null) {</span>
+<span class="nc" id="L73">			userExistant.setRepassword(newUsers.getRepassword());</span>
+		}
+<span class="fc" id="L75">		userRepository.save(userExistant);</span>
+<span class="fc" id="L76">	}</span>
+
+
+	@Override
+	public void delete(int id) {
+<span class="fc" id="L81">		userRepository.deleteById(id);</span>
+		
+<span class="fc" id="L83">	}</span>
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

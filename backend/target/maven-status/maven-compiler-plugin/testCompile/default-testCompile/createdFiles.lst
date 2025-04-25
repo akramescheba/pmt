@@ -1,2 +1,4 @@
 fr\app\pmt\PmtApplicationTests.class
 fr\app\pmt\dao\UserRepositoryTest.class
+fr\app\pmt\dao\HistoryRepositoryTest.class
+fr\app\pmt\dao\ProjetRepositoryTest.class

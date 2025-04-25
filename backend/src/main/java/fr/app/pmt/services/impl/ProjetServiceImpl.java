@@ -81,15 +81,15 @@ if(newProjets.getStatut() !=null) {
 	}
 
 
-if(newProjets.getDateFin() !=null) {
+if(newProjets.getDate_fin() !=null) {
 	
-	projetsExistants.setDateFin(newProjets.getDateFin());
+	projetsExistants.setDate_fin(newProjets.getDate_fin());
 	}
 
 
-if(newProjets.getDateDebut() !=null) {
+if(newProjets.getDate_debut() !=null) {
 	
-	projetsExistants.setDateDebut(newProjets.getDateDebut());
+	projetsExistants.setDate_debut(newProjets.getDate_debut());
 	}
 	//Mise à jour de tous les champs du projet
 	

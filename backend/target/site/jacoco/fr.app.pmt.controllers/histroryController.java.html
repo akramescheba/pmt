@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>histroryController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pmt</a> &gt; <a href="index.source.html" class="el_package">fr.app.pmt.controllers</a> &gt; <span class="el_source">histroryController.java</span></div><h1>histroryController.java</h1><pre class="source lang-java linenums">package fr.app.pmt.controllers;
+
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import fr.app.pmt.exeption.EntityDontExistExeption;
+import fr.app.pmt.models.History;
+import fr.app.pmt.services.HistoryService;
+
+@RestController
+@CrossOrigin(origins={&quot;https://angular-frontend.up.railway.app/&quot;, &quot;http://localhost:4200&quot;},  allowedHeaders = &quot;*&quot;)
+
+<span class="fc" id="L26">public class histroryController {</span>
+	
+	@Autowired
+	private HistoryService historyService;
+	
+	@GetMapping(&quot;/historique&quot;)
+	public List&lt;History&gt; findAll(){
+<span class="nc" id="L33">		return historyService.findAll();</span>
+			
+	}	
+	@GetMapping(&quot;/historique/{id}&quot;)
+	
+	public History findById(@PathVariable(&quot;id&quot;) int id) {
+		
+<span class="nc" id="L40">		History history = historyService.findById(id);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">		if(history==null) {</span>
+			
+		}
+<span class="nc" id="L44">		return history;</span>
+		
+	}
+	@PostMapping(&quot;/historique&quot;)
+	@ResponseStatus(code=HttpStatus.CREATED)
+	public int create (@RequestBody History history){
+<span class="nc" id="L50">		history.setDate_history(LocalDateTime.now());</span>
+		
+<span class="nc" id="L52">		return historyService.create(history);</span>
+	}
+	
+	@PostMapping(&quot;/historique/log&quot;)
+	@ResponseStatus(code=HttpStatus.CREATED)
+	public void logEvent(@RequestParam String action) {
+		
+<span class="nc" id="L59">		History history = new History();</span>
+<span class="nc" id="L60">		history.setAction(action);</span>
+<span class="nc" id="L61">		history.setDate_history(LocalDateTime.now());</span>
+		
+		
+<span class="nc" id="L64">	};</span>
+	
+	
+	@DeleteMapping(&quot;/historique/{id}&quot;)
+	@ResponseStatus(code=HttpStatus.OK)
+	public void delete(@PathVariable int id) {
+		
+<span class="nc bnc" id="L71" title="All 2 branches missed.">		if(historyService.findById(id)==null) {</span>
+			
+<span class="nc" id="L73">			throw new EntityDontExistExeption();</span>
+		}
+<span class="nc" id="L75">		historyService.delete(id);</span>
+		
+<span class="nc" id="L77">	}</span>
+
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

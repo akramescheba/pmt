@@ -48,12 +48,19 @@ public class UserRepositoryTest {
     assertEquals("Paul DOUMER", newUsers.getNom());
   }
 
-  // @Test
-  // //Test de vérification de la méthode patch;
-  // void shouldPatchUser() {
-  //   Users userExistant = userServiceImpl.findById(7);
-  //   Users newUser = new Users();
-  //   newUser.setUser("A voté");
-  //   userServiceImpl.updatePartial(6, userExistant, newUser);
-  // }
+  @Test
+
+  void shouldPatchUsers() {
+	  Users userExistant = userServiceImpl.findById(1);
+	  Users newUser = new Users();
+	  newUser.setNom("AKREA");
+	  userServiceImpl.updatePartial(userExistant, newUser);
+  }
+  @Test
+  void shouldDeleteUser() {
+	  userServiceImpl.delete(1);
+
+	};
+
+
 }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Projets.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">pmt</a> &gt; <a href="index.source.html" class="el_package">fr.app.pmt.models</a> &gt; <span class="el_source">Projets.java</span></div><h1>Projets.java</h1><pre class="source lang-java linenums">package fr.app.pmt.models;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name=&quot;projet&quot;)
+@Entity
+
+<span class="fc" id="L15">public class Projets {</span>
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private int id;
+	private String nom;
+	private String objectif;
+	private String context;
+	@Column(length = 1500) 
+	private String description ;
+	
+	private String statut;
+
+	private LocalDate  date_debut;
+	
+	private LocalDate  date_fin;
+	
+	
+	public int getId() {
+<span class="fc" id="L33">		return id;</span>
+	}
+	public void setId(int id) {
+<span class="fc" id="L36">		this.id = id;</span>
+<span class="fc" id="L37">	}</span>
+	public String getNom() {
+<span class="fc" id="L39">		return nom;</span>
+	}
+	public void setNom(String nom) {
+<span class="fc" id="L42">		this.nom = nom;</span>
+<span class="fc" id="L43">	}</span>
+	public String getObjectif() {
+<span class="fc" id="L45">		return objectif;</span>
+	}
+	public void setObjectif(String objectif) {
+<span class="fc" id="L48">		this.objectif = objectif;</span>
+<span class="fc" id="L49">	}</span>
+	public String getContext() {
+<span class="fc" id="L51">		return context;</span>
+	}
+	public void setContext(String context) {
+<span class="fc" id="L54">		this.context = context;</span>
+<span class="fc" id="L55">	}</span>
+	public String getDescription() {
+<span class="fc" id="L57">		return description;</span>
+	}
+	public void setDescription(String description) {
+<span class="fc" id="L60">		this.description = description;</span>
+<span class="fc" id="L61">	}</span>
+	public String getStatut() {
+<span class="fc" id="L63">		return statut;</span>
+	}
+	public void setStatut(String statut) {
+<span class="fc" id="L66">		this.statut = statut;</span>
+<span class="fc" id="L67">	}</span>
+	public LocalDate getDate_debut() {
+<span class="fc" id="L69">		return date_debut;</span>
+	}
+	public void setDate_debut(LocalDate date_debut) {
+<span class="fc" id="L72">		this.date_debut = date_debut;</span>
+<span class="fc" id="L73">	}</span>
+	public LocalDate getDate_fin() {
+<span class="fc" id="L75">		return date_fin;</span>
+	}
+	public void setDate_fin(LocalDate date_fin) {
+<span class="fc" id="L78">		this.date_fin = date_fin;</span>
+<span class="fc" id="L79">	}</span>
+	
+
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

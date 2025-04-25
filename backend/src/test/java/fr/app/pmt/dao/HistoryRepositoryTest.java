@@ -40,9 +40,12 @@ void shouldPostHistory() {
 	newHistory.setUsername("Bernard Dadié");
 	newHistory.setRole("admin");
 	newHistory.setDate_history(LocalDateTime.parse("2025-04-24T17:05:00"));
-	// historyServiceImpl.create(newHistory)
-
 	assertEquals("Bernard Dadié", newHistory.getUsername());
+}
+@Test
+void shouldDeleteHistory() {
+	historyServiceImpl.delete(1);
+
 };
 
 }

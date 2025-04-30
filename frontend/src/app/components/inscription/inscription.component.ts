@@ -82,4 +82,5 @@ export class InscriptionComponent implements OnInit {
       this.toastr.error('Veillez remplir tous les champs');
   }
 }
+
 }

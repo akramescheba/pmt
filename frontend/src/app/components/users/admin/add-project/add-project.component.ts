@@ -99,7 +99,6 @@ export class AddProjectComponent implements OnInit {
 
       this.appService.patchProject(projectId, patchData).subscribe(
         (result) => {
-          console.log(result);
           this.toastr.success(
             `Le projet ${this.selectedProject.nom} a été mis à jour.`,
             '',
@@ -130,7 +129,6 @@ export class AddProjectComponent implements OnInit {
   
         this.appService.deleteProject(projectId).subscribe(
           (result) => {
-            console.log(result);
             this.toastr.success(
               `Le projet ${this.selectedProject.nom} a été supprimé.`,
               '',
@@ -157,6 +155,5 @@ export class AddProjectComponent implements OnInit {
     this.selectedProject = null;
     this.displayCard();
   }
-
 }
 

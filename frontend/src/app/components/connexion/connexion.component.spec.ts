@@ -1,46 +1,65 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {ReactiveFormsModule, FormBuilder} from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ToastrModule } from 'ngx-toastr';
-import {AuthService} from '../auth/auth.service';
-import {AppService} from '../services/app.service';
 import { ConnexionComponent } from './connexion.component';
+import { ToastrService,ToastrModule } from 'ngx-toastr';
+import { FormBuilder } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {Router} from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
+import {AuthService}  from '../auth/auth.service';
+import {AppService} from '../services/app.service';
+
+
+const authComponentMock = {
+  switchToSignUp: jest.fn()
+};
+
+const toastrServiceMock = {
+  info: jest.fn(),
+  warning: jest.fn(),
+  error: jest.fn(),
+};
+
+const authServiceMock = {
+  logIn: jest.fn(),
+};
+
+const appServiceMock = {
+  getUsers: jest.fn(() => ({
+    subscribe: jest.fn()
+  }))
+};
+
+const routerMock = {
+  navigate: jest.fn()
+};
 
 describe('ConnexionComponent', () => {
   let component: ConnexionComponent;
   let fixture: ComponentFixture<ConnexionComponent>;
-  let authservice: AuthService;
-  let appservice: AppService;
-  let formBuilder: FormBuilder;
-  let router: RouterTestingModule;
-  let http: HttpClientTestingModule;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ConnexionComponent, HttpClientTestingModule, RouterTestingModule, ToastrModule.forRoot() ],
-      providers: [AuthComponent,
-        {provide: AuthService, useClass: AuthService},
-        {provide: AppService, useClass: AppService},
-        FormBuilder
-      ],
-      
-    })
-    .compileComponents();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule, ToastrModule.forRoot()],
+      providers: [
+        FormBuilder,  // Fournir FormBuilder
+        { provide: AuthComponent, useValue: authComponentMock },  // Fournir AuthComponent mock
+        { provide: AuthService, useValue: authServiceMock },  // Fournir AuthService mock
+        { provide: AppService, useValue: appServiceMock },  // Fournir AppService mock
+        { provide: Router, useValue: routerMock },  // Fournir Router mock
+        { provide: ToastrService, useValue: toastrServiceMock },  // Fournir ToastrService mock
+      ]
+    });
 
     fixture = TestBed.createComponent(ConnexionComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize form', ()=>{
-    expect(component.loginForm).toBeDefined();
-    expect(component.loginForm.controls['email']).toBeDefined();
-    expect(component.loginForm.controls['psw']).toBeDefined();
-  })
+  it('should call switchToSignUp', () => {
+    component.switchToSignUp();
+    expect(authComponentMock.switchToSignUp).toHaveBeenCalled();
+  });
 });

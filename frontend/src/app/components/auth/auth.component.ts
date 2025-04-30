@@ -11,7 +11,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [CommonModule, ConnexionComponent, InscriptionComponent,FontAwesomeModule],
+  imports: [CommonModule,FontAwesomeModule,ConnexionComponent, InscriptionComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })

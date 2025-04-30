@@ -21,7 +21,7 @@ export class AppService {
     private http: HttpClient,
     private router: Router
   ) {}
-
+  
   // Methodes Http projets
   
   getProjects(): Observable<any[]>{

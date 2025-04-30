@@ -2,8 +2,6 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConnexionComponent } from '../connexion/connexion.component';
-import { InscriptionComponent } from '../inscription/inscription.component';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({

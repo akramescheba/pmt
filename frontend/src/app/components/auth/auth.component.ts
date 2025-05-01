@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './auth.service';
 import {ConnexionComponent} from "../connexion/connexion.component";
 import {InscriptionComponent} from '../inscription/inscription.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -19,7 +18,6 @@ export class AuthComponent  {
 
   faCog=faCog
   ImgHome="assets/pmt.png"
-constructor( private authService: AuthService){}
 
 isSignUp: boolean = false;
 

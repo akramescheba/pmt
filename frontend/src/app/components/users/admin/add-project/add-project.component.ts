@@ -70,20 +70,22 @@ export class AddProjectComponent implements OnInit {
   loadPage(): void{
     this.router.navigate([this.router.url]);
   }
-  // Chargement de la liste des projets
   loadProjects(): void {
-    this.appService.getProjects().subscribe(
-      (project) => {
+    this.appService.getProjects().subscribe({
+      next: (project) => {
         this.projectList = project;
         this.toastr.success('Projets chargés avec succès !');
       },
-      (error) => {
-        console.error(error);
-        this.toastr.error('Impossible de charger les projets.');
-      }
-    );
+      error: () => {
+        this.toastr.error(
+          'Erreur lors du chargement des projets !',
+          '',
+          { timeOut: 3000, positionClass: 'toast-bottom-right' }
+        );
+      },
+    });
   }
-
+  
 
   // Sélectionner un projet pour modification
   selectProject(project: any): void {
@@ -145,7 +147,7 @@ export class AddProjectComponent implements OnInit {
       }
 
       // Création de l'evenement delete dans l'historique; 
-      this.appService.logAction(`Le projet << "${this.selectedProject.nom}" >> a été supprimé`, `${this.userRole}`, `${this.userNom}`);
+      this.appService.logAction(`Le projet "${this.selectedProject.nom}"  a été supprimé`, `${this.userRole}`, `${this.userNom}`);
       
     }
 

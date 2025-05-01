@@ -37,7 +37,7 @@ import { ToastrService } from "ngx-toastr";
   ],
   templateUrl: "./membre.component.html",
   styleUrl: "./membre.component.css",
-  providers: [AppService, AuthService],
+  providers: [],
 })
 export class MembreComponent implements OnInit {
   faUser = faUser;
@@ -47,7 +47,7 @@ export class MembreComponent implements OnInit {
 
   // Methode permettant d'afficher les historiques
 
-  onClickVoirHistorique() {
+  handleVoirHistoriqueClick() {
     this.appService.onClickVoirHistorique();
   }
 
@@ -70,7 +70,9 @@ export class MembreComponent implements OnInit {
   faTrashCan = faTrashCan;
   faArrowsRotate = faArrowsRotate;
   faSave = faSave;
+
   projectList: any[] = [];
+
   selectedProject: any = null;
 
   constructor(
@@ -95,7 +97,6 @@ export class MembreComponent implements OnInit {
         // this.toastr.success('Projets chargés avec succès !');
       },
       (error) => {
-        console.error(error);
         this.toastr.error("Impossible de charger les projets.");
       }
     );
@@ -131,7 +132,7 @@ export class MembreComponent implements OnInit {
     }
         // Création l'historique de mise à jour;
     this.appService.logAction(
-      `Le projet << ${this.selectedProject.nom} >> a été mise à jour`,
+      `Le projet  ${this.selectedProject.nom}  a été mise à jour`,
       `${this.userNom} `,
       `${this.userRole} `
     );
@@ -164,7 +165,7 @@ export class MembreComponent implements OnInit {
 
     // Création l'historique de suppression;
     this.appService.logAction(
-      `Le projet << "${this.selectedProject.nom}" >> a été supprimé`,
+      `Le projet  "${this.selectedProject.nom}"  a été supprimé`,
       `${this.userRole}`,
       `${this.userNom}`
     );

@@ -1,17 +1,32 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ToastrModule } from 'ngx-toastr';
 import { AddProjectComponent } from './add-project.component';
+import { AppService } from '../../../services/app.service';
+import { ToastrService } from 'ngx-toastr';
+import { of, throwError } from 'rxjs';
 
 describe('AddProjectComponent', () => {
   let component: AddProjectComponent;
   let fixture: ComponentFixture<AddProjectComponent>;
 
+  const appServiceMock = {
+    getProjects: jest.fn(),
+  };
+
+  const toastrMock = {
+    success: jest.fn(),
+    error: jest.fn(),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddProjectComponent,  HttpClientTestingModule, ToastrModule.forRoot()]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, AddProjectComponent],
+      declarations: [],
+      providers: [
+        { provide: AppService, useValue: appServiceMock },
+        { provide: ToastrService, useValue: toastrMock },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddProjectComponent);
     component = fixture.componentInstance;
@@ -21,4 +36,5 @@ describe('AddProjectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

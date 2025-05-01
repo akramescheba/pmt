@@ -65,36 +65,22 @@ export class ConnexionComponent implements OnInit {
   }
 
   seConnecter() {
-    if (this.loginForm.value) {
+    if (this.loginForm.valid) {
       const psw = this.loginForm.get('psw')?.value;
       const email = this.loginForm.get('email')?.value;
-
+  
       this.appService.getUsers().subscribe((response: usersDataList[]) => {
         this.usersList = response;
-
-        const user = this.usersList.find(
-          (userInfo) => userInfo.email === email
-        );
-
+  
+        const user = this.usersList.find((userInfo) => userInfo.email === email);
+  
         if (user) {
           if (user.password === psw) {
             this.authService.logIn();
-            // Récupération du nom et du rôle de l'utilisateur dans le Localstroage
             localStorage.setItem('nom', user.nom);
             localStorage.setItem('role', user.role);
-            
-            if (user.role == 'Administrateur') {
-              this.router.navigate(['/dashboard']);
-              this.toastr.info(`Vous ête connecté en tant que  ${user.nom}`);
-            } 
-            else if (user.role == 'Membre') {
-              this.router.navigate(['/dashboard']);
-              this.toastr.info(`Vous ête connecté en tant que  ${user.nom}`);
-            }
-            else if (user.role == 'Observateur') {
-              this.router.navigate(['/dashboard']);
-              this.toastr.info(`Vous ête connecté en tant que  ${user.nom}`);
-            }
+            this.router.navigate(['/dashboard']);
+            this.toastr.info(`Vous ête connecté en tant que  ${user.nom}`);
           } else {
             this.toastr.error('Mot de passe incorrect !');
           }
@@ -104,4 +90,5 @@ export class ConnexionComponent implements OnInit {
       });
     }
   }
+  
 }

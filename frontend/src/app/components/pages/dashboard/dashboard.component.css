@@ -15,11 +15,13 @@
 .card-display-page {
     background-image: url('/assets/projet.png');
     background-color: #dddde731;
-    background-size: 55%;
+    background-size: 70%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position:center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     min-height: 87vh;
     height: 100%;

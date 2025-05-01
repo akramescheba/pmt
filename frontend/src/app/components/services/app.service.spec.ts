@@ -1,15 +1,26 @@
 import { TestBed } from '@angular/core/testing';
-import { AppService } from './app.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { Router } from '@angular/router';
+
+import { AppService } from './app.service';
 import { dev_environment } from '../../../environment/environment.dev';
+
+
+type TestRequest = ReturnType<HttpTestingController['expectOne']>;
 
 describe('AppService', () => {
   let service: AppService;
   let httpMock: HttpTestingController;
-  let mockRouter = { navigate: jest.fn() };
+  let mockRouter: Partial<Router>;
 
   beforeEach(() => {
+    mockRouter = {
+      navigate: jest.fn()
+    };
+
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
@@ -23,112 +34,157 @@ describe('AppService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); 
+    httpMock.verify();
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  // PROJECTS
-  it('should fetch projects', () => {
-    const dummyProjects = [{ id: 1 }, { id: 2 }];
+  describe('Projet API methods', () => {
+    it('should fetch projects', () => {
+      const dummyProjects = [{ id: 1, nom: 'Projet A' }];
 
-    service.getProjects().subscribe(projects => {
-      expect(projects.length).toBe(2);
-      expect(projects).toEqual(dummyProjects);
+      service.getProjects().subscribe(projects => {
+        expect(projects).toEqual(dummyProjects);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet`);
+      expect(req.request.method).toBe('GET');
+      req.flush(dummyProjects);
     });
 
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet`);
-    expect(req.request.method).toBe('GET');
-    req.flush(dummyProjects);
+    it('should get project by ID', () => {
+      const dummyProject = { id: 1, nom: 'Projet B' };
+
+      service.getProjectById(1).subscribe(project => {
+        expect(project).toEqual(dummyProject);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
+      expect(req.request.method).toBe('GET');
+      req.flush(dummyProject);
+    });
+
+    it('should post new project', () => {
+      const newProject = { nom: 'Nouveau projet' };
+      const response = { id: 2, ...newProject };
+
+      service.postProject(newProject).subscribe(res => {
+        expect(res).toEqual(response);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet`);
+      expect(req.request.method).toBe('POST');
+      req.flush(response);
+    });
+
+    it('should update project', () => {
+      const updatedProject = { id: 1, nom: 'Projet mis à jour' };
+
+      service.updateProject(updatedProject).subscribe(res => {
+        expect(res).toEqual(updatedProject);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
+      expect(req.request.method).toBe('PUT');
+      req.flush(updatedProject);
+    });
+
+    it('should delete project', () => {
+      service.deleteProject(1).subscribe();
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush({});
+    });
   });
 
-  it('should fetch project by ID', () => {
-    service.getProjectById(1).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
-    expect(req.request.method).toBe('GET');
+  describe('Utilisateur API methods', () => {
+    it('should fetch users', () => {
+      const dummyUsers = [{ id: 1, nom: 'Alice' }];
+
+      service.getUsers().subscribe(users => {
+        expect(users).toEqual(dummyUsers);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur`);
+      expect(req.request.method).toBe('GET');
+      req.flush(dummyUsers);
+    });
+
+    it('should post new user', () => {
+      const newUser = { nom: 'Bob', email: 'bob@example.com' };
+      const response = { id: 2, ...newUser };
+
+      service.postUsers(newUser).subscribe(res => {
+        expect(res).toEqual(response);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur`);
+      expect(req.request.method).toBe('POST');
+      req.flush(response);
+    });
+
+    it('should patch user', () => {
+      const updateData = { nom: 'Alice modifiée' };
+
+      service.patchUsers(1, updateData).subscribe(res => {
+        expect(res).toEqual(updateData);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur/1`);
+      expect(req.request.method).toBe('PATCH');
+      req.flush(updateData);
+    });
+
+    it('should delete user', () => {
+      service.deleteUsers(1).subscribe();
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur/1`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush({});
+    });
   });
 
-  it('should post a project', () => {
-    const data = { name: 'Test' };
-    service.postProject(data).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet`);
-    expect(req.request.method).toBe('POST');
-    req.flush({});
+  describe('Historique (log) methods', () => {
+    it('should send log action to history API', () => {
+      const action = 'Modification utilisateur';
+      const username = 'Admin';
+      const role = 'Administrateur';
+
+      service.logAction(action, username, role);
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique`);
+      expect(req.request.method).toBe('POST');
+      req.flush({});
+    });
+
+    it('should fetch history logs', () => {
+      const dummyLogs = [{ action: 'Login', timestamp: new Date() }];
+
+      service.getHistory().subscribe(logs => {
+        expect(logs).toEqual(dummyLogs);
+      });
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique`);
+      expect(req.request.method).toBe('GET');
+      req.flush(dummyLogs);
+    });
+
+    it('should delete history entry', () => {
+      service.deleteHistory(1).subscribe();
+
+      const req: TestRequest = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique/1`);
+      expect(req.request.method).toBe('DELETE');
+      req.flush({});
+    });
   });
 
-  it('should put a project', () => {
-    service.putProject(1, { name: 'Updated' }).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
-    expect(req.request.method).toBe('PUT');
-  });
-
-  it('should patch a project', () => {
-    service.patchProject(1, { status: 'done' }).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
-    expect(req.request.method).toBe('PATCH');
-  });
-
-  it('should delete a project', () => {
-    service.deleteProject(1).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/projet/1`);
-    expect(req.request.method).toBe('DELETE');
-  });
-
-  // USERS
-  it('should fetch users', () => {
-    service.getUsers().subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur`);
-    expect(req.request.method).toBe('GET');
-  });
-
-  it('should fetch user by id', () => {
-    service.getUserById(1, {}).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur/1`);
-    expect(req.request.method).toBe('GET');
-  });
-
-  it('should post a user', () => {
-    const user = { name: 'User' };
-    service.postUsers(user).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur`);
-    expect(req.request.method).toBe('POST');
-  });
-
-  it('should patch a user', () => {
-    service.patchUsers(1, { email: 'test@mail.com' }).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur/1`);
-    expect(req.request.method).toBe('PATCH');
-  });
-
-  it('should delete a user', () => {
-    service.deleteUsers(1).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/utilisateur/1`);
-    expect(req.request.method).toBe('DELETE');
-  });
-
-  // HISTORY
-  it('should post log action', () => {
-    service.logAction('connexion', 'Alice', 'Admin');
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique`);
-    expect(req.request.method).toBe('POST');
-  });
-
-  it('should fetch history', () => {
-    service.getHistory().subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique`);
-    expect(req.request.method).toBe('GET');
-  });
-
-  it('should delete history', () => {
-    service.deleteHistory(1).subscribe();
-    const req = httpMock.expectOne(`${dev_environment.API_BD_URL}/historique/1`);
-    expect(req.request.method).toBe('DELETE');
-  });
-
-  it('should navigate to historiques on click', () => {
-    service.onClickVoirHistorique();
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/historiques']);
+  describe('Navigation methods', () => {
+    it('should navigate to historiques page', () => {
+      service.onClickVoirHistorique();
+      expect(mockRouter.navigate).toHaveBeenCalledWith(['/historiques']);
+    });
   });
 });

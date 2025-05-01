@@ -9,7 +9,8 @@
       "@angular/localize"
     ]
   },
-  "files":["setup-jest.js"],
+  "files":["setup.jest.ts",
+"src/polyfills"],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"

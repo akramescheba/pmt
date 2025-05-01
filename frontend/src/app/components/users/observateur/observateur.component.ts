@@ -13,7 +13,7 @@ import { AuthService } from '../../auth/auth.service';
   imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent],
   templateUrl: './observateur.component.html',
   styleUrl: './observateur.component.css',
-  providers: [AppService, AuthService],
+  providers: [],
 })
 export class ObservateurComponent implements OnInit {
 

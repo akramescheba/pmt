@@ -13,9 +13,6 @@ export class AuthService {
 
   isSignUp: boolean = false;
 
-testButton(){
-  this.toastr.success('ça fonctionne');
-}
 
   //Méthodes de connexion
   logIn(): void {
@@ -34,5 +31,16 @@ testButton(){
   getRole(){
     return localStorage.getItem('role');
   }
+
+
+// Boutons de switch entre le formulaire de connection et d'inscription.
+
+switchToSignIn() {
+  this.isSignUp = !this.isSignUp;
+}
+
+switchToSignUp() {
+  this.isSignUp = !this.isSignUp;
+}
 
 }

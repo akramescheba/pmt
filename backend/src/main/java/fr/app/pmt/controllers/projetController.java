@@ -37,7 +37,9 @@ public class projetController {
   public Projets findById(@PathVariable("id") int id) {
     Projets projets = projetService.findById(id);
 
-    if (projets == null) {}
+    if (projets == null) {
+      throw new EntityDontExistExeption();
+    }
     return projets;
   }
 

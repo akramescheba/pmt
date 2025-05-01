@@ -65,7 +65,7 @@ export class AdminComponent implements OnInit {
     this.isAddProjectOpen = !this.isAddProjectOpen;
     this.ajoutUserBtn();
   }
-  onClickVoirHistorique() {
+  handleVoirHistoriqueClick() {
     this.appService.onClickVoirHistorique()
   }
 }

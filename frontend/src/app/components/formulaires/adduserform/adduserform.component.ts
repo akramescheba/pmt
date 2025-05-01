@@ -20,7 +20,7 @@ import { ToastrService } from 'ngx-toastr';
   ],
   templateUrl: './adduserform.component.html',
   styleUrl: './adduserform.component.css',
-  providers: [AppService],
+  providers: [],
 })
 export class AdduserformComponent  implements OnInit{
   faCirclePlus = faCirclePlus;

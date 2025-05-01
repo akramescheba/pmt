@@ -48,6 +48,9 @@ export class AddUserComponent implements OnInit {
   selectedUser: any = null;
 
 
+  userNom: string = '';
+  userRole: string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -55,11 +58,12 @@ export class AddUserComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  userNom = this.authService.getNom();
-  userRole = this.authService.getRole();
+
 
   //Toutes les méthodes se trouves ici
   ngOnInit(): void {
+    this.userNom = this.authService.getNom()??'';
+    this.userRole = this.authService.getRole()??'';
     this.loadUsers();
   }
 

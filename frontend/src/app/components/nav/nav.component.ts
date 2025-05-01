@@ -8,7 +8,7 @@ import { AuthService } from '../auth/auth.service';
   imports: [],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
-  providers: [AuthService],
+  providers: [],
 })
 export class NavComponent {
   ImgLogo = 'assets/pmt.gif';
@@ -20,9 +20,7 @@ export class NavComponent {
     this.userRole = localStorage.getItem('role');
   }
 
-
-   // Methode de rédirection des utilisateurs vers leurs routes spécifiques serlon leurs rôle.
-  onClickMonCompt() {
+  onClickMonCompte() {
     if (this.userRole == 'Administrateur') {
       this.router.navigate(['/admin']);
     } else if (this.userRole == 'Membre') {
@@ -34,7 +32,6 @@ export class NavComponent {
     }
   }
 
-  // Methode de déconnection
   loggedOut() {
     this.auth.logOut();
   }

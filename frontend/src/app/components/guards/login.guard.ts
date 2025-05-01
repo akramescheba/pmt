@@ -11,7 +11,7 @@ export const loginGuard: CanActivateFn = (route, state) => {
   const isLoggedIn = !!localStorage.getItem('token')
 
   if (isLoggedIn){
-    toastr.success("Vous avez déja une session ouverte", "Cette page n'est pas disponible")
+    toastr.success('Vous avez déjà une session ouverte', 'Cette page n\'est pas disponible');
     router.navigate(['/dashboard']);
     return false;
   }

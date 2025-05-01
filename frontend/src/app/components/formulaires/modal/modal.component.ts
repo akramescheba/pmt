@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
   imports: [FontAwesomeModule, ReactiveFormsModule],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css',
-  providers: [AppService, AuthService],
+  providers: [],
 })
 export class ModalComponent implements OnInit {
   faCirclePlus = faCirclePlus;
@@ -59,7 +59,7 @@ export class ModalComponent implements OnInit {
       this.appService.postProject(this.projectForm.value).subscribe(
         (response) => {
           // Envoie de l'historique d'ajout dans la bd;
-          this.appService.logAction(`L'utilisateur << ${response.nom} >> a été mis à jour`, `${this.userNom} `, `${this.userRole}`);
+          this.appService.logAction(`L'utilisateur ${response.nom} a été mis à jour`, `${this.userNom} `, `${this.userRole}`);
           // console.log(response);
           this.toastr.success('Projet ajouté avec succès');
           this.projectForm.reset();

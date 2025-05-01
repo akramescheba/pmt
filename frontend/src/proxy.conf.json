@@ -1,0 +1,13 @@
+{
+    "/projet": {
+      "target": "http://localhost:8081",
+      "secure": false,
+      "logLevel": "debug"
+    },
+    "/utilisateur": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "logLevel": "debug"
+      }
+  }
+  

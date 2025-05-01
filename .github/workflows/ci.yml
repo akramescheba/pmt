@@ -136,7 +136,7 @@ jobs:
       - name: Run Frontend Tests
         if: env.SKIP_TESTS != 'true'
         working-directory: frontend
-        run: npm test -- --watch=false --browsers=ChromeHeadless
+        run: npm run test:coverage -- --watch=false --browsers=ChromeHeadless
 # Phase de construction du docker image du frontend
       - name: Build Frontend Docker Image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-frontend:v1 ./frontend

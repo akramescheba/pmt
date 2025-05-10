@@ -1,341 +1,78 @@
-.pleine-page {
-    background-image: url('/assets/projet.png');
-    background-size: 50%;
-    background-position: center;
-    margin: 50px auto;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.dashboard-content {}
+
+.btn-dashboard {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 15px auto;
+  width: max-content;
+  border: none;
 }
 
-/* Styles global du formulaire d'affichage */
-.card-display-page {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    min-height: 60vh;
+/* From Uiverse.io by adamgiebl */
+.button2 {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  margin: 15px auto;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
-
-.contenaire-card {
-    height: max-content;
-    padding: 5px;
+.button2:hover {
+  border: 1px solid white;
 }
-
-/* Styles de la carte */
-.card {
-    border: 1px solid #0011ff2d;
-    border-radius: 2px;
-    padding: 5px;
-    margin: 5px;
-    color: black;
-    opacity: 95%;
-}
-
-.card-body-project {
-    font-family: 'Arial, Helvetica, sans-serif';
-    font-size: 1.5rem;
-    padding: 5px;
-    width: 350px;
-    background-color: #0044ff0a;
-}
-
-.form-group {
-    padding: 10px;
-    color: black;
-}
-
-.card-text-description {
-    font-family: 'Arial, Helvetica, sans-serif';
-    font-size: 1rem;
-    height: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: #161616;
-}
-
-.card-title {
-    color: #003;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px;
-
-}
-.mot-de-bienvenu {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 2.8rem;
-    overflow: hidden;
-    text-align: center;
-    font-weight: bold;
-    color: #000000;
-    margin: 20px;
-
-}
-
-.col-2.profil {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    background-color: rgba(0, 55, 255, 0.363);
-    box-shadow: #000000;
-    margin: 25px 10px;
-    border: 1px solid rgb(148, 148, 148);
-    border-radius: 5px;
-    height: 15vh;
-    width: 250px;
-
+.button2:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 
+/*  */
+.cursor-pointer {
+  margin: 15px auto;
+  width: 350px;
+  max-width: max-content;
+}
+.colonne-droite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 350px;
+  padding: 60px 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.colonne-gauche {
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  /* background-color: #2c3e50; */
+  color: #2c3e50;
+
+  position: fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+button {
+  min-width: 50px;
+  width: 50%;
+
+}
 
 .fa-userIcon {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .user-nom {
-    color: rgb(7, 86, 106);
-}
-
-.col-3 {
-    margin: 0 auto;
-    width: auto;
-
-}
-
-
-/* Styles global du formulaire de modification */
-.conteneur-card-update {
-    background-color: rgb(255, 255, 255);
-    border: 1;
-    border-radius: 1px;
-}
-
-.card-modif-projet {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1rem;
-    padding: 3px;
-    border: 1px solid #03030323;
-    border-radius: 2px;
-    /* box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105); */
-    background-color: #f1f1f1;
-
-}
-
-.conteneur-list-projet {
-    height: max-content;
-    padding: 10px;
-    width: 480px;
-}
-
-/* Styles de la largeur et du décalage de la carte */
-.card-body {
-    padding: 5px;
-    width: 100%;
-
-}
-
-.card-title {
-    color: rgba(0, 0, 51, 0.959);
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* Styles dates */
-.form-date {
-    display: flex;
-    gap: 10px;
-
-}
-
-/* Styles des paragraphes, select et input */
-input[type=text], input[type=date], select {
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-
-}
-
-input[type=text] :focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-textarea.description {
-    min-height: 20vh;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-
-textarea.context {
-    min-height: 5vh;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-
-.form-label {
-    color: rgb(0, 0, 0);
-    margin-bottom: 5px;
-}
-
-
-/* Styles des texts */
-.card-text, p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* Styles bouton d'ajout de projet */
-.btn-modifier-le-projet {
-    width: 100%;
-    background-color: #0000FF;
-    color: white;
-    /* cursor: none; */
-    padding: 5px;
-    border: 1px solid #f1f1f1;
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-.btn-historique{
-    background-color: #0000FF;
-    color: white;
-    margin: 20px auto;
-    cursor: pointer;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border: 1px solid rgb(148, 148, 148);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-/* Styles  container des bouton valider, annuler, supprimer */
-.contente-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    padding: 5px;
-
-}
-
-.btn-valider {
-    width: 10wh;
-    padding: 5px 20px;
-    background-color: #00d42a;
-    color: white;
-    cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-.btn-annule {
-    background-color: #ffae00;
-    color: white;
-    cursor: pointer;
-    width: 10wh;
-    padding: 5px 20px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-.btn-supprimer {
-    width: 10wh;
-    padding: 5px 20px;
-    background-color: #ff0000;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-/* Style pour les écrans de tablettes */
-@media screen and (max-width:1024px) {
-    .contente-button {
-        margin: 0 auto;
-    }
-
-    textarea.description {
-        min-height: 10vh;
-    }
-    .pleine-page {
-        background-size: 100%;
-        margin: 5px auto;
-    }
-}
-
-/* Style pour les écrans de smartphones */
-@media screen and (max-width:768px) {
-    .row{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    h1.mot-de-bienvenu{
-        font-size: 1.2rem;
-    }
-    .card {
-        padding: 0px auto;
-
-    }
-    .conteneur-card-update {
-        width: auto;
-    }
-    .conteneur-list-projet {
-        height: max-content;
-        padding: 5px;
-        width: 380px;
-    }
-    .btn-valider, .btn-annule, .btn-supprimer {
-        font-size: 0.8em;
-    }
-
-    /* Styles dates */
-    .form-date {
-        gap: 5px;
-        width: 100%;
-
-    }
-
-    input[type=date] {
-        width: 90%;
-    }
-
-    textarea.description {
-        min-height: 10vh;
-    }
+  color: rgb(7, 86, 106);
 }

@@ -1,24 +1,18 @@
-
 :root {
     /* Couleurs principales */
-
-    --primary-color:  #dddde731;
+    --primary-color: #dddde731;
     --secondary-color: #2ecc71;
     /* Polices  principales */
     --police-titre: var(Arial, Helvetica, sans-serif);
     --police-paragraph: var(--police-titre);
 }
 
-
 /* Styles global de la carte */
+.content {
+    padding: 50px 0;
+}
 
 .card-display-page {
-    background-image: url('/assets/projet.png');
-    background-color: #dddde731;
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position:center;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,12 +20,16 @@
     min-height: 87vh;
     height: 100%;
     margin: 5px;
-
+    top: 0;
 }
 
 .conteneur-card-display {
     height: max-content;
     padding: 5px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card {
@@ -41,17 +39,14 @@
     margin: 5px;
     color: black;
     opacity: 90%;
-
 }
-
 
 .card-body-display {
     font-family: 'Arial, Helvetica, sans-serif';
     font-size: 1.5rem;
     padding: 5px;
     width: 350px;
-    background-color: #0044ff0a;
-
+    /* background-color: #0044ff0a; */
 }
 
 .form-group {
@@ -60,12 +55,13 @@
 }
 
 .card-title {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #003;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    color: rgba(32, 32, 32, 0.801);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 900;
     text-align: center;
+    margin: 1px;
 }
 
 /* Styles des texts */
@@ -85,34 +81,50 @@
 }
 
 
-
+/* Styles bouton d'ajout de projet */
 .btn-voir-plus {
-    width: 100%;
-    background-color: #0000ff;
+    width: 200px;
+    background-color: #0000FF;
     color: white;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #f1f1f1;
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
+/* Styles des boutons et icones */
+.conteneur-button {
+    display: flex;
+    font-size: .8em;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.btn-voir-plus svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-voir-plus span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-voir-plus:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+.btn-voir-plus:hover span {
+    transform: translateX(7px);
+}
 
 /* Styles global du formulaire d'affiche des détails d'un projet */
 
 .card-details {
-    border: 1px solid #0011ff2d;
+    border: 1px solid #00000007;
     border-radius: 2px;
-    padding: 5px;
-    margin: 5px;
+    padding: 30px;
     color: black;
-
-}
-
-.conteneur-card-details {
-    text-align: justify;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .conteneur-list-projet {
@@ -122,39 +134,53 @@
 
 
 /* Styles de la largeur et du décalage de la carte */
-.card-body-details {
+.conteneur-card-details {
     max-width: 724px;
     width: 100%;
-    margin: 5px;
-    padding: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.btn-annuler {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+
 }
 
 .conteneur-image {
+    background-image: url("/assets/home.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0000ff62;
-
-}
-
-img {
-    width: 50%;
-
 }
 
 .details-card-title, .context-title, .objectif-title {
     font-size: 1.9em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
-.context-title, .objectif-title {
+.context-title, .objectif-title, .description-title {
     font-size: 1.2em;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 900;
 }
 
 .context, .objectif {
     font-size: 1em;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
 
 }
 
@@ -178,8 +204,8 @@ hr {
     margin-bottom: 5px;
 }
 
-@media screen and (min-width:325px) and (max-width:796px) {
-    .card-display-page {
+@media screen and (min-width:325px) and (max-width:768px) {
+    .content {
         background-image: url('/assets/projet.png');
         background-size: cover;
         background-size: 90%;
@@ -189,12 +215,14 @@ hr {
         justify-content: center;
         flex-wrap: wrap;
         margin: 5px;
-    }/* Styles de la largeur et du décalage de la carte */
-.card-body-details {
-    max-width: 400px;
-    width: 100%;
-    margin: 5px;
-    padding: 5px;
-}
+    }
+
+    /* Styles de la largeur et du décalage de la carte */
+    .card-body-details {
+        max-width: 400px;
+        width: 100%;
+        margin: 5px;
+        padding: 5px;
+    }
 
 }

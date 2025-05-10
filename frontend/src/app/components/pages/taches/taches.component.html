@@ -1,0 +1,37 @@
+<form class="container" [formGroup]="taskForm" (ngSubmit)="handleSubmit()">
+    <div class="colonne-gauche">
+        <div formArrayName="assignments">
+            <div class="container-select" *ngFor="let assign of assignments.controls; let i = index"
+                [formGroupName]="i">
+                <select formControlName="userId" class="select-user" [id]="'userId-' + i">
+                    <option value="">selectionnez l'utilisateur</option>
+                    <option *ngFor="let user of users" [value]="user.id">{{ user.email }}
+                    </option>
+                </select>
+                <button type="button" class="faTrashAlt" (click)="removeAssignment(i)">
+                    <fa-icon [icon]="faTrash">
+                    </fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="colonne-droite">
+        <!-- <h2> <fa-icon [icon]="faCoffee"></fa-icon> </h2> -->
+        <div class="formulaire">
+            <div class="title">Créer une tâche
+            </div>
+            <div class="container-input">
+                <input type="text" placeholder="Titre de la tâche" formControlName="titre" class="input">
+                <textarea placeholder="Décrire la tâche" formControlName="description"></textarea>
+            </div>
+            <div class="container-btn">
+                <button class="assigner" (click)="addAssignment()">
+                    <fa-icon class="faCirclePlus fa-2x" type="button" [icon]="faCirclePlus "></fa-icon>
+                    Assigner un utilisateur
+                </button>
+                <button type="submit" class="create">Créer la tâche</button>
+            </div>
+        </div>
+    </div>
+</form>

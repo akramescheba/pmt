@@ -47,10 +47,6 @@ export class AddUserComponent implements OnInit {
   userList: any[] = [];
   selectedUser: any = null;
 
-
-  userNom: string = '';
-  userRole: string = '';
-
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -58,15 +54,26 @@ export class AddUserComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-
+  userNom = this.authService.getNom();
+  userRole = this.authService.getRole();
 
   //Toutes les méthodes se trouves ici
+
   ngOnInit(): void {
-    this.userNom = this.authService.getNom()??'';
-    this.userRole = this.authService.getRole()??'';
     this.loadUsers();
   }
-
+handleClickUpdateUser(){
+  this.updateUser();
+  this.isDisplayButton()
+}
+handleClickDeleteUsers(){
+  this.deleteUsers();
+  this.isDisplayButton()
+}
+handleClickCancelButton(){
+  this.cancelButton();
+  this.isDisplayButton()
+}
   isDisplayButton() {
     this.isButton = !this.isButton;
   }
@@ -113,7 +120,7 @@ export class AddUserComponent implements OnInit {
     }
     this.appService.logAction(
       `L'utilisateur 
-      ${this.selectedUser.nom} a été mis à jour`,
+       ${this.selectedUser.nom} a été mis à jour`,
       `${this.userNom} `,
       `${this.userRole}`
       

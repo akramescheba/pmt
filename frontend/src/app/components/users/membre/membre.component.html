@@ -1,108 +1,59 @@
-<div class="row">
-        <div class="col">
-            <h1 class="mot-de-bienvenu">
-                <i>Bienvenu sur votre tableau de bord</i>
-            </h1>
+<div class="dashboard-content ">
+
+    <!-- deux colonnes latérales à gauche -->
+    <div class="colonne-gauche ">
+        <button
+            class="btn-dashboard cursor-pointer bg-white relative inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-[#F5F5F5] hover:text-[#06B6D4] h-9 rounded-md px-3">
+            <svg class="lucide lucide-rocket text-cyan-500 dark:text-cyan-400" stroke-linejoin="round"
+                stroke-linecap="round" stroke-width="2" stroke="#06B6D4" fill="none" viewBox="0 0 24 24" height="22"
+                width="22" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                </path>
+                <path
+                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                </path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+            Dashboard
+        </button>
+        <!-- Profile utilisateur -->
+        <fa-icon [icon]="faUser" class="fa-userIcon"></fa-icon>
+        <h5 class="user-nom"> {{userNom}}</h5>
+
+        <!-- Bouton  d'ajout de projet -->
+        <button class="button2" (click)="pageActive = 'projet'">
+            <svg class="lucide lucide-newspaper text-blue-400 dark:text-blue-600" stroke-linejoin="round"
+                stroke-linecap="round" stroke-width="2" stroke="#60A5FA" fill="none" viewBox="0 0 24 24" height="22"
+                width="22" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2">
+                </path>
+                <path d="M18 14h-8"></path>
+                <path d="M15 18h-5"></path>
+                <path d="M10 6h8v4h-8V6Z"></path>
+            </svg>
+            Ajouter un projet
+
+            <!-- Bouton d'ajout d'utilisateur-->
+        </button>
+        <button class="button2" (click)="pageActive = 'historique'">
+            <svg class="lucide lucide-star text-orange-400 dark:text-orange-600" stroke-linejoin="round"
+                stroke-linecap="round" stroke-width="2" stroke="#FB923C" fill="#FB923C" viewBox="0 0 24 24" height="22"
+                width="22" xmlns="http://www.w3.org/2000/svg">
+                <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
+            </svg>
+            Voir les historiques
+        </button>
+
     </div>
-        <!-- Profil utilisateur -->
-        <div class="col-3">
-            <div class="col-2 profil">
-                <fa-icon [icon]="faUser" class="fa-userIcon"></fa-icon>
-                <h5 class="user-nom"> {{userNom}}</h5>
-        </div>
-            <!-- Boutons lateral <<voir les historiques>> -->
-            <button type="button" class="btn-historique" (click)="handleVoirHistoriqueClick()">
-                Voir les historiques
-            </button>
+
+    <div class="colonne-droite">
+        <app-add-project *ngIf="pageActive === 'projet'"></app-add-project>
+        <app-historiques *ngIf="pageActive==='historique'"></app-historiques>
     </div>
-    
-    
-    <!-- Formulaire d'affichage des projets -->
-    <div class="pleine-page">
-        <div class="card-display-page" *ngIf="!isDisplayCard">
-            <div class="contenaire-card" *ngFor="let project of projectList" (click)="selectProject(project)"
-                [class.selected]="project.id === selectedProject?.id">
-                <div class="card">
-                    <div class="card-body-project">
-                        <div class="form-group">
-                            <h1 class="card-title">{{project.nom}}</h1>
-                            <p class="card-text-description">{{project.description}}</p>
-                            <i>
-                                <p class="card-text-status">{{project.statut}}</p>
-                            </i>
-                        </div>
-                        <div class="conteneur-button">
-                            <button type="button" class="btn-modifier-le-projet ">
-                                Modifier <fa-icon [icon]="faPenToSquare"></fa-icon>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="conteneur-card-update"  *ngIf="selectedProject ">
-            <div class="conteneur-list-projet">
-                <div class="card-modif-projet">
-    
-                        <!-- Formulaire de modification des projets -->
-                        <form (ngSubmit)="updateProject()" class="card-body">
-                            <label for="titre" class="card-title"><b>Modifier le projet</b></label>
-                            <div class="form-group">
-                                <label for="nom" class="card-nom"><b>Nom du projet</b></label>
-                                <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom" required />
-    
-                                <div class="form-date">
-                                    <div class="col">
-                                        <label for="dateDebut"><b>Date de début</b></label>
-                                        <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut"
-                                            name="dateDebut" required />
-                                    </div>
-                                    <div class="col">
-                                        <label for="dateFin"><b>Date de fin</b></label>
-                                        <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin" name="dateFin"
-                                            required />
-                                    </div>
-                                </div>
-    
-                                <label for="context"><b>Context</b></label>
-                                <textarea class="context" [(ngModel)]="selectedProject.context" name="context"
-                                    required ></textarea>
-    
-                                <label for="objectif"><b>Objectif</b></label>
-                                <input type="text" id="objectif" [(ngModel)]="selectedProject.objectif" name="objectif"
-                                    required />
-    
-                                <label for="description"><b>Description</b></label>
-                                <textarea class="description" [(ngModel)]="selectedProject.description"
-                                    name="description" required ></textarea>
-    
-                                <label for="status"><b>Statut</b></label>
-                                <select class="statut" [(ngModel)]="selectedProject.statut" name="statut">
-                                    <option value="En cours">En cours</option>
-                                    <option value="Terminé">Terminé</option>
-                                    <option value="À venir">À venir</option>
-                                </select>
-                            </div>
-    
-                            <hr>
-                            <div class="contente-button">
-    
-                                <button class="btn-valider" type="submit" (click)=" editingCard() ">
-                                    Valider <fa-icon [icon]="faPenToSquare"></fa-icon>
-                                </button>
-                                <button type="button" class="btn-annule" (click)="cancelEdit()">
-                                    Annuler
-                                </button>
-                                <button type="button" class="btn-supprimer" (click)="deleteProject()">
-    
-                                    Supprimer <fa-icon [icon]="faTrashCan"></fa-icon>
-                                </button>
-                            </div>
-    
-                        </form>
-                    </div>
-            </div>
-        </div>
-    </div>
+  
+
 </div>

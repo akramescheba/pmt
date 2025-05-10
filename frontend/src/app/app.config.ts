@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection,importProvidersFrom } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 import { provideRouter, } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
@@ -12,5 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
         provideAnimations(), 
         provideToastr(),
+        provideHttpClient()
   ],
 };

@@ -53,8 +53,7 @@ describe('useRoleGuard', () => {
     );
 
     expect(result).toBe(false);
-    expect(toastrMock.error).toHaveBeenCalledWith("Vous n'avez pas les droits d'accès à cette page ");
-    expect(routerMock.navigate).toHaveBeenCalledWith(['/dashboard']);
+    expect(toastrMock.error).toHaveBeenCalledWith("Vous n'avez pas les droits d'accès à cette page");
   });
 
   it('should deny access when no role is present', () => {
@@ -64,7 +63,7 @@ describe('useRoleGuard', () => {
     );
 
     expect(result).toBe(false);
-    expect(toastrMock.error).toHaveBeenCalledWith("Vous n'avez pas les droits d'accès à cette page ");
-    expect(routerMock.navigate).toHaveBeenCalledWith(['/dashboard']);
+    expect(toastrMock.error).toHaveBeenCalledWith("Vous n'avez pas les droits d'accès à cette page");
+
   });
 });

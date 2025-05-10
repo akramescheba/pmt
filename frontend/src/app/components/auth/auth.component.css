@@ -1,33 +1,27 @@
-/* Styles de gand écran */
+/* STYLES DE GRAND ECRAN*/
 .authentification {
     background-color: #0d0dff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
     width: 100%;
     height: 100vh;
 }
 
-/* Styles de tablette */
+/* STYLES D'ECRAN DE TABLETTE */
 @media screen and (max-width:1024px) {
     .authentification {
         align-items: center;
         justify-content: center;
-
     }
-
 }
 
-/* Styles de smartphone */
+/* STYLES D'ECRAN DE SMARTPHONE */
 @media screen and (max-width:768px) {
     .authentification {
-        display: block;
-        padding-top: 50px;
+        display: flex;
         align-items: center;
         justify-content: center;
-
     }
-
 }

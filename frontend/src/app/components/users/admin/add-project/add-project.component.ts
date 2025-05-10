@@ -36,15 +36,6 @@ export class AddProjectComponent implements OnInit {
   isDisplayButton: boolean = false;
   isDisplayCard: boolean = false;
 
-  // Méthode permettant de switcher entre les boutons Edit et Save.
-
-  editingCard() {
-    this.isDisplayCard = !this.isDisplayCard;
-  }
-  displayCard() {
-    this.isDisplayCard = !this.isDisplayCard;
-  }
-
   faPenToSquare = faPenToSquare;
   faCirclePlus = faCirclePlus;
   faTrashCan = faTrashCan;
@@ -62,30 +53,45 @@ export class AddProjectComponent implements OnInit {
 
     userNom = this.authService.getNom();
     userRole = this.authService.getRole();
-
+      // Méthode permettant de switcher entre les boutons Edit et Save.
+    editingCard() {
+      this.isDisplayCard = !this.isDisplayCard;
+    }
+    displayCard() {
+      this.isDisplayCard = !this.isDisplayCard;
+    }
+  
+handleDeleteProject(){
+  this.deleteProject();
+  this.displayCard();
+}
+handleUpdateProject(){
+  this.updateProject();
+  this.displayCard();
+}
 
   ngOnInit(): void {
     this.loadProjects();
+    
+
   }
   loadPage(): void{
     this.router.navigate([this.router.url]);
   }
+  // Chargement de la liste des projets
   loadProjects(): void {
-    this.appService.getProjects().subscribe({
-      next: (project) => {
+    this.appService.getProjects().subscribe(
+      (project) => {
         this.projectList = project;
         this.toastr.success('Projets chargés avec succès !');
       },
-      error: () => {
-        this.toastr.error(
-          'Erreur lors du chargement des projets !',
-          '',
-          { timeOut: 3000, positionClass: 'toast-bottom-right' }
-        );
-      },
-    });
+      (error) => {
+        console.error(error);
+        this.toastr.error('Impossible de charger les projets.');
+      }
+    );
   }
-  
+
 
   // Sélectionner un projet pour modification
   selectProject(project: any): void {
@@ -101,6 +107,7 @@ export class AddProjectComponent implements OnInit {
 
       this.appService.patchProject(projectId, patchData).subscribe(
         (result) => {
+          console.log(result);
           this.toastr.success(
             `Le projet ${this.selectedProject.nom} a été mis à jour.`,
             '',
@@ -119,7 +126,7 @@ export class AddProjectComponent implements OnInit {
       );
     }
          // Création de l'evenement delete dans l'historique; 
-        this.appService.logAction(`Le projet "${this.selectedProject.nom}"  a été mis à jour`,  `${this.userNom}`, `${this.userRole}`);
+        this.appService.logAction(`Le projet  "${this.selectedProject.nom}"  a été mis à jour`,  `${this.userNom}`, `${this.userRole}`);
 
   }
 
@@ -131,6 +138,7 @@ export class AddProjectComponent implements OnInit {
   
         this.appService.deleteProject(projectId).subscribe(
           (result) => {
+            console.log(result);
             this.toastr.success(
               `Le projet ${this.selectedProject.nom} a été supprimé.`,
               '',
@@ -157,5 +165,6 @@ export class AddProjectComponent implements OnInit {
     this.selectedProject = null;
     this.displayCard();
   }
+
 }
 

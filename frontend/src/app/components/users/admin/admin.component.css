@@ -1,117 +1,98 @@
-.conteneur-admin {
-    background-color: #dddde731;
-    background-size: 40%;
-    background-position: center;
-    margin: 50px auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+
+
+.btn-dashboard {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 15px auto;
+  width: max-content;
+  border: none;
 }
 
-.mot-de-bienvenu {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 2.8rem;
-    overflow: hidden;
-    text-align: center;
-    font-weight: bold;
-    color: #000000;
-    margin: 20px;
-
+/* From Uiverse.io by adamgiebl */
+.button2 {
+  text-align: justify;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  margin: 15px auto;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 5px;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #00000011, -6px -6px 12px #ffffff;
 }
-
-.col-2.profil {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    background-color: rgba(0, 55, 255, 0.363);
-    box-shadow: #000000;
-    margin: 25px 10px;
-    border: 1px solid rgb(148, 148, 148);
-    border-radius: 5px;
-    height: 15vh;
-    width: 250px;
-
+.button2:hover {
+  border: 1px solid white;
+}
+.button2:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
 
+/*  */
+.cursor-pointer {
+  margin: 15px auto;
+  width: 350px;
+  max-width: max-content;
+}
+.colonne-droite {
+  display: flex;
+  justify-content: center;
+  padding: 50px auto;
+  margin-left: 350px;
+  height: 100vh;
+  overflow-y: auto;
+
+}
+
+.colonne-gauche {
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  /* background-color: #2c3e50; */
+  color: #2c3e50;
+
+  position: fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+button {
+  min-width: 50px;
+  width: 50%;
+
+}
 
 .fa-userIcon {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .user-nom {
-    color: rgb(7, 86, 106);
+  color: rgb(7, 86, 106);
 }
-
-.col-3 {
-    margin: 0 auto;
-    width: auto;
-
-}
-
-.button-adds {
-    background-color: #0000FF;
-    color: white;
-    margin: 20px auto;
-    cursor: pointer;
-    width: 250px;
+@media screen and (max-width: 768px) {
+  .dashboard-content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
+  }
+  .colonne-gauche {
+    position:static;
+
+    display: flex;
+    padding: 50px 0;
+    flex-direction: column;
     align-items: center;
-    font-size: large;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    border: 1px solid rgb(148, 148, 148);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-@media screen and (max-width:768px) {
-    .row{
-        margin: 0 auto;
-    }
-    .mot-de-bienvenu{
-        font-size: 1.3rem;
-    }
-    .col-2.profil {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-        background-color: rgba(0, 55, 255, 0.363);
-        box-shadow: #000000;
-        margin: 25px 10px;
-        border: 1px solid rgb(148, 148, 148);
-        border-radius: 5px;
-        height: 25vh;
-        width: 250px;
-    }
-
-    .button-adds {
-        background-color: #0000FF;
-        color: white;
-        margin: 20px auto;
-        cursor: pointer;
-        width: 250px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: large;
-        font-family: 'Arial, Helvetica, sans-serif';
-        border: 1px solid rgb(148, 148, 148);
-        border-radius: 5px;
-        padding: 10px;
-        box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    }
-    .conteneur-admin {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-    
-    }
+    width: 350px;
+    overflow: auto;
+ 
+  }
+  
 }

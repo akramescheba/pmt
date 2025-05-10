@@ -1,68 +1,43 @@
-<main>
+<!-- Bouton d'ajout de projet -->
+<button class="button-plus " data-bs-toggle="modal" data-bs-target="#formulaireModal" data-bs-whatever="">
+    <fa-icon class="faCirclePlus fa-2x" type="button" [icon]="faCirclePlus "></fa-icon>
+</button>
 
-    <!-- Bouton d'ajout de projet -->
-    <button class="btn-add-project " data-bs-toggle="modal"
-    data-bs-target="#formulaireModal" data-bs-whatever=""> Ajouter un projet
-        <fa-icon class="faCirclePlus fa-2x" type="button" [icon]="faCirclePlus " ></fa-icon>
-    </button>
-
-    <!-- Formulaire modal d'ajout de projet -->
-    <form class="modal fade " id="formulaireModal">
-        <div class="modal-dialog">
+<!-- Formulaire modal d'ajout de projet -->
+<div class="modal fade " id="formulaireModal">
+    <div class="modal-dialog">
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Créer un nouveau projet</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
-                        <p>Veuillez remplir ce formulaire pour créer un nouveau projet.</p>
-                        <div class="mb-3">
-                            <label for="nom" class="form-label"><b>Titre du projet</b> </label>
-                            <input type="text" id="nom" class="form-control" formControlName="nom"
-                                placeholder="Saisir le titre de votre projet">
+                <div class="container-input-textarea">
+                    <input type="text" class="all-input" placeholder="Saisier le titre du projet" formControlName="nom" id="nom">
+                    <input type="text" class="all-input" placeholder="Saisier l'objectif du projet" formControlName="objectif" id="objectif">
+                    <textarea type="text" class="textarea-context" placeholder=" Saisir le context de votre projet"  formControlName="context" id="context"></textarea>
+                    <!--  -->
+                    <div class="row form-date">
+                        <div class="col form-date_debut">
+                            <label for="date" class="form-label">Date de début</label>
+                            <input type="date" class="date-input" formControlName="date_debut" id="date_debut">
                         </div>
-                        <div class="mb-3">
-                            <label for="objectif" class="form-label"><b>Objecti du projet</b></label>
-                            <input type="text" id="objectif" class="form-control" formControlName="objectif"
-                                placeholder=" Saisir l'objectif de votre projet">
+                        <div class="col form-date_fin">
+                            <label for="date" class="form-label">Date de fin</label>
+                            <input type="date" class="date-input" formControlName="date_fin" id="date_fin">
                         </div>
-                        <div class="mb-3">
-                            <label for="context" class="form-label"><b>Context du projet</b></label>
-                            <input type="text" id="context" class="form-control" formControlName="context"
-                                placeholder=" Saisir le context de votre projet">
-                        </div>
-
-                        <div class="row form-date">
-                            <div class="col form-date_debut">
-                                <label for="date" class="form-label"><b>Date de début</b></label>
-                                <input type="date" id="date_debut" class="form-control" formControlName="date_debut">
-                            </div>
-                            <div class="col form-date_fin">
-                                <label for="date" class="form-label"><b>Date de fin</b></label>
-                                <input type="date" id="date_fin" class="form-control" formControlName="date_fin">
-                            </div>
-
-                        </div>
-                        <div class="mb-3">
-                            <textarea type="text" id="description" class="form-control" formControlName="description"
-                                aria-describedby="aideZoneSaisie">
-                            </textarea>
-                            <div class="footer-textarea"> Saisir une description de votre projet </div>
-
-                            <label for="status"  class="form-label"><b>Statut du projet</b></label>
-                            <div class="custom-select">
-                                <select type="statut" class="form-control" formControlName="statut">
-                                    <option value="En cours">En cours</option>
-                                    <option value="Terminé">Terminé</option>
-                                    <option value="À venir">À venir</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-submit">Ajouter</button>
-                    </form>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="textarea-description" formControlName="description" placeholder=" Décrire votre projet"  id="description"></textarea>
+                        <label for="status" class="form-label">Statut du projet</label>
+                        <select type="statut" class="select-form" formControlName="statut">
+                            <option value="En cours">En cours</option>
+                            <option value="Terminé">Terminé</option>
+                            <option value="À venir">À venir</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-ajouter">Ajouter</button>
                 </div>
-
             </div>
-        </div>
-    </form>
-</main>
+        </form>
+    </div>

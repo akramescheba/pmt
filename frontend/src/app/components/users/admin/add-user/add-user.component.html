@@ -26,47 +26,55 @@
     </div>
 
     <!-- Formulaire de modification des utilisateurs -->
-    <div class="conteneur-card" *ngIf="selectedUser">
-        <div class="conteneur-list-user" >
-            <div class="card-edit-user">
-                <div *ngIf="isButton">
-                    <form class="card-body" (ngSubmit)="updateUser()">
-                        <label for="titre" class="card-title"><b>Modifier le projet</b></label>
-                        <div class="form-group">
-                            <label for="nom">Nom</label>
-                        <input id="nom" type="text" [(ngModel)]="selectedUser.nom" name="nom" required>
-                        <label for="email">Email</label>
-                        <input id="email" type="email" [(ngModel)]="selectedUser.email" name="email" required>
-                        <label for="role">Rôle</label>
-                        <select class="role" id="role" [(ngModel)]="selectedUser.role" name="role" required>
-                            <option value="Observateur">Observateur</option>
-                            <option value="Membre">Membre</option>
-                            <option value="Administrateur">Administrateur</option>
-                        </select>
-
-                        <label for="password">Mot de passe</label>
-                        <input id="password" type="password" [(ngModel)]="selectedUser.password" name="password " required>
+    <div class="container" *ngIf="selectedUser">
+        <div class="card-forms" *ngIf="isButton">
+            <span class="title">Modifier un utilisateur</span>
+            <form class="form" (ngSubmit)="updateUser()">
+                <div class="group">
+                    <input id="nom" type="text" [(ngModel)]="selectedUser.nom" name="nom" required>
+                    <label for="name">Nom</label>
+                </div>
+                <div class="group">
+                    <input id="email" type="email" [(ngModel)]="selectedUser.email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="group">
+                    <select class="role" id="role" [(ngModel)]="selectedUser.role" name="role" required>
+                        <option value="Observateur">Observateur</option>
+                        <option value="Membre">Membre</option>
+                        <option value="Administrateur">Administrateur</option>
+                    </select>
+                    <label for="email">Rôle</label>
+                </div>
+                <div class="group">
+                    <input id="password" type="password" [(ngModel)]="selectedUser.password" name="password " required>
+                    <label for="email">Mot de passe</label>
+                </div>
+                <div class="conteneur-button">
+                    <!--  -->
+                    <div class="sauvegarder">
+                        <div (click)="handleClickUpdateUser()">
+                            Sauvegarder <fa-icon [icon]="faArrowsRotate"></fa-icon>
                         </div>
-                        
-                        <hr>
-                        <div class="conteneur-button">
-                            <button type="button" class="btn-maj" (click)="updateUser()">
-                                Mettre à jour <fa-icon [icon]="faArrowsRotate" ></fa-icon>
-                            </button>
-                            <button type="button" class="btn-annuler" (click)="cancelButton()">
-                                Annuler
-                            </button>
-                            <button type="button" class="btn-supprimer" (click)="deleteUsers()" >
-                                Supprimer
-                                <fa-icon [icon]="faTrashCan"></fa-icon>
-                            </button>
+                    </div>
+                    <!--  -->
+                    <div class="annuler">
+                        <div (click)="cancelButton()">
+                            Annuler
                         </div>
-                    </form>
-
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                    <div class="del">
+                        <div (click)="handleClickDeleteUsers()">
+                            supprimer <fa-icon [icon]="faTrashCan"></fa-icon>
+                        </div>
+                    </div>
+                    <!--  -->
                 </div>
 
-            </div>
+            </form>
         </div>
-
     </div>
+
 </div>

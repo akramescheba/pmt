@@ -23,68 +23,61 @@
             </div>
         </div>
     </div>
-
-    <div class="conteneur-card-update"  *ngIf="selectedProject ">
-        <div class="conteneur-list-projet">
-            <div class="card-modif-projet">
-
-                    <!-- Formulaire de modification des projets -->
-                    <form (ngSubmit)="updateProject()" class="card-body">
-                        <label for="titre" class="card-title"><b>Modifier le projet</b></label>
-                        <div class="form-group">
-                            <label for="nom" class="card-nom"><b>Nom du projet</b></label>
-                            <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom" required />
-
-                            <div class="form-date">
-                                <div class="col">
-                                    <label for="dateDebut"><b>Date de début</b></label>
-                                    <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut"
-                                        name="dateDebut" required />
-                                </div>
-                                <div class="col">
-                                    <label for="dateFin"><b>Date de fin</b></label>
-                                    <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin" name="dateFin"
-                                        required />
-                                </div>
-                            </div>
-
-                            <label for="context"><b>Context</b></label>
-                            <textarea class="context" [(ngModel)]="selectedProject.context" name="context"
-                                required ></textarea>
-
-                            <label for="objectif"><b>Objectif</b></label>
-                            <input type="text" id="objectif" [(ngModel)]="selectedProject.objectif" name="objectif"
-                                required />
-
-                            <label for="description"><b>Description</b></label>
-                            <textarea class="description" [(ngModel)]="selectedProject.description"
-                                name="description" required ></textarea>
-
-                            <label for="status"><b>Statut</b></label>
-                            <select class="statut" [(ngModel)]="selectedProject.statut" name="statut">
-                                <option value="En cours">En cours</option>
-                                <option value="Terminé">Terminé</option>
-                                <option value="À venir">À venir</option>
-                            </select>
-                        </div>
-
-                        <hr>
-                        <div class="contente-button">
-
-                            <button class="btn-valider" type="submit" (click)=" editingCard() ">
-                                Valider <fa-icon [icon]="faPenToSquare"></fa-icon>
-                            </button>
-                            <button type="button" class="btn-annule" (click)="cancelEdit()">
-                                Annuler
-                            </button>
-                            <button type="button" class="btn-supprimer" (click)="deleteProject()">
-
-                                Supprimer <fa-icon [icon]="faTrashCan"></fa-icon>
-                            </button>
-                        </div>
-
-                    </form>
+    <div class="container modification" *ngIf="selectedProject " >
+        <!-- Formulaire de modification des projets -->
+        <form (ngSubmit)="updateProject()" class="formulaire" >
+            <label for="titre" class="card-title">Modifier le projet</label>
+            <div class="form-group">
+                <label for="nom" class="card-nom"><b>Nom du projet</b></label>
+                <input type="text" id="nom" [(ngModel)]="selectedProject.nom" name="nom" required />
+                <div class="form-date">
+                    <div class="col">
+                        <label for="dateDebut"><b>Date de début</b></label>
+                        <input type="date" id="dateDebut" [(ngModel)]="selectedProject.dateDebut" name="dateDebut"
+                            required />
+                    </div>
+                    <div class="col">
+                        <label for="dateFin"><b>Date de fin</b></label>
+                        <input type="date" id="dateFin" [(ngModel)]="selectedProject.dateFin" name="dateFin" required />
+                    </div>
                 </div>
-        </div>
+                <label for="context"><b>Contexte</b></label>
+                <textarea class="context" [(ngModel)]="selectedProject.context" name="context" required></textarea>
+                <label for="objectif"><b>Objectif</b></label>
+                <input type="text" id="objectif" [(ngModel)]="selectedProject.objectif" name="objectif" required />
+                <label for="description"><b>Description</b></label>
+                <textarea class="description" [(ngModel)]="selectedProject.description" name="description"
+                    required></textarea>
+                <label for="status"><b>Statut</b></label>
+                <select class="statut" [(ngModel)]="selectedProject.statut" name="statut">
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                    <option value="À venir">À venir</option>
+                </select>
+            </div>
+
+            <div class="contente-button">
+                <!--  -->
+                <div class="sauvegarder">
+                    <div (click)=" handleUpdateProject()">
+                        Sauvegarder <fa-icon [icon]="faArrowsRotate"></fa-icon>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="annuler">
+                    <div (click)="cancelEdit()">
+                        Annuler 
+                    </div>
+                </div>
+                <!--  -->
+                <div class="del">
+                    <div (click)="handleDeleteProject()">
+                        supprimer <fa-icon [icon]="faTrashCan"></fa-icon>
+                    </div>
+                </div>
+                <!--  -->
+            </div>
+
+        </form>
     </div>
 </div>

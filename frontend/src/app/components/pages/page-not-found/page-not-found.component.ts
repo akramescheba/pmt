@@ -13,12 +13,21 @@ import {DashboardComponent} from "../dashboard/dashboard.component";
 export class PageNotFoundComponent implements OnInit{
 
   constructor(    private router: Router){}
-
+  userRole: string | null = "";
   ngOnInit(): void {
+    this.userRole = localStorage.getItem("role");
   }
 
-  onDashboard(){
-    this.router.navigate(['/dashboard']);
+  onClickMonCompte() {
+    if (this.userRole == "Administrateur") {
+      this.router.navigate(["/admin"]);
+    } else if (this.userRole == "Membre") {
+      this.router.navigate(["/membre"]);
+    } else if (this.userRole == "Observateur") {
+      this.router.navigate(["/observateur"]);
+    } else {
+      console.error("Une erreur s'est produite");
+    }
   }
 
 }

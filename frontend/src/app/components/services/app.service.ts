@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class AppService {
   private  urlApiProject = `${dev_environment. API_BD_URL}/projet`;
   private urlApiUsers = `${dev_environment. API_BD_URL}/utilisateur`; 
+  private urlApiTask = `${dev_environment. API_BD_URL}/taches`;
   private urlApiHistory = `${dev_environment. API_BD_URL}/historique`;
 
 
@@ -23,31 +24,24 @@ export class AppService {
   ) {}
   
   // Methodes Http projets
-  
   getProjects(): Observable<any[]>{
     return this.http.get<any[]>(this.urlApiProject);
   }
-
   getProjectById(id: number): Observable<any>{
     return this.http.get(`${this.urlApiProject}/${id}`);
   }
-
   postProject(postData: any): Observable<any> {
     return this.http.post<any>(this.urlApiProject, postData, );
   }
-  
   putProject(id:number , putData: any): Observable<any>{
     return this.http.put(`${this.urlApiProject}/${id}`, putData)
   }
-  
   patchProject(projectId: number, patchData:any): Observable<any>{
     return this.http.patch(`${this.urlApiProject}/${projectId}`, patchData);
   }
-
   updateProject(project: any): Observable<any>{
     return this.http.put(`${this.urlApiProject}/${project.id}`, project)
   }
-
   deleteProject(id: number): Observable<void>{
     return this.http.delete<void>(`${this.urlApiProject}/${id}`);
   }
@@ -56,7 +50,6 @@ export class AppService {
 getUsers(): Observable<any[]>{
   return this.http.get<any[]>(this.urlApiUsers);
 }
-
 getUserById(id: number, projectData: any): Observable<any[]>{
   return this.http.get<any>(`${this.urlApiUsers}/${id}`);
 }
@@ -74,6 +67,10 @@ deleteUsers(id: number): Observable<any> {
 }
 updateUser(id:number , updateData: any){
   return this.http.put(`${this.urlApiUsers}/${id}`, updateData)
+}
+// Méthodes Http Tâches
+getTasks(): Observable<any[]>{
+  return this.http.get<any[]>(`${this.urlApiTask}`)
 }
 
 // Methodes Http Historiques
@@ -95,6 +92,4 @@ deleteHistory(id:number): Observable<any>{
 onClickVoirHistorique() {
   this.router.navigate(['/historiques']);
 }
-
-
 }

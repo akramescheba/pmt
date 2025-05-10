@@ -1,184 +1,78 @@
-.pleine-page {}
+.dashboard-content {}
 
-.row {
-    width: 100%;
-
+.btn-dashboard {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 15px auto;
+  width: max-content;
+  border: none;
 }
 
-/* Styles du mon de bienvenue*/
-.mot-de-bienvenu {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 2.8rem;
-    overflow: hidden;
-    text-align: center;
-    font-weight: bold;
-    color: #000000;
-    margin: 20px;
-
-
-
+/* From Uiverse.io by adamgiebl */
+.button2 {
+  color: #090909;
+  padding: 0.7em 1.7em;
+  margin: 15px auto;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  cursor: pointer;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+.button2:hover {
+  border: 1px solid white;
+}
+.button2:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
 }
 
-.col-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+/*  */
+.cursor-pointer {
+  margin: 15px auto;
+  width: 350px;
+  max-width: max-content;
+}
+.colonne-droite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 350px;
+  padding: 60px 0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
-/* Styles d'affichage du nom de profile  */
-.profile {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    background-color: rgba(0, 55, 255, 0.363);
-    box-shadow: #000000;
-    margin: 25px 10px;
-    border: 1px solid rgb(148, 148, 148);
-    border-radius: 5px;
-    height: 15vh;
-    width: 250px;
+.colonne-gauche {
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  /* background-color: #2c3e50; */
+  color: #2c3e50;
+
+  position: fixed;
+  height: 100vh;
+  overflow: auto;
+}
+
+button {
+  min-width: 50px;
+  width: 50%;
 
 }
 
 .fa-userIcon {
-    font-size: 30px;
+  font-size: 50px;
 }
 
 .user-nom {
-    color: rgb(7, 86, 106);
-}
-
-.profile {
-    justify-content: center;
-    box-shadow: #000000;
-    margin: 5px auto;
-    padding: 5px;
-    min-width: 15vw;
-    background-color: rgba(0, 64, 225, 0.135);
-}
-
-.btn-historiques {
-    width: 250px;
-    color: white;
-    padding: 5px;
-    font-size: 1.2rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #0000FF;
-    border: 1px solid ;
-    border-radius: 5px;
-    box-shadow: 1px 4px 8px rgba(22, 22, 22, 0.325);
-}
-
-
-
-.dashboard-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: #f0f0f0;
-}
-
-.contenaire-card {
-    height: max-content;
-    padding: 10px;
-}
-
-.card {
-    border: 1px solid #0000002d;
-    border-radius: 2px;
-    padding: 5px;
-    margin: 5px;
-}
-
-.card-body {
-    padding: 10px;
-    width: 340px;
-}
-
-.form-group {
-    background-color: #c8c8c817;
-    padding: 5px;
-}
-
-
-.card-title {
-    color: #003;
-    font-weight: bold;
-    font-size: 1.20rem;
-    margin-bottom: 1px;
-    text-align: center;
-
-}
-
-p.card-text, select.statut {
-    padding: 10px;
-    background: #f1f1f155;
-    margin: 0 2px 1px 0;
-    /* border: 1px solid #0000002d;
-    border-radius: 2px; */
-    font-size: 1rem;
-    color: #666;
-}
-
-p.card-text:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-.conteneur-button {
-    display: flex;
-    margin-bottom: 1px;
-    padding-top: 5px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-
-.btn-en-savoir-plus {
-    width: 100%;
-    background-color: #0000FF;
-    color: white;
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid #f1f1f1;
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-
-}
-
-@media screen and (width:1024px) {
-    .row {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .col-2 {
-        width: 50%;
-    }
-}
-
-
-@media screen and (max-width:768px) {
-    .row {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .col-2 {
-        width: 50%;
-
-    }
-
-    .btn-historiques {
-        padding: 5px;
-        font-size: 1.2rem
-    }
+  color: rgb(7, 86, 106);
 }

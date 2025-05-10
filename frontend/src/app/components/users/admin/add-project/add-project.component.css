@@ -1,9 +1,5 @@
 .pleine-page {
-    background-image: url('/assets/projet.png');
-    background-size: 50%;
-    background-position: center;
-    margin: 50px auto;
-    background-repeat: no-repeat;
+    padding: 50px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,16 +10,14 @@
 .card-display-page {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     min-height: 60vh;
+    padding: 100px 0;
 }
 
-.contenaire-card {
-    height: max-content;
-    padding: 5px;
-}
 
-/* Styles de la carte */
+/* Styles de la card */
 .card {
     border: 1px solid #0011ff2d;
     border-radius: 2px;
@@ -38,7 +32,7 @@
     font-size: 1.5rem;
     padding: 5px;
     width: 350px;
-    background-color: #0044ff0a;
+    /* background-color: #0044ff0a; */
 }
 
 .form-group {
@@ -56,6 +50,44 @@
 }
 
 .card-title {
+    color: rgba(101, 101, 102, 0.975);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Styles global du formulaire de modification */
+.container.modification {
+    margin: 80px;
+    background-color: rgb(255, 255, 255);
+    height: max-content;
+    padding: 5px;
+    width: 500px;
+
+}
+
+
+
+
+
+/* Styles de la largeur et du décalage de la carte */
+.formulaire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /* padding: 5px; */
+}
+
+.card-title {
     color: #003;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
@@ -63,45 +95,6 @@
     text-align: center;
     margin: 10px;
 
-}
-
-/* Styles global du formulaire de modification */
-.conteneur-card-update {
-    background-color: rgb(255, 255, 255);
-    border: 1;
-    border-radius: 1px;
-}
-
-.card-modif-projet {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1rem;
-    padding: 3px;
-    border: 1px solid #03030323;
-    border-radius: 2px;
-    /* box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105); */
-    background-color: #f1f1f1;
-
-}
-
-.conteneur-list-projet {
-    height: max-content;
-    padding: 10px;
-    width: 480px;
-}
-
-/* Styles de la largeur et du décalage de la carte */
-.card-body {
-    padding: 5px;
-    width: 100%;
-
-}
-
-.card-title {
-    color: rgba(0, 0, 51, 0.959);
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
 }
 
 /* Styles dates */
@@ -112,47 +105,46 @@
 }
 
 /* Styles des paragraphes, select et input */
-input[type=text], input[type=date], select {
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-
+input[type=text],select{
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 2px;
+    min-width: 450px;
+    height: 50px;
+}
+input[type=date]{
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 35px;
+    border-radius: 2px;
+    height: 50px;
+}
+textarea.context {
+    outline: 0;
+    border: 1px solid rgb(219, 213, 213);
+    padding: 8px 14px;
+    border-radius: 2px;
+    min-width: 450px;
+    height: 100px;
+    resize: none;
 }
 
-input[type=text] :focus {
-    background-color: #ddd;
-    outline: none;
-}
 
 textarea.description {
-    min-height: 20vh;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 2px;
+    height: 250px;
+    min-width: 450px;
+    resize: none;
+    outline: 0;
+    padding: 8px 14px;
+    border: 1px solid rgb(219, 213, 213);
+
 }
 
-
-textarea.context {
-    min-height: 5vh;
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 3px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
+input:focus, textarea:focus, select:focus {
+    border: 1.8px solid #1877f2;
+  }
 
 
 .form-label {
@@ -162,6 +154,14 @@ textarea.context {
 
 
 /* Styles des texts */
+.card-title {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #666;
+}
+
 .card-text, p {
     font-size: 1rem;
     color: #666;
@@ -169,59 +169,105 @@ textarea.context {
 
 /* Styles bouton d'ajout de projet */
 .btn-modifier-le-projet {
-    width: 100%;
+    width: 200px;
     background-color: #0000FF;
+    font-size: .8em;
     color: white;
-    /* cursor: none; */
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #f1f1f1;
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
 /* Styles  container des bouton valider, annuler, supprimer */
 .contente-button {
     display: flex;
+    flex-direction: row;
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    padding: 5px;
-
 }
 
-.btn-valider {
-    width: 10wh;
-    padding: 5px 20px;
+/* From Uiverse.io by Peary74 */
+
+/* Bouton sauvegarer */
+.sauvegarder {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 5vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #00d42a;
     color: white;
     cursor: pointer;
+    padding: 2px;
     border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 5px;
+ 
 }
 
-.btn-annule {
+/* Bouton annuler */
+.annuler {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 5vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ffae00;
     color: white;
     cursor: pointer;
-    width: 10wh;
-    padding: 5px 20px;
+    padding: 2px;
     border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 5px;
 }
 
-.btn-supprimer {
-    width: 10wh;
-    padding: 5px 20px;
+/* Bouton supprimer */
+.del {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 5vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #ff0000;
     color: white;
     cursor: pointer;
-    padding: 5px;
+    padding: 2px;
     border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 2px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+    border-radius: 5px;
+
 }
+
+/* .del div:hover, .annuler div:hover, .sauvegarder div:hover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
+        -4px -4px 6px 0 rgba(116, 125, 136, .5),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    z-index: 1;
+    transition: .6s;
+} */
 
 /* Style pour les écrans de tablettes */
 @media screen and (max-width:1024px) {
@@ -232,6 +278,7 @@ textarea.context {
     textarea.description {
         min-height: 10vh;
     }
+
     .pleine-page {
         background-size: 100%;
         margin: 5px auto;
@@ -241,17 +288,19 @@ textarea.context {
 /* Style pour les écrans de smartphones */
 @media screen and (max-width:768px) {
     .card {
-        padding: 0px auto;
+        padding: 10px auto;
+
 
     }
+
     .conteneur-card-update {
-        width: auto;
-    }
-    .conteneur-list-projet {
-        height: max-content;
+        margin: 50px auto;
+        width: 400px;
+        height: 400pxt;
         padding: 5px;
-        width: 380px;
+
     }
+
     .btn-valider, .btn-annule, .btn-supprimer {
         font-size: 0.8em;
     }

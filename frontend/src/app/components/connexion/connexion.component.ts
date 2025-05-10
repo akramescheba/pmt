@@ -1,4 +1,4 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,16 +30,11 @@ interface usersDataList {
   providers: [AppService, AuthService],
 })
 export class ConnexionComponent implements OnInit {
-  //Méthode pour vérifier q'un utilisateur est connecté.
-
   email: string = '';
   psw: string = '';
-
   usersList: usersDataList[] = [];
   loginForm!: FormGroup;
-
-  isAdmin: boolean = false;
-
+  isSignUp: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -50,45 +45,54 @@ export class ConnexionComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  // Bouton permettant de d'afficher le formulaire d'inscription.
-  isSignUp: boolean = false;
-  
   switchToSignUp() {
     this.authComponent.switchToSignUp();
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       psw: ['', Validators.required],
     });
   }
 
   seConnecter() {
     if (this.loginForm.valid) {
-      const psw = this.loginForm.get('psw')?.value;
       const email = this.loginForm.get('email')?.value;
-  
+      const psw = this.loginForm.get('psw')?.value;
+
       this.appService.getUsers().subscribe((response: usersDataList[]) => {
         this.usersList = response;
-  
-        const user = this.usersList.find((userInfo) => userInfo.email === email);
-  
+
+        const user = this.usersList.find((u) => u.email === email);
+
         if (user) {
           if (user.password === psw) {
             this.authService.logIn();
             localStorage.setItem('nom', user.nom);
             localStorage.setItem('role', user.role);
-            this.router.navigate(['/dashboard']);
-            this.toastr.info(`Vous ête connecté en tant que  ${user.nom}`);
+            this.toastr.success(`Connecté en tant que ${user.nom}`);
+            if (user.role === 'Administrateur') {
+              this.router.navigate(['/admin']);
+            } else if(user.role==='Membre'){
+              this.router.navigate(['/membre']);
+            }
+            else if(user.role==='Observateur'){
+              this.router.navigate(['/observateur']);
+            }
+            else{
+              this.toastr.error('Erreur de connexion');
+            }
+
           } else {
             this.toastr.error('Mot de passe incorrect !');
           }
         } else {
-          this.toastr.warning(' Email non trouvé ou erroné !');
+          this.toastr.warning('Email non trouvé ou erroné !');
         }
       });
+    } else {
+      this.toastr.warning('Veuillez remplir tous les champs.');
     }
   }
-  
 }

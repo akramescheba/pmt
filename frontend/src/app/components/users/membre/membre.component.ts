@@ -19,7 +19,8 @@ import {
   faArrowsRotate,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-import { ModalComponent } from '../../formulaires/modal/modal.component';
+import {AddProjectComponent} from '../../users/admin/add-project/add-project.component';
+import{HistoriquesComponent} from '../../pages/historiques/historiques.component';
 import { AppService } from "../../services/app.service";
 import { AuthService } from "../../auth/auth.service";
 import { ToastrService } from "ngx-toastr";
@@ -33,7 +34,8 @@ import { ToastrService } from "ngx-toastr";
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    ModalComponent,
+    AddProjectComponent,
+    HistoriquesComponent
   ],
   templateUrl: "./membre.component.html",
   styleUrl: "./membre.component.css",
@@ -41,7 +43,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class MembreComponent implements OnInit {
   faUser = faUser;
-
+  pageActive:string='projet';
   isDisplayButton: boolean = false;
   isDisplayCard: boolean = false;
 

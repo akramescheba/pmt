@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {DashboardComponent} from '../../pages/dashboard/dashboard.component'
+import {DashboardComponent} from '../../pages/dashboard/dashboard.component';
+import {HistoriquesComponent} from '../../pages/historiques/historiques.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -10,7 +11,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-observateur',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent],
+  imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent, HistoriquesComponent],
   templateUrl: './observateur.component.html',
   styleUrl: './observateur.component.css',
   providers: [],
@@ -18,11 +19,10 @@ import { AuthService } from '../../auth/auth.service';
 export class ObservateurComponent implements OnInit {
 
   faUser = faUser;
-
   selectedProject: any =null
   projectList: any[] = [];
   isDisplayButton: boolean = false;
-
+  pageActive:string='dashboard';
   constructor(
     private http: HttpClient,
     private appService: AppService,

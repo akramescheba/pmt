@@ -1,0 +1,20 @@
+<div class="content">
+    <h1>Liste des tâches</h1>
+<div class="container">
+    <div class="card" *ngFor="let task of taskList">
+        <div class="card-image">
+            <div class="id col"> {{task.id}}</div>
+            <div class="icone">
+                <fa-icon class="fa-icon" size="2x" [icon]="faCoffee"></fa-icon>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="titre col"> {{task.titre}} </div>
+        </div>
+        <div class="heading"> {{task.description}}
+            <!-- <div class="author"> By <span class="name">Abi</span> 4 days ago</div> -->
+        </div>
+    </div>
+</div>
+</div>

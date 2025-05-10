@@ -1,0 +1,171 @@
+
+/* STYLES DES COLONNES GAUCHES ET DROITES */
+  .container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+  }
+.colonne-droite {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  width: 450px;
+  height: 100vh;
+  padding:50px 0;
+  overflow: hidden;
+
+  background-color: rgb(255, 255, 255);
+}
+
+.colonne-gauche {
+  overflow-y: auto;
+  padding: 100px ;
+  height: 100vh;
+  width: 100%;
+  min-width: 400px;
+}
+
+.contenu-gauche p {
+  margin-bottom: 20px;
+}
+
+/* STYLES D'AFFICHAGE DES MEMBRES DANS UN SELECT */
+select{
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-size: 0.9rem;
+  width: 500px;
+  background-color:  rgba(157, 157, 157, 0.096);;
+}
+.container-select{
+  display: flex;
+  padding: 5px;
+  border: 1px solid rgba(157, 157, 157, 0.11);
+}
+
+/* STYLES DES BOUTONS DU FORMULAIRE DE CREATION DES TACHES*/
+.container-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.assigner{   
+  align-items: center;
+  display: flex;
+  justify-content: center;  
+    width:max-content;
+    background-color: #0000FF;
+    font-size: .8em;
+    color: white;
+    height: 5vh;
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
+.create{     
+  align-items: center;
+  display: flex;
+  justify-content: center;  
+    height: 5vh;
+    background-color: #00d42a;
+    font-size: .8em;
+    color: white;
+
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+
+  .faCirclePlus.fa-2x {
+    color: white;
+    margin: 5px;
+}
+.faTrashAlt{
+  border: none;
+}
+
+/* STYLES DU FORMULAIRE DE CREATION DES TACHES  */
+.formulaire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 450px;
+  padding: 20px;
+  /* background-color: blue; */
+
+}
+
+.formulaire .title {
+  color: rgba(101, 101, 102, 0.975);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formulaire  input {
+  outline: 0;
+  border: 1px solid rgb(219, 213, 213);
+  padding: 8px 14px;
+  border-radius: 2px;
+  width:350px;
+  height: 50px;
+}
+
+.formulaire textarea {
+  border-radius: 2px;
+  height: 100px;
+  width:350px;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  border: 1px solid rgb(219, 213, 213);
+}
+
+textarea,input {
+  outline: none;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+div input:focus, div textarea:focus {
+  border: 1.8px solid #1877f2;
+}
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .colonne-droite{
+    position:static;
+    width: 450px;
+    height: 100vh;
+    padding:50px 0;
+  
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container.text-center{
+    position: none;
+    width: max-content;
+    display: flex;
+   flex-direction: column-reverse;
+   top: none;
+  }
+}
+
+

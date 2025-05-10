@@ -1,165 +1,137 @@
-/* Styles du bouton + d'ajout des projets */
-.btn-add-project {
 
-    background-color: #0000FF;
-    color: white;
-    margin: 8px auto;
-    padding: 10px;
-    cursor: pointer;
-    width: 300px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    font-size: large;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.212);
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    
-
+/* Styles de tous les  boutons du modal */
+/* From Uiverse.io by adamgiebl */ 
+button.button-plus {
+  position: fixed;       
+  bottom: 20px;          
+  right: 20px;  
+  z-index: 9999;                
+  width: auto;
+ padding: 0.7em 1.7em;
+ font-size: 18px;
+ border-radius: 0.5em;
+ background: #e8e8e8;
+ cursor: pointer;
+ border: 1px solid #e8e8e8;
+ transition: all 0.3s;
+ box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
 }
-/* Styles du bouton + d'ajout de projet */
+button:hover {
+ border: 1px solid white;
+}
+
+button:active {
+ box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
 .faCirclePlus.fa-2x {
-    color: #ffffff;
-    margin: 5px;
-    align-items: center;
+  color:  #0000FF;
+  margin: 5px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-ajouter {
+  width: 15wh;
+  padding: 10px 50px;
+  border: none;
+  background:#0003F3;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1), inset 0px 1px 3px rgba(255, 255, 255, 0.5);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Fin du style de tous les boutons */
+
+.container{
+    height: 65vh;
+    /* background-color: blue; */
+}
+.container-input-textarea{
     display: flex;
-    justify-content: center;
-}
-
-.faCirclePlus.fa-3x:hover {
-    transform: translateX(-5px);
-}
-
-
-
-/* Styles du formulaire modale */
-
-.modal.fade {}
-
-.modal-content {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1rem;
-    padding: 5px;
-    border: 1px solid #7a7a7a;
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    background-color: #dddddde1;
-}
-
-input[type=text], input[type=date], textarea[type=text] {
-    width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
-
-input[type=text]:focus, input[type=password]:focus, textarea[type=text]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-.row.form-date {
-    display: flex;
-}
-
-.col.form-dateDebut, .col.form-dateFin {
-    width: 50%;
-}
-
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 1px;
-}
-
-.btn-submit {
-    background-color: #0000FF;
-    color: white;
-    margin: 8px auto;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    gap: 20px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: large;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.212);
+}
+.modal.fade{
+    padding: 150px 0;
+
+}
+.modal-content{
+  padding: 10px;
+    border: 2px solid  #0071e2;
     border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
+}
+.modal-content:hover{
+    border: 2px solid  rgb(1, 5, 255);
 
 }
-
-p {
-    text-align: center;
-    font-size: 1.1rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-input::placeholder {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-input[type=date] {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    text-align: center;
+.modal-title{
+    text-align:center ;
     text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 }
 
 
-
-select[type=statut] {
+  .all-input,  .select-form {
+    min-width: 250px;
     width: 100%;
-    padding: 12px 14px;
-    margin: 1px 0 5px 0;
-    display: inline-block;
-    background: #f1f1f1;
-    border: 1px solid #7a7a7a;
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-}
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
 
-option[value='En cours'] {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.1rem;
-    background: rgba(0, 119, 255, 0.418);
-    padding: 12px 14px;
-    margin: 5px 0 5px 0;
-    border: 3px solid rgb(0, 119, 255);
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    color: rgb(0, 119, 255);
-
-}
-
-option[value=Terminé] {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.1rem;
-    background:rgba(0, 134, 33, 0.308);
-    padding: 12px 14px;
-    margin: 5px 0 5px 0;
-    border: 3px solid rgb(0, 134, 34);
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    color: rgb(0, 134, 34);
-
-}
-
-option[value='À venir'] {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 1.1rem;
-    background: rgba(255, 166, 0, 0.432);
-    padding: 12px 14px;
-    margin: 5px 0 5px 0;
-    border: 3px solid rgb(255, 166, 0);
-    border-radius: 5px;
-    box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
-    color: rgb(255, 166, 0);
+  }
+  .textarea-context{
+    min-width: 250px;
+    width: 100%;
+    max-height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  .textarea-description{
+    min-width: 250px;
+    width: 100%;
+    max-height: 250px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  .date-input{
+    width:100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 4px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  .row.form-date {
+    display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
 
 }

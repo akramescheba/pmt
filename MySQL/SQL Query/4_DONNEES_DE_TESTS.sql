@@ -2,7 +2,7 @@ INSERT INTO projet ( nom, objectif, context, description, statut, date_debut, da
 VALUES (
   'INNOTECHFUSION',
   "Facilite à utiliser,intuitive, sécurisée et innovante",
-  "Projet de création de site de ve",
+  "Projet de création de site de vote",
   "À l’approche des élections du conseil d’administration de l’association innotechfusion,
 Steve, le responsable de l’association, souhaite numériser les différentes étapes des votes
 afin de mieux organiser les élections par rapport à la précédente.

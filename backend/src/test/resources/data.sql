@@ -10,6 +10,11 @@ VALUES
 (1, 'maj', 'Paul DOUMER', 'admin', '2025-04-24 17:00:00'),
 (2, 'maj', 'Albert EINSTEIN', 'user', '2025-04-24 17:05:00');
 
+INSERT INTO tache (id, titre, description)
+VALUES(1, 'Ameliorer l authentification en utilisant JWT.', 
+'Pour cette tache vous êtes chargé d ajouter les fonctionnalités d authentification avec JWT sur ce projet pour la prochaine version.Merci de me faire un retour avant la date limite.'
+    );
+
 
 INSERT INTO projet (id, nom, objectif, context, description, statut, date_debut, date_fin)
 VALUES (

@@ -37,24 +37,26 @@ import jakarta.persistence.EntityExistsException;
   public Projets findById(@PathVariable(&quot;id&quot;) int id) {
 <span class="nc" id="L38">    Projets projets = projetService.findById(id);</span>
 
-<span class="nc bnc" id="L40" title="All 2 branches missed.">    if (projets == null) {}</span>
-<span class="nc" id="L41">    return projets;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">    if (projets == null) {</span>
+<span class="nc" id="L41">      throw new EntityDontExistExeption();</span>
+    }
+<span class="nc" id="L43">    return projets;</span>
   }
 
   @PostMapping(&quot;/projet&quot;)
   @ResponseStatus(code = HttpStatus.CREATED)
   public int create(@RequestBody Projets projets) {
-<span class="nc" id="L47">    return projetService.create(projets);</span>
+<span class="nc" id="L49">    return projetService.create(projets);</span>
   }
 
   @PutMapping(&quot;/projet/{id}&quot;)
   @ResponseStatus(code = HttpStatus.OK)
   public void update(@PathVariable int id, @RequestBody Projets projets) {
-<span class="nc bnc" id="L53" title="All 2 branches missed.">    if (projetService.findById(id) == null) {</span>
-<span class="nc" id="L54">      throw new EntityExistsException(&quot;Cette entreprise n'existe pas&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">    if (projetService.findById(id) == null) {</span>
+<span class="nc" id="L56">      throw new EntityExistsException(&quot;Cette entreprise n'existe pas&quot;);</span>
     }
-<span class="nc" id="L56">    projetService.update(id, projets);</span>
-<span class="nc" id="L57">  }</span>
+<span class="nc" id="L58">    projetService.update(id, projets);</span>
+<span class="nc" id="L59">  }</span>
 
   @PatchMapping(&quot;/projet/{id}&quot;)
   @ResponseStatus(code = HttpStatus.OK)
@@ -62,23 +64,23 @@ import jakarta.persistence.EntityExistsException;
     @PathVariable int id,
     @RequestBody Projets newProjets
   ) {
-<span class="nc" id="L65">    Projets projetsExistants = projetService.findById(id);</span>
+<span class="nc" id="L67">    Projets projetsExistants = projetService.findById(id);</span>
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">    if (projetsExistants == null) {</span>
-<span class="nc" id="L68">      throw new EntityDontExistExeption();</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">    if (projetsExistants == null) {</span>
+<span class="nc" id="L70">      throw new EntityDontExistExeption();</span>
     }
     
 
-<span class="nc" id="L72">    projetService.updatePartial(id, projetsExistants, newProjets);</span>
-<span class="nc" id="L73">  }</span>
+<span class="nc" id="L74">    projetService.updatePartial(id, projetsExistants, newProjets);</span>
+<span class="nc" id="L75">  }</span>
 
   @DeleteMapping(&quot;/projet/{id}&quot;)
   @ResponseStatus(code = HttpStatus.OK)
   public void delete(@PathVariable int id) {
-<span class="nc bnc" id="L78" title="All 2 branches missed.">    if (projetService.findById(id) == null) {</span>
-<span class="nc" id="L79">      throw new EntityDontExistExeption();</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">    if (projetService.findById(id) == null) {</span>
+<span class="nc" id="L81">      throw new EntityDontExistExeption();</span>
     }
-<span class="nc" id="L81">    projetService.delete(id);</span>
-<span class="nc" id="L82">  }</span>
+<span class="nc" id="L83">    projetService.delete(id);</span>
+<span class="nc" id="L84">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

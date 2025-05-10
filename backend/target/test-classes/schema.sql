@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS utilisateur;
+DROP TABLE IF EXISTS tache;
 DROP TABLE IF EXISTS historique;
 DROP TABLE IF EXISTS projet;
 
@@ -18,6 +19,13 @@ CREATE TABLE historique (
     role VARCHAR(50),
     date_history TIMESTAMP
 );
+
+CREATE TABLE tache (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL
+);
+
 
 CREATE TABLE projet (
     id INT AUTO_INCREMENT PRIMARY KEY,

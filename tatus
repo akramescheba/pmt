@@ -1,0 +1,112 @@
+[33m5e469e9[m HEAD@{0}: pull origin main --rebase (pick): Ajout des tests unitaires
+[33m2eb38e0[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: pull origin main --rebase (start): checkout 2eb38e0abfcf51e4eb5ccc69cf3c62f85a2fe70a
+[33m94d0938[m[33m ([m[1;32mmain[m[33m)[m HEAD@{2}: commit: Sauvegarde temporaire de mes modifications
+[33m918a455[m HEAD@{3}: commit: Ajout des tests unitaires
+[33m58f5de2[m HEAD@{4}: commit: ajout des tests unitaires du frontend
+[33m3a9ebdc[m HEAD@{5}: commit: Ajout des tests unitaires avec jest
+[33mc650f5f[m HEAD@{6}: commit: Problème corrigé
+[33m584c76d[m HEAD@{7}: commit: Ajout des tests unitaire dans le backend spring-boot avec une couverture de 64,7%
+[33m9220511[m HEAD@{8}: commit: Ajout des tests unitaires du backend avec couverture à 51%
+[33m357ab95[m HEAD@{9}: commit: Configuration des profiles dev et prod permettant de faire refonctionner le projet
+[33mc3c71da[m HEAD@{10}: commit: configuration de JEST pour les tests
+[33m5a3ebbd[m HEAD@{11}: commit: activation du profile dev dans application.properties et configuration de l'api dans src/app/components/service/app.services
+[33me11bdc3[m HEAD@{12}: commit: commit
+[33maba9e56[m HEAD@{13}: commit: commi
+[33m1c07123[m HEAD@{14}: commit: commi
+[33m6b880af[m HEAD@{15}: commit: commi
+[33m270198a[m HEAD@{16}: commit: Ajout de css
+[33mf0446e2[m HEAD@{17}: commit: Ajout de style css
+[33m4b6e525[m HEAD@{18}: commit: Ajout de style css
+[33m91ce60b[m HEAD@{19}: commit: Ajout de style css
+[33mb651f7e[m HEAD@{20}: commit: Ajout de style css
+[33m2429e2f[m HEAD@{21}: commit: Ajout de style css
+[33m30515f4[m HEAD@{22}: commit: Ajout de style css
+[33mbd9f034[m HEAD@{23}: commit: Ajout de style css
+[33m6a28f8f[m HEAD@{24}: commit: Ajout de style css
+[33m34441b4[m HEAD@{25}: commit: Ajout de style css
+[33m54bca03[m HEAD@{26}: commit: Ajout de style css
+[33m9e1e0d0[m HEAD@{27}: commit: Ajout de style css
+[33mcb5bcaa[m HEAD@{28}: commit: Ajout de styles pour les écrant de smartphone
+[33mf4b401f[m HEAD@{29}: commit: Ajout de styles pour les écrant de smartphone
+[33m980fd72[m HEAD@{30}: commit: Ajout de styles pour les écrant de smartphone
+[33m0a91406[m HEAD@{31}: commit: Ajout de styles pour les écrant de smartphone
+[33mb175e01[m HEAD@{32}: commit: Ajout de styles pour les écrant de smartphone
+[33mb8ae841[m HEAD@{33}: commit: commit
+[33m91b10c0[m HEAD@{34}: commit: commit
+[33ma68d256[m HEAD@{35}: commit: commit
+[33m0ddec0e[m HEAD@{36}: commit (merge): commit
+[33m7edcaa1[m HEAD@{37}: commit: commit
+[33m2cc2e03[m HEAD@{38}: commit: commit
+[33m222ba70[m HEAD@{39}: commit: fetch et merge de mon projet: ajout de README.md , configuration de profile dev et prod des fichier application.properties
+[33m375641f[m HEAD@{40}: merge refs/remotes/origin/main: Fast-forward
+[33m8c9f63f[m HEAD@{41}: commit: commit
+[33m8f3b1d0[m HEAD@{42}: commit: commit
+[33mfedc604[m HEAD@{43}: commit: commit
+[33me3a27a9[m HEAD@{44}: commit: commit
+[33m13ef6a4[m HEAD@{45}: commit: Ajout de style css
+[33ma3ca47c[m HEAD@{46}: commit: Ajout de style css
+[33m8bef1c7[m HEAD@{47}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33mb3d43be[m HEAD@{48}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33mcc13af1[m HEAD@{49}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33md80d988[m HEAD@{50}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33mca4cf16[m HEAD@{51}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33m84342bc[m HEAD@{52}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33m6a04dd6[m HEAD@{53}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33m3f675e2[m HEAD@{54}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33mf3e5e62[m HEAD@{55}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33m2b37c48[m HEAD@{56}: commit: Ajout de style pour les ecran de smartphone (width:724px)
+[33m9186e52[m HEAD@{57}: commit: Ajout de styles css
+[33m20e438b[m HEAD@{58}: commit: Ajout de styles css
+[33m7692bac[m HEAD@{59}: commit: Configuration d'application.properties
+[33m4122438[m HEAD@{60}: commit: Configuration des routes et core
+[33mb6ca22d[m HEAD@{61}: commit: Configuration des acces mysql
+[33m58c9718[m HEAD@{62}: commit: Configuration des acces mysql
+[33ma634433[m HEAD@{63}: commit: Configuration du cors
+[33md0c02b3[m HEAD@{64}: commit: Configuration du cors
+[33m8520865[m HEAD@{65}: commit: Configuration du cors
+[33mf1cf814[m HEAD@{66}: commit: Configuration du cors
+[33mb8a170a[m HEAD@{67}: commit: Configuration du cors
+[33mf784638[m HEAD@{68}: commit: depoiement du front sur railway
+[33mfb67e84[m HEAD@{69}: commit: ajout de syle css
+[33m6076205[m HEAD@{70}: commit: ajout de styles css
+[33meb99cc7[m HEAD@{71}: commit: ajout de styles css
+[33m9f9d5bf[m HEAD@{72}: commit: Révu des styles css
+[33m582a5fa[m HEAD@{73}: commit: ajoute de secret sur github
+[33m7061324[m HEAD@{74}: commit: ajoute de secret sur github
+[33mf94aba1[m HEAD@{75}: commit: ajoute de secret sur github
+[33m0bb2d7e[m HEAD@{76}: commit: ajoute de secret sur github
+[33m1f2d047[m HEAD@{77}: commit: modification de port
+[33m12cfb5a[m HEAD@{78}: commit: ajout de styles scss
+[33m6d63ac9[m HEAD@{79}: commit: connection à la bd en tant que root
+[33m6be5432[m HEAD@{80}: commit: connection à la bd en tant que root
+[33mab9767b[m HEAD@{81}: commit: connection à la bd en tant que root
+[33m4687bfe[m HEAD@{82}: commit: modification de pom.xml
+[33m0ab16bd[m HEAD@{83}: commit (merge): modification du cicd
+[33m0d1ad72[m HEAD@{84}: commit: modification du cicd
+[33m25fe2bc[m HEAD@{85}: commit: modification du serveur
+[33mb08f243[m HEAD@{86}: commit: modification du serveur
+[33m42cffef[m HEAD@{87}: commit: modification du ci.yml
+[33m7a1d86d[m HEAD@{88}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m25cd30f[m HEAD@{89}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mc537289[m HEAD@{90}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m894abbc[m HEAD@{91}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m2ba09d6[m HEAD@{92}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m25a530c[m HEAD@{93}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mc5bdf2f[m HEAD@{94}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m411b1f6[m HEAD@{95}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mfbd7ab3[m HEAD@{96}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m2425a53[m HEAD@{97}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m008866c[m HEAD@{98}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33ma8d1cfe[m HEAD@{99}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m6f399f7[m HEAD@{100}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mc88ecca[m HEAD@{101}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mb5eda57[m HEAD@{102}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m36f85f8[m HEAD@{103}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m1ddbd37[m HEAD@{104}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m5d8e709[m HEAD@{105}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33maae81d8[m HEAD@{106}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m1197bc0[m HEAD@{107}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33m4d86b47[m HEAD@{108}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mc0c8af1[m HEAD@{109}: commit: modification des repertoires de COPY dans lesDockerfiles
+[33mb567d6b[m HEAD@{110}: commit: definition de nouveau working-directory
+[33m72d54b7[m HEAD@{111}: commit: configuration des secrets sur

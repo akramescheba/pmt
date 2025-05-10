@@ -159,7 +159,9 @@ describe('AppService', () => {
       expect(req.request.method).toBe('POST');
       req.flush({});
     });
-
+    it('should create', () => {
+      expect(service).toBeTruthy();
+    });
     it('should fetch history logs', () => {
       const dummyLogs = [{ action: 'Login', timestamp: new Date() }];
 

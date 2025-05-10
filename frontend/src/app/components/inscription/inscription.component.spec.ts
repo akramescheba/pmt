@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from '../services/app.service';
 import { AuthService } from '../auth/auth.service';
 import { AuthComponent } from '../auth/auth.component';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 describe('InscriptionComponent', () => {
   let component: InscriptionComponent;
@@ -19,19 +19,19 @@ describe('InscriptionComponent', () => {
   beforeEach(async () => {
     toastrMock = {
       success: jest.fn(),
-      error: jest.fn()
+      error: jest.fn(),
     };
 
     routerMock = {
-      navigate: jest.fn()
+      navigate: jest.fn(),
     };
 
     appServiceMock = {
-      postUsers: jest.fn().mockReturnValue(of({ message: 'success' }))
+      postUsers: jest.fn(),
     };
 
     authComponentMock = {
-      switchToSignIn: jest.fn()
+      switchToSignIn: jest.fn(),
     };
 
     await TestBed.configureTestingModule({
@@ -42,12 +42,13 @@ describe('InscriptionComponent', () => {
         { provide: ToastrService, useValue: toastrMock },
         { provide: AppService, useValue: appServiceMock },
         { provide: AuthService, useValue: {} },
-        { provide: AuthComponent, useValue: authComponentMock }
-      ]
+        { provide: AuthComponent, useValue: authComponentMock },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(InscriptionComponent);
     component = fixture.componentInstance;
+    component.ngOnInit(); 
     fixture.detectChanges();
   });
 
@@ -56,8 +57,8 @@ describe('InscriptionComponent', () => {
   });
 
   it('should initialize the form on ngOnInit', () => {
-    component.ngOnInit();
     expect(component.userForm).toBeTruthy();
+    expect(component.userForm.controls['nom']).toBeTruthy();
   });
 
   it('should show error if form is invalid', () => {
@@ -85,6 +86,17 @@ describe('InscriptionComponent', () => {
     component.sInscrire();
     expect(toastrMock.error).toHaveBeenCalledWith('Les mots de passes saisis ne sont pas indentiques');
   });
-
-
+  it('should handle error when postUsers fails', () => {
+    const formValue = {
+      nom: 'Jane',
+      email: 'jane@example.com',
+      role: 'Observateur',
+      password: 'pass123',
+      repassword: 'pass123'
+    };
+    appServiceMock.postUsers.mockReturnValue(throwError(() => new Error('Erreur réseau')));
+    component.userForm.setValue(formValue);
+    component.sInscrire();
+    expect(toastrMock.success).not.toHaveBeenCalled();
+  });
 });

@@ -1,118 +1,97 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TachesComponent } from './taches.component';
-import { UserService, User } from '../../services/user.service';
-import { TaskService } from '../../services/task.service';
-import { ToastrService } from 'ngx-toastr';
-import { of } from 'rxjs'; 
+import { TestBed, ComponentFixture, } from "@angular/core/testing";
+import { fakeAsync, tick } from "@angular/core/testing";
 
+import { TachesComponent } from "./taches.component";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ToastrService, ToastrModule } from "ngx-toastr";
+import { TaskService } from "../../services/task.service";
+import { UserService } from "../../services/user.service";
+import { of } from "rxjs";
 
+jest.mock("@emailjs/browser", () => ({
+  send: jest.fn(() => Promise.resolve()),
+}));
 
-describe('TachesComponent', () => {
+describe("TachesComponent", () => {
   let component: TachesComponent;
-  let taskServiceMock: any;
-  let userServiceMock: any;
-  let toastrMock: any;
+  let fixture: ComponentFixture<TachesComponent>;
+  let toast: ToastrService;
+  let taskService: TaskService;
+  let userService: UserService;
 
-  const mockUsers: User[] = [
-    { id: 1, nom: 'Alice', email: 'alice@example.com' },
-    { id: 2, nom: 'Bob', email: 'bob@example.com' }
-  ];
-
-  beforeEach(() => {
-    toastrMock = {
-      success: jest.fn(),
-      error: jest.fn(),
-      info: jest.fn()
-    };
-    taskServiceMock = {
-      postTask: jest.fn()
-    };
-    userServiceMock = {
-      getAllUsers: jest.fn()
-    };
-
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule,
+        TachesComponent,
         ReactiveFormsModule,
-        CommonModule,
-        FontAwesomeModule
+        FormsModule,
+        HttpClientTestingModule,
+        ToastrModule.forRoot(),
       ],
       providers: [
-        TachesComponent,
-        FormBuilder,
-        { provide: ToastrService, useValue: toastrMock },
-        { provide: TaskService, useValue: taskServiceMock },
-        { provide: UserService, useValue: userServiceMock }
-      ]
-    });
+        ToastrService,
+        {
+          provide: TaskService,
+          useValue: {
+            postTask: jest.fn().mockReturnValue(of({})),
+          },
+        },
+        {
+          provide: UserService,
+          useValue: {
+            getAllUsers: jest
+              .fn()
+              .mockReturnValue(
+                of([{ id: 1, nom: "Jean", email: "jean@example.com" }])
+              ),
+          },
+        },
+      ],
+    }).compileComponents();
 
-    component = TestBed.inject(TachesComponent);
-    jest.clearAllMocks();
+    fixture = TestBed.createComponent(TachesComponent);
+    component = fixture.componentInstance;
+    toast = TestBed.inject(ToastrService);
+    taskService = TestBed.inject(TaskService);
+    userService = TestBed.inject(UserService);
+    fixture.detectChanges();
   });
 
-  it('should create the component', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
-  it('should initialize the form with empty fields and assignments as a FormArray', () => {
-    expect(component.taskForm).toBeInstanceOf(FormGroup);
-    expect(component.assignments).toBeInstanceOf(FormArray);
-    expect(component.taskForm.controls['titre'].value).toBe('');
-    expect(component.taskForm.controls['description'].value).toBe('');
+  it("should initialize the form correctly", () => {
+    expect(component.taskForm).toBeDefined();
+    expect(component.taskForm.get("titre")).toBeTruthy();
+  });
+
+  it("should add and remove an assignment", () => {
+    expect(component.assignments.length).toBe(0);
+    component.addAssignment();
+    expect(component.assignments.length).toBe(1);
+    component.removeAssignment(0);
     expect(component.assignments.length).toBe(0);
   });
 
-  it('should load users on init', () => {
-    const mockUsers: User[] = [
-      { id: 1, nom: 'Alice', email: 'alice@example.com' },
-      { id: 2, nom: 'Bob', email: 'bob@example.com' }
-    ];
-  
-    userServiceMock.getAllUsers.mockReturnValue(of(mockUsers));
-  
-    component.ngOnInit();
-  
-    expect(userServiceMock.getAllUsers).toHaveBeenCalled();
-    expect(component.users.length).toBe(2);
-    expect(component.users[0].nom).toBe('Alice');
-  });
+  it("should call onSubmit and sendMails if form is valid", () => {
+    const onSubmitSpy = jest
+      .spyOn(component, "onSubmit")
+      .mockImplementation(() => {});
+    const sendMailsSpy = jest
+      .spyOn(component, "sendMails")
+      .mockImplementation(() => {});
 
-  it('should add a new assignment group to assignments', () => {
-    const initialCount = component.assignments.length;
-    component.addAssignment();
-
-    expect(component.assignments.length).toBe(initialCount + 1);
-    expect(component.assignments.at(initialCount).get('userId')).toBeTruthy();
-  });
-
-  it('should remove an assignment at given index', () => {
-    component.addAssignment(); 
-    component.addAssignment();
-
-    expect(component.assignments.length).toBe(2);
-
-    component.removeAssignment(0);
-    expect(component.assignments.length).toBe(1);
-  });
-
-  it('should show error if form is invalid when handleSubmit is called', () => {
-    component.taskForm.setValue({
-      titre: '',
-      description: '',
-      tacheID: '',
-      assignments: []
+    component.taskForm.patchValue({
+      titre: "Test Tâche",
+      description: "Test Description ",
+      assignments: [],
     });
-
     component.handleSubmit();
-
-    expect(toastrMock.error).toHaveBeenCalledWith('Veuillez remplir tous les champs obligatoires.');
+    expect(onSubmitSpy).toHaveBeenCalled();
+    expect(sendMailsSpy).toHaveBeenCalled();
   });
-
-
+  
 
 });

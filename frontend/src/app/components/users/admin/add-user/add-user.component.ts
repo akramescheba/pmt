@@ -1,28 +1,28 @@
 //Import des librairies et composants
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import {
   ReactiveFormsModule,
   FormsModule,
   FormBuilder,
   FormGroup,
   Validators,
-} from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+} from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
   faPenToSquare,
   faCirclePlus,
   faTrashCan,
   faArrowsRotate,
-} from '@fortawesome/free-solid-svg-icons';
-import { AdduserformComponent } from '../../../formulaires/adduserform/adduserform.component';
-import { AppService } from '../../../services/app.service';
-import { AuthService } from '../../../auth/auth.service';
-import { ToastrService } from 'ngx-toastr';
+} from "@fortawesome/free-solid-svg-icons";
+import { AdduserformComponent } from "../../../formulaires/adduserform/adduserform.component";
+import { AppService } from "../../../services/app.service";
+import { AuthService } from "../../../auth/auth.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-user',
+  selector: "app-add-user",
   standalone: true,
   imports: [
     FormsModule,
@@ -31,8 +31,8 @@ import { ToastrService } from 'ngx-toastr';
     FontAwesomeModule,
     AdduserformComponent,
   ],
-  templateUrl: './add-user.component.html',
-  styleUrl: './add-user.component.css',
+  templateUrl: "./add-user.component.html",
+  styleUrl: "./add-user.component.css",
   providers: [AppService, AuthService],
 })
 export class AddUserComponent implements OnInit {
@@ -42,7 +42,6 @@ export class AddUserComponent implements OnInit {
   faArrowsRotate = faArrowsRotate;
 
   isButton: boolean = false;
-  
 
   userList: any[] = [];
   selectedUser: any = null;
@@ -62,18 +61,18 @@ export class AddUserComponent implements OnInit {
   ngOnInit(): void {
     this.loadUsers();
   }
-handleClickUpdateUser(){
-  this.updateUser();
-  this.isDisplayButton()
-}
-handleClickDeleteUsers(){
-  this.deleteUsers();
-  this.isDisplayButton()
-}
-handleClickCancelButton(){
-  this.cancelButton();
-  this.isDisplayButton()
-}
+  handleClickUpdateUser() {
+    this.updateUser();
+    this.isDisplayButton();
+  }
+  handleClickDeleteUsers() {
+    this.deleteUsers();
+    this.isDisplayButton();
+  }
+  handleClickCancelButton() {
+    this.cancelButton();
+    this.isDisplayButton();
+  }
   isDisplayButton() {
     this.isButton = !this.isButton;
   }
@@ -104,16 +103,16 @@ handleClickCancelButton(){
           // console.log(user);
           this.toastr.success(
             `L'utilisateur ${this.selectedUser.nom} modifié avec succès`,
-            'Modification utilisateur',
-            { timeOut: 3000, positionClass: 'toast-bottom-right' }
+            "Modification utilisateur",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
           );
         },
         (error) => {
           console.error(error);
           this.toastr.error(
             `L'utilisateur erreur lore de la modification de l'utilisateur!!!`,
-            '',
-            { timeOut: 3000, positionClass: 'toast-bottom-right' }
+            "",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
           );
         }
       );
@@ -123,7 +122,6 @@ handleClickCancelButton(){
        ${this.selectedUser.nom} a été mis à jour`,
       `${this.userNom} `,
       `${this.userRole}`
-      
     );
   }
 
@@ -132,19 +130,18 @@ handleClickCancelButton(){
       const userId = this.selectedUser.id;
       this.appService.deleteUsers(userId).subscribe(
         (user) => {
-          console.log(user);
           this.toastr.success(
             `L'utilisateur ${this.selectedUser.nom} à été supprimé`,
-            'Suppression utilisateur',
-            { timeOut: 3000, positionClass: 'toast-bottom-right' }
+            "Suppression utilisateur",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
           );
         },
         (error) => {
           console.error(error);
           this.toastr.error(
-            ` Erreur lors de la suppression de l'utilisateur !!!`,
-            '',
-            { timeOut: 3000, positionClass: 'toast-bottom-right' }
+            ` Erreur lors de la suppression de l'utilisateur`,
+            "",
+            { timeOut: 3000, positionClass: "toast-bottom-right" }
           );
         }
       );
@@ -152,7 +149,9 @@ handleClickCancelButton(){
         `L'utilisateur ${this.selectedUser.nom} a été supprimé`,
         `${this.userNom} `,
         `${this.userRole}`
-      );
+       
+      )
+      this.selectedUser=null
     }
     // this.cancelButton(),
     this.loadUsers();

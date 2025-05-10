@@ -58,14 +58,14 @@ export class AdduserformComponent  implements OnInit{
     if (this.userForm.valid) {
       this.appService.postUsers(this.userForm.value).subscribe(
         (response) => {
-          console.log(response);
+
           this.toastr.success('Utilisateur ajouté avec succès');
           this.userForm.reset();
           this.closeAddUserForm();
         },
         (error) => {
-          console.log(error);
-          this.toastr.success("Erreur lors de l'ajout")
+          console.error('Erreur lors de lajout utilisateur');
+          this.toastr.error("Erreur lors de l'ajout");
         }
       );
     }

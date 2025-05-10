@@ -21,7 +21,7 @@ describe('AuthService', () => {
     });
 
     service = TestBed.inject(AuthService);
-    localStorage.clear(); // Clean before each test
+    localStorage.clear();
   });
 
   it('should be created', () => {

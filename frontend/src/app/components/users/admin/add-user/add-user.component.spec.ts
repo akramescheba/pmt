@@ -1,55 +1,87 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddUserComponent } from './add-user.component';
-import { of, throwError } from 'rxjs';
+import { AdduserformComponent } from '../../../formulaires/adduserform/adduserform.component';
 import { AppService } from '../../../services/app.service';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../auth/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { of, throwError } from 'rxjs';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 describe('AddUserComponent', () => {
   let component: AddUserComponent;
-  let fixture: ComponentFixture<AddUserComponent>;
+  let appServiceMock: any;
+  let authServiceMock: any;
+  let toastrMock: any;
 
-  // Création de mocks pour les services utilisés dans le composant
-  const appServiceMock = {
-    getUsers: jest.fn().mockReturnValue(of([])),
-    deleteUsers: jest.fn().mockReturnValue(of({})),
-    patchUsers: jest.fn().mockReturnValue(of({})),
-    logAction: jest.fn(),
-  };
+  const mockUsers = [
+    { id: 1, nom: 'Alice' },
+    { id: 2, nom: 'Bob' }
+  ];
 
-  const toastrMock = {
-    success: jest.fn(),
-    error: jest.fn(),
-  };
+  beforeEach(() => {
+    authServiceMock = {
+      getNom: jest.fn().mockReturnValue('Jean Dupont'),
+      getRole: jest.fn().mockReturnValue('Administrateur')
+    };
+    toastrMock = {
+      success: jest.fn(),
+      error: jest.fn()
+    };
+    appServiceMock = {
+      getUsers: jest.fn(),
+      patchUsers: jest.fn(),
+      deleteUsers: jest.fn(),
+      logAction: jest.fn()
+    };
 
-  const authServiceMock = {
-    getNom: jest.fn().mockReturnValue('Jean Testeur'),
-    getRole: jest.fn().mockReturnValue('admin'),
-  };
-
-  beforeEach(async () => {
-
-    jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    await TestBed.configureTestingModule({
-      imports: [AddUserComponent,HttpClientTestingModule], 
-      declarations: [], 
-      providers: [
-        { provide: AppService, useValue: appServiceMock },
-        { provide: ToastrService, useValue: toastrMock },
-        { provide: AuthService, useValue: authServiceMock },
+    TestBed.configureTestingModule({
+      declarations: [],
+      imports: [AddUserComponent, AdduserformComponent,
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        CommonModule,
+        FontAwesomeModule
       ],
-    }).compileComponents();
+      providers: [
+        FormBuilder,
+        { provide: AppService, useValue: appServiceMock },
+        { provide: AuthService, useValue: authServiceMock },
+        { provide: ToastrService, useValue: toastrMock }
+      ]
+    });
 
-    fixture = TestBed.createComponent(AddUserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges(); 
+    component = TestBed.createComponent(AddUserComponent).componentInstance;
+    jest.clearAllMocks();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should select a user', () => {
+    const user = { id: 1, nom: 'Alice' };
+    component.selectUser(user);
 
+    expect(component.selectedUser).toEqual(user);
+  });
+
+  it('should toggle isButton when isDisplayButton is called', () => {
+    component.isButton = false;
+    component.isDisplayButton();
+
+    expect(component.isButton).toBe(true);
+
+    component.isDisplayButton();
+    expect(component.isButton).toBe(false);
+  });
+  it('should hide button when cancelButton is called', () => {
+    component.isButton = true;
+    component.cancelButton();
+
+    expect(component.isButton).toBeFalsy();
+  });
 });

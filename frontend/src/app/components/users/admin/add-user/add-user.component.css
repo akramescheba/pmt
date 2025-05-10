@@ -252,25 +252,7 @@ Style des input et select */
     box-shadow: 1px 5px 8px rgba(0, 0, 0, 0.105);
 }
 
-.del div:hover, .annuler div:hover, .sauvegarder div:hover {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none;
-    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5),
-        -4px -4px 6px 0 rgba(116, 125, 136, .5),
-        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-        inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    letter-spacing: 1px;
-    color: #ffffff;
-    z-index: 1;
-    transition: .6s;
-}
+
 .btn-modifier-le-user{
     width: 200px;
     background-color: #0000FF;

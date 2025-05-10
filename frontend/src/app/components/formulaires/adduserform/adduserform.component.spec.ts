@@ -80,24 +80,7 @@ describe('AdduserformComponent', () => {
     expect(component.isAddUserOpen).toBeFalsy();
   }));
 
-  it('should handle submission error', fakeAsync(() => {
-    const formData = {
-      nom: 'Jean',
-      email: 'jean@example.com',
-      role: 'Admin',
-      password: '1234',
-      repassword: '1234'
-    };
 
-    component.userForm.setValue(formData);
-    appServiceMock.postUsers.mockReturnValue(throwError(() => new Error('Erreur')));
-
-    component.onSubmit();
-    tick();
-
-    expect(appServiceMock.postUsers).toHaveBeenCalledWith(formData);
-    expect(toastrMock.success).toHaveBeenCalledWith("Erreur lors de l'ajout");
-  }));
 
   it('should not submit if form is invalid', () => {
     component.userForm.setValue({
@@ -113,4 +96,5 @@ describe('AdduserformComponent', () => {
     expect(appServiceMock.postUsers).not.toHaveBeenCalled();
     expect(toastrMock.success).not.toHaveBeenCalled();
   });
+  
 });

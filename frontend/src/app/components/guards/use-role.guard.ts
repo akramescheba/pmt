@@ -21,9 +21,7 @@ export const useRoleGuard: CanActivateFn = (route, state) => {
     router.navigate(["/membre"]);
   } else if (userRole === "Observateur") {
     router.navigate(["/observateur"]);
-  } else {
-    console.error("Une erreur s'est produite");
-  }
+  } 
 
   return false;
 };

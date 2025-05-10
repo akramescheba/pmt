@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { ConnexionComponent } from './connexion.component';
 import { ToastrService, ToastrModule } from 'ngx-toastr';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
 import { AuthService } from '../auth/auth.service';
@@ -25,6 +25,7 @@ const authComponentMock = {
 };
 
 const toastrServiceMock = {
+  success: jest.fn(),
   info: jest.fn(),
   warning: jest.fn(),
   error: jest.fn(),
@@ -79,5 +80,42 @@ describe('ConnexionComponent', () => {
     expect(authComponentMock.switchToSignUp).toHaveBeenCalled();
   });
 
+
+  it('should initialize loginForm with email and psw controls on ngOnInit', () => {
+    component.ngOnInit();
+
+    expect(component.loginForm).toBeDefined();
+    expect(component.loginForm.contains('email')).toBeTruthy();
+    expect(component.loginForm.contains('psw')).toBeTruthy();
+  });
+
+  it('should set email control as required and validate email format', () => {
+    component.ngOnInit();
+    const control = component.loginForm.get('email');
+
+    expect(control?.validator).not.toBeNull();
+    expect(control?.hasValidator(Validators.required)).toBeTruthy();
+    expect(control?.hasValidator(Validators.email)).toBeTruthy();
+  });
+
+  it('should set psw control as required', () => {
+    component.ngOnInit();
+    const control = component.loginForm.get('psw');
+
+    expect(control?.validator).not.toBeNull();
+    expect(control?.hasValidator(Validators.required)).toBeTruthy();
+  });
+
+
+  it('should show warning if form is invalid', () => {
+    component.loginForm.setValue({
+      email: '',
+      psw: ''
+    });
+
+    component.seConnecter();
+
+    expect(toastrServiceMock.warning).toHaveBeenCalledWith('Veuillez remplir tous les champs.');
+  });
 
 });

@@ -30,6 +30,10 @@ describe('useRoleGuard', () => {
     localStorage.clear();
     jest.clearAllMocks();
   });
+  
+  it('should be defined', () => {
+    expect(executeGuard).toBeTruthy();
+  });
 
   it('should allow access when user role is authorized', () => {
     localStorage.setItem('role', 'admin');

@@ -138,7 +138,6 @@ handleUpdateProject(){
   
         this.appService.deleteProject(projectId).subscribe(
           (result) => {
-            console.log(result);
             this.toastr.success(
               `Le projet ${this.selectedProject.nom} a été supprimé.`,
               '',
@@ -158,8 +157,6 @@ handleUpdateProject(){
       this.appService.logAction(`Le projet "${this.selectedProject.nom}"  a été supprimé`, `${this.userRole}`, `${this.userNom}`);
       
     }
-
-
   // Annuler la modification en désélectionnant le projet
   cancelEdit(): void {
     this.selectedProject = null;

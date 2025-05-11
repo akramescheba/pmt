@@ -1,8 +1,7 @@
 <div class="dashboard-content ">
-
     <!-- deux colonnes latérales à gauche -->
     <div class="colonne-gauche ">
-        <button
+        <button  (click)="pageActive = 'dashboard'"
             class="btn-dashboard cursor-pointer bg-white relative inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-[#F5F5F5] hover:text-[#06B6D4] h-9 rounded-md px-3">
             <svg class="lucide lucide-rocket text-cyan-500 dark:text-cyan-400" stroke-linejoin="round"
                 stroke-linecap="round" stroke-width="2" stroke="#06B6D4" fill="none" viewBox="0 0 24 24" height="22"
@@ -34,9 +33,29 @@
                 <path d="M10 6h8v4h-8V6Z"></path>
             </svg>
             Ajouter un projet
-
-            <!-- Bouton d'ajout d'utilisateur-->
         </button>
+
+     <!-- Boutons lateral  Assigner des tâches -->
+     <button class="button2" (click)="pageActive = 'taches'">
+        <svg class="lucide lucide-sticky-note text-yellow-400 dark:text-yellow-600" stroke-linejoin="round"
+            stroke-linecap="round" stroke-width="2" stroke="#FACC14" fill="none" viewBox="0 0 24 24" height="22"
+            width="22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
+            <path d="M15 3v6h6"></path>
+        </svg>
+        Ajouter une tâche
+    </button>
+    <!-- Boutons lateral  liste des tâches -->
+    <button class="button2" (click)="pageActive = 'liste-taches'">
+        <svg class="lucide lucide-sticky-note text-yellow-400 dark:text-yellow-600" stroke-linejoin="round"
+            stroke-linecap="round" stroke-width="2" stroke="#FACC14" fill="none" viewBox="0 0 24 24" height="22"
+            width="22" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.5 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V8.5L15.5 3Z"></path>
+            <path d="M15 3v6h6"></path>
+        </svg>
+        Liste des tâches
+    </button>
+            <!-- Bouton voir les historiques-->
         <button class="button2" (click)="pageActive = 'historique'">
             <svg class="lucide lucide-star text-orange-400 dark:text-orange-600" stroke-linejoin="round"
                 stroke-linecap="round" stroke-width="2" stroke="#FB923C" fill="#FB923C" viewBox="0 0 24 24" height="22"
@@ -51,9 +70,10 @@
     </div>
 
     <div class="colonne-droite">
+        <app-dashboard *ngIf="pageActive === 'dashboard'"></app-dashboard>
         <app-add-project *ngIf="pageActive === 'projet'"></app-add-project>
+        <app-taches *ngIf="pageActive==='taches'"></app-taches>
+        <app-liste-taches *ngIf="pageActive==='liste-taches'"></app-liste-taches>
         <app-historiques *ngIf="pageActive==='historique'"></app-historiques>
     </div>
-  
-
 </div>

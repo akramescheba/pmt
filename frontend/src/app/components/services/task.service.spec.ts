@@ -3,13 +3,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 import { TachesComponent } from '../pages/taches/taches.component';
 import { UserService, User } from '../../components/services/user.service';
 import { TaskService } from '../../components/services/task.service';
 import { ToastrService } from 'ngx-toastr';
 
-// Mock emailjs
 jest.mock('@emailjs/browser', () => ({
   send: jest.fn()
 }));
@@ -26,19 +24,14 @@ describe('TachesComponent', () => {
   ];
 
   beforeEach(() => {
-    // Mock Toastr
     toastrMock = {
       success: jest.fn(),
       error: jest.fn(),
       info: jest.fn()
     };
-
-    // Mock TaskService
     taskServiceMock = {
       postTask: jest.fn()
     };
-
-    // Mock UserService
     userServiceMock = {
       getAllUsers: jest.fn()
     };

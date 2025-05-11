@@ -42,10 +42,9 @@
 .colonne-droite {
   display: flex;
   justify-content: center;
-  align-items: center;
   margin-left: 350px;
-  padding: 60px 0;
-  height: 100vh;
+  padding: 100px 0;
+  min-height: 85vh;
   overflow-y: auto;
 }
 

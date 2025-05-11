@@ -9,13 +9,12 @@
 
 /* Styles global de la carte */
 .content {
-    padding: 50px 0;
+
 }
 
 .card-display-page {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
     min-height: 87vh;
     height: 100%;
@@ -25,7 +24,6 @@
 
 .conteneur-card-display {
     height: max-content;
-    padding: 5px;
     text-align: justify;
     display: flex;
     justify-content: center;

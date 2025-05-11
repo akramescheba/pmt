@@ -14,7 +14,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
   providers: [],
 })
 export class NavComponent {
-  ImgLogo = "assets/pmt.gif";
+  ImgLogo = "assets/pmt.jpg";
   faUser = faUser;
   constructor(private router: Router, private auth: AuthService) {}
 

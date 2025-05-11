@@ -7,7 +7,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { RouterOutlet } from "@angular/router";
+import { RouterOutlet, Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -20,6 +20,9 @@ import {
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 import {AddProjectComponent} from '../../users/admin/add-project/add-project.component';
+import {DashboardComponent} from '../../pages/dashboard/dashboard.component';
+import {TachesComponent} from '../../pages/taches/taches.component';
+import {ListeTachesComponent} from '../../pages/liste-taches/liste-taches.component';
 import{HistoriquesComponent} from '../../pages/historiques/historiques.component';
 import { AppService } from "../../services/app.service";
 import { AuthService } from "../../auth/auth.service";
@@ -35,6 +38,9 @@ import { ToastrService } from "ngx-toastr";
     FontAwesomeModule,
     HttpClientModule,
     AddProjectComponent,
+    DashboardComponent,
+    TachesComponent,
+    ListeTachesComponent,
     HistoriquesComponent
   ],
   templateUrl: "./membre.component.html",
@@ -43,12 +49,12 @@ import { ToastrService } from "ngx-toastr";
 })
 export class MembreComponent implements OnInit {
   faUser = faUser;
-  pageActive:string='projet';
+  pageActive:string='dashboard';
   isDisplayButton: boolean = false;
   isDisplayCard: boolean = false;
 
-  // Methode permettant d'afficher les historiques
 
+  // Methode permettant d'afficher les historiques
   handleVoirHistoriqueClick() {
     this.appService.onClickVoirHistorique();
   }
@@ -80,7 +86,8 @@ export class MembreComponent implements OnInit {
   constructor(
     private appService: AppService,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   //Récupération du nom de l'utilisateur connecté depuis le LocalStorage.

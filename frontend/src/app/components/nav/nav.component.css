@@ -179,11 +179,10 @@ button:hover {
     z-index: 9999;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin:0 auto; 
-    min-height:8vh;
+    min-height:5vh;
+    max-height: 8vh;
     border-radius: 1px;
-    background-color: white;
-
-    
+    background-color: white;    
 }
 .navbar-toggler{
     color: #999999;
@@ -192,7 +191,7 @@ button:hover {
     
 }
 .Logo {
-    width: 50px;
+    width: 60px;
 }
 
 .collapse.navbar-collapse {

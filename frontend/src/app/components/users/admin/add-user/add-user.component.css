@@ -2,7 +2,6 @@
 .pleine-page {
     padding: 50px 0;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -12,7 +11,6 @@
     justify-content: center;
     flex-wrap: wrap;
     min-height: 86vh;
-    padding: 100px 0;
 }
 
 .contenaire-card-display {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {DashboardComponent} from '../../pages/dashboard/dashboard.component';
 import {HistoriquesComponent} from '../../pages/historiques/historiques.component';
+import {ListeTachesComponent} from '../../pages/liste-taches/liste-taches.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -11,7 +12,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-observateur',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent, HistoriquesComponent],
+  imports: [CommonModule, FontAwesomeModule, HttpClientModule, DashboardComponent, HistoriquesComponent, ListeTachesComponent],
   templateUrl: './observateur.component.html',
   styleUrl: './observateur.component.css',
   providers: [],

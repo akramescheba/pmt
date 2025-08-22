@@ -19,12 +19,8 @@ Il s’agit d’améliorer une application de gestion de bibliothèque en ligne 
 | Type de requête | url      | Valeurs de retour                                                | Paramètres                                          |
 | :-------------- | :------- | :--------------------------------------------------------------- | :-------------------------------------------------- |
 | `POST`          | `/login` | Les informations de l’utilisateur et sa liste de livres réservés | L’email Le mot de passe Dans le corps de la requête |
-
-|
 | `GET` | `/book` | Liste de tous les livres| Aucun |
-|
-| `POST` | `/book/reserve/{bookId}/{userId}` |Les informations de la réservation | L’id du livre dans l’URL L’id de l’utilisateur dans l’URL|
-|
-| `GET` | `/book/{userId}` |La liste des livres réservés par l’utilisateur | L’id de l’utilisateur dans l’URL|
+| `POST` | `/book/reserve/{bookId}/{userId}` |Les informations de la réservation | L’id du livre dans l’URL L’id de l’utilisateur dans l’URL |
+|`GET` | `/book/{userId}` |La liste des livres réservés par l’utilisateur | L’id de l’utilisateur dans l’URL|
 | `GET` | `/book/notget` | La liste des livres réservés depuis plus de 21 jours |Aucun |
-|
+
